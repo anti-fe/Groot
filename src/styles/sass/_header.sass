@@ -1,0 +1,90 @@
+@import "mixins.sass"
+@import "vars.sass"
+    
+.header 
+    position: relative
+    background-image: url('../../images/first-screen1.png')
+    background-repeat: no-repeat
+    background-size: cover
+    min-height: 100vh
+    &__nav 
+        padding-top: 26px
+        position: fixed
+        width: 100%
+        z-index: 2
+        transition: all .4s ease
+    &__title 
+        +text($ff-phil, $fw-bold, $fs-100, $c-white)
+        font-style: italic
+        padding-top: 175px
+    &__next 
+        +flex(center,center,none)
+        position: absolute
+        bottom: 50px
+        left: 50%
+        height: 75px
+        width: 100px
+        cursor: pointer
+        
+    &__next-bg 
+        position: relative
+        height: 75px
+        width: 2px
+        background-color: rgba(0,0,0,.1)
+    &__next-line
+        position: absolute
+        height: 15px
+        width: 2px
+        top: 0
+        background-color: $c-white
+        animation: indicator 1.5s cubic-bezier(0.29, 0.14, 0.1, 0.68) .2s infinite
+    &__next-text 
+        +text($ff-mon, $fw-light, $fs-36, $c-white)
+        position: absolute
+        bottom: -40px
+.nav 
+    +flex(space-between, center, none)
+    &__list 
+        +flex(space-between, center, none)
+        list-style-type: none
+    &__item 
+        +flex(center, center, none)
+        position: relative
+        height: 50px
+    &__item::after
+        content: ''
+        position: absolute
+        height: 2px
+        width: 0
+        background-color: #ffffff83
+        bottom: 0
+        left: 0
+        transition: width .2s ease
+    &__item:hover::after
+        width: 100%
+    &__item:not(:last-child) 
+        margin-right: 100px
+    &__link 
+        +flex(center,center, none)
+        +text($ff-inter, $fw-light, $fs-18, $c-white)
+        letter-spacing: 0.02em
+        text-decoration: none
+        height: 100%
+    &__btns
+        display: flex
+    &__profile
+        margin-right: 25px
+.nav_sticky
+    background-color: rgba(38, 38, 38, 0.5)
+    backdrop-filter: blur(10px)
+    padding: 25px
+
+
+
+
+@keyframes indicator 
+  0%,100% 
+    transform: translateY(0)
+  50% 
+    transform: translateY(60px)
+
