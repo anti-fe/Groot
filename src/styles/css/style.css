@@ -338,6 +338,23 @@
   grid-area: h;
 }
 
+@media (max-width: 760px) {
+  .main__title {
+    font-size: 22px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+
+  .main__title::after {
+    width: 20%;
+    bottom: -20px;
+    left: 130px;
+  }
+
+  .main__gallery {
+    grid-gap: 5px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
