@@ -6,7 +6,9 @@
     background-image: url('../../images/first-screen1.png')
     background-repeat: no-repeat
     background-size: cover
-    min-height: 100vh
+    display: flex
+    flex-direction: column
+    // min-height: 100vh
     &__nav 
         padding-top: 26px
         position: fixed
@@ -19,16 +21,16 @@
         padding-top: 175px
     &__next 
         +flex(center,center,none)
-        position: absolute
-        bottom: 50px
-        left: 50%
-        height: 75px
-        width: 100px
+        position: relative
+        display: flex
+        flex-direction: column
+        min-height: 75px
+        width: 100%
         cursor: pointer
-        
+        padding: 280px 0 20px 0
     &__next-bg 
         position: relative
-        height: 75px
+        min-height: 75px
         width: 2px
         background-color: rgba(0,0,0,.1)
     &__next-line
@@ -37,11 +39,24 @@
         width: 2px
         top: 0
         background-color: $c-white
+        transition: all .1s ease
         animation: indicator 1.5s cubic-bezier(0.29, 0.14, 0.1, 0.68) .2s infinite
     &__next-text 
         +text($ff-mon, $fw-light, $fs-36, $c-white)
+    &__dots 
+        display: flex
         position: absolute
-        bottom: -40px
+        bottom: 26px
+        right: 160px
+    &__dots-item
+        height: 15px
+        width: 15px
+        background-color: rgba(255, 255, 255, 0.15)
+        border-radius: 50%
+    &__dots-item:not(:last-child)
+        margin-right: 33px
+    &__dots-item.item-active
+        background-color: $c-white
 .nav 
     +flex(space-between, center, none)
     &__list 
@@ -75,12 +90,9 @@
     &__profile
         margin-right: 25px
 .nav_sticky
-    background-color: rgba(38, 38, 38, 0.5)
+    background-color: $c-black
     backdrop-filter: blur(10px)
     padding: 25px
-
-
-
 
 @keyframes indicator 
   0%,100% 
@@ -88,3 +100,17 @@
   50% 
     transform: translateY(60px)
 
+@media (max-width: 1635px) 
+    .header__title 
+        font-size: $fs-64
+    
+@media (max-width: 920px) 
+    .nav__list 
+        display: none
+    .header__dots
+        display: none
+@media (max-width: 630px) 
+    .header__title 
+        font-size: $fs-36
+
+                
