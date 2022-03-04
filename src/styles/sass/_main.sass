@@ -1,0 +1,42 @@
+.main
+    +flex(center, center, column)
+    &__title 
+        +text($ff-inter,$fw-light, $fs-36, $c-black)
+        text-align: center
+        margin-top: 90px
+        margin-bottom: 135px
+        position: relative
+        width: 320px
+    &__title::after 
+        content: ''
+        position: absolute
+        bottom: -45px
+        left: 80px
+        width: 50%
+        height: 1.5px
+        background-color: #262626
+    &__gallery 
+        display: grid
+        grid-gap: 10px
+        grid-template-columns: 653px, 544px, 703px
+        grid-template-rows: repeat(9, 1fr)
+        grid-template-areas: "a d g" "a d g" "a e g" "a e g" "b e h" "b f h" "c f h" "c f h" "c f h"
+    &__img 
+        height: 100%
+        width: 100%
+    &__img:nth-child(1) 
+        grid-area: a
+    &__img:nth-child(2) 
+        grid-area: b
+    &__img:nth-child(3) 
+        grid-area: c
+    &__img:nth-child(4) 
+        grid-area: d
+    &__img:nth-child(5) 
+        grid-area: e
+    &__img:nth-child(6) 
+        grid-area: f
+    &__img:nth-child(7) 
+        grid-area: g
+    &__img:nth-child(8) 
+        grid-area: h

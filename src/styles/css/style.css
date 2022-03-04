@@ -240,6 +240,104 @@
     font-size: 36px;
   }
 }
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.main__title {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  color: #262626;
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 135px;
+  position: relative;
+  width: 320px;
+}
+.main__title::after {
+  content: "";
+  position: absolute;
+  bottom: -45px;
+  left: 80px;
+  width: 50%;
+  height: 1.5px;
+  background-color: #262626;
+}
+.main__gallery {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: 653px, 544px, 703px;
+  grid-template-columns: 653px, 544px, 703px;
+  -ms-grid-rows: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
+  grid-template-rows: repeat(9, 1fr);
+      grid-template-areas: "a d g" "a d g" "a e g" "a e g" "b e h" "b f h" "c f h" "c f h" "c f h";
+}
+.main__img {
+  height: 100%;
+  width: 100%;
+}
+.main__img:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 7;
+  -ms-grid-column: 1;
+  grid-area: a;
+}
+.main__img:nth-child(2) {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: b;
+}
+.main__img:nth-child(3) {
+  -ms-grid-row: 13;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 1;
+  grid-area: c;
+}
+.main__img:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  grid-area: d;
+}
+.main__img:nth-child(5) {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 3;
+  grid-area: e;
+}
+.main__img:nth-child(6) {
+  -ms-grid-row: 11;
+  -ms-grid-row-span: 7;
+  -ms-grid-column: 3;
+  grid-area: f;
+}
+.main__img:nth-child(7) {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 7;
+  -ms-grid-column: 5;
+  grid-area: g;
+}
+.main__img:nth-child(8) {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 9;
+  -ms-grid-column: 5;
+  grid-area: h;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -264,10 +362,6 @@ a {
 .cont {
   max-width: 1600px;
   margin: 0 auto;
-}
-
-.main {
-  min-height: 200vh;
 }
 
 @media (max-width: 1635px) {
