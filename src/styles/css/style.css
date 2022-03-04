@@ -112,6 +112,30 @@
       -ms-flex-direction: none;
           flex-direction: none;
 }
+.nav__burger {
+  position: relative;
+  cursor: pointer;
+  display: none;
+  height: 25px;
+  width: 30px;
+  margin-right: 25px;
+}
+.nav__burger-line {
+  background-color: #fff;
+  height: 2px;
+}
+.nav__burger-line:not(:last-child) {
+  margin-bottom: 7px;
+}
+.nav__burder-line:nth-child(1) {
+  background-color: red;
+}
+.nav__burder-line:nth-child(2) {
+  width: 10px;
+}
+.nav__burder-line:nth-child(3) {
+  width: 5px;
+}
 .nav__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,6 +253,10 @@
 @media (max-width: 920px) {
   .nav__list {
     display: none;
+  }
+
+  .nav__burger {
+    display: block;
   }
 
   .header__dots {
@@ -353,6 +381,171 @@
 
   .main__gallery {
     grid-gap: 5px;
+  }
+}
+.new-collection__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: none;
+          flex-direction: none;
+  margin-top: 123px;
+}
+.new-collection__info {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+.new-collection__title {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: #262626;
+  margin-bottom: 15px;
+}
+.new-collection__descr {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 300;
+  font-size: 26px;
+  color: #262626;
+}
+.new-collection__timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: none;
+          flex-direction: none;
+}
+.new-collection__img {
+  width: 100%;
+  margin-top: 90px;
+}
+
+.timer__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  background-color: #262626;
+  height: 160px;
+  width: 155px;
+}
+.timer__item > *:first-child {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #fff;
+  aling-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+.timer__item > *:nth-child(2) {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #262626;
+  position: absolute;
+  bottom: -40px;
+}
+.timer__item:not(:first-child, :last-child) {
+  border-right: 1px solid #fff;
+}
+.timer__item:first-child {
+  margin-right: 75px;
+}
+
+@media (max-width: 1150px) {
+  .new-collection__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .new-collection__info {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+
+  .new-collection__descr {
+    margin-bottom: 25px;
+  }
+
+  .new-collection__timer {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+
+  .new-collection__img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+@media (max-width: 750px) {
+  .new-collection__header {
+    margin-top: 50px;
+  }
+
+  .new-collection__title {
+    font-size: 28px;
+  }
+
+  .new-collection__descr {
+    font-size: 22px;
+  }
+
+  .timer__item {
+    height: 85px;
+    width: 85px;
+  }
+
+  .timer__item > *:first-child {
+    font-size: 18px;
+  }
+
+  .timer__item > *:nth-child(2) {
+    font-size: 16px;
+  }
+
+  .timer__item:first-child {
+    margin-right: 20px;
   }
 }
 * {

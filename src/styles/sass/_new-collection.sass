@@ -1,0 +1,68 @@
+@import "mixins.sass"
+@import "vars.sass"
+    
+.new-collection
+    &__header
+        +flex(space-between, center, none)
+        margin-top: 123px
+    &__info
+        flex-basis: 50%
+    &__title
+        +text($ff-mon, $fw-bold, $fs-64, $c-black)
+        margin-bottom: 15px
+    &__descr
+        +text($ff-mon, $fw-light, $fs-26, $c-black)
+    &__timer
+        +flex(none, center, none)
+    &__img 
+        width: 100%
+        margin-top: 90px
+
+.timer
+    &__item
+        +flex(center, center, column)
+        position: relative
+        background-color: $c-black
+        height: 160px
+        width: 155px
+    &__item>*:first-child
+        +text($ff-inter, $fw-bold, $fs-36, $c-white)
+        aling-self: center
+        justify-self: center
+    &__item>*:nth-child(2)
+        +text($ff-mon, $fw-regular, $fs-26, $c-black)
+        position: absolute
+        bottom: -40px
+    &__item:not(:first-child,:last-child)
+        border-right: 1px solid $c-white
+    &__item:first-child
+        margin-right: 75px
+
+@media (max-width: 1150px) 
+    .new-collection__header
+        +flex(space-between, flex-start, column)
+    .new-collection__info
+        order: 1
+    .new-collection__descr
+        margin-bottom: 25px
+    .new-collection__timer
+        order: 3
+    .new-collection__img 
+        order: 2
+    
+@media (max-width: 750px) 
+    .new-collection__header 
+        margin-top: 50px
+    .new-collection__title
+        font-size: $fs-28
+    .new-collection__descr
+        font-size: $fs-22
+    .timer__item
+        height: 85px
+        width: 85px
+    .timer__item>*:first-child
+       font-size: $fs-18
+    .timer__item>*:nth-child(2)
+       font-size: $fs-16
+    .timer__item:first-child
+        margin-right: 20px

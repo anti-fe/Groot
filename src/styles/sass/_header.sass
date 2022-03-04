@@ -14,6 +14,7 @@
         width: 100%
         z-index: 2
         transition: all .4s ease
+    
     &__title 
         +text($ff-phil, $fw-bold, $fs-100, $c-white)
         font-style: italic
@@ -58,6 +59,24 @@
         background-color: $c-white
 .nav 
     +flex(space-between, center, none)
+    &__burger
+        position: relative
+        cursor: pointer
+        display: none
+        height: 25px
+        width: 30px
+        margin-right: 25px
+    &__burger-line
+        background-color: $c-white
+        height: 2px
+    &__burger-line:not(:last-child)
+        margin-bottom: 7px
+    &__burder-line:nth-child(1)
+        background-color: red
+    &__burder-line:nth-child(2)
+        width: 10px
+    &__burder-line:nth-child(3)
+        width: 5px
     &__list 
         +flex(space-between, center, none)
         list-style-type: none
@@ -106,6 +125,8 @@
 @media (max-width: 920px) 
     .nav__list 
         display: none
+    .nav__burger
+        display: block
     .header__dots
         display: none
 @media (max-width: 630px) 
