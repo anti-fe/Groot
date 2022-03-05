@@ -13,6 +13,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: background-image 0.2s ease;
+  transition: background-image 0.2s ease;
 }
 .header__nav {
   padding-top: 26px;
@@ -342,6 +344,7 @@
 @media (max-width: 1635px) {
   .header__title {
     font-size: 64px;
+    width: 1400px;
   }
 }
 @media (min-width: 921px) {

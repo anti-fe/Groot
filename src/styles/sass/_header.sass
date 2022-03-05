@@ -5,6 +5,7 @@
     background-size: cover
     display: flex
     flex-direction: column
+    transition: background-image .2s ease
     &__nav 
         padding-top: 26px
         position: fixed
@@ -155,6 +156,7 @@
 @media (max-width: 1635px) 
     .header__title 
         font-size: $fs-64
+        width: 1400px
 @media (min-width: 921px) 
     .header__burger-menu.active-menu-burger
         transform: translateY(-315px)
