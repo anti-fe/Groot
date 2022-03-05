@@ -1,4 +1,6 @@
-const nav = document.querySelector('.header__nav');
+const nav = document.querySelector('.header__nav'),
+    burgerMenu = document.querySelector('.nav__burger'),
+    modalBurger = document.querySelector('.header__burger-menu');
 const mainLink = document.querySelector('.header__next'),
     mainBlock = document.querySelector('.main');
 
@@ -14,4 +16,10 @@ mainLink.addEventListener('click', (e)=>{
         behavior: 'smooth',
         block: 'start'
       });
+})
+
+//Добавляем класс active к иконке бургера и ему самому
+burgerMenu.addEventListener('click', ()=>{
+    burgerMenu.classList.toggle('active-burger');
+    modalBurger.classList.toggle('active-menu-burger');     
 })

@@ -1,6 +1,3 @@
-@import "mixins.sass"
-@import "vars.sass"
-    
 .header 
     position: relative
     background-image: url('../../images/first-screen1.png')
@@ -14,7 +11,29 @@
         width: 100%
         z-index: 2
         transition: all .4s ease
-    
+    &__burger-menu
+        +flex(center,center, none)
+        height: 315px
+        width: 100%
+        background-color: $c-black
+        position: absolute
+        top: 0
+        right: 0
+        transform: translateY(-315px)
+        transition: all .3s ease
+    &__burger-links
+        +flex(space-between,flex-start,column)
+        margin-right: 100px
+    &__burger-item:not(:last-child)
+        margin-bottom: 25px
+    &__burger-btns
+        +flex(space-between,flex-start, column)
+    &__burger-menu.active-menu-burger
+        transform: translateY(0px)
+    &__burger-menu .nav__profile
+        margin-right: 0
+    &__burger-profile
+        margin-bottom: 50px
     &__title 
         +text($ff-phil, $fw-bold, $fs-100, $c-white)
         font-style: italic
@@ -69,22 +88,26 @@
     &__burger-line
         background-color: $c-white
         height: 2px
-    &__burger-line:not(:last-child)
-        margin-bottom: 7px
-    &__burder-line:nth-child(1)
-        background-color: red
-    &__burder-line:nth-child(2)
-        width: 10px
-    &__burder-line:nth-child(3)
-        width: 5px
+        position: absolute
+        right: 0
+        transition: all .2s ease
+    &__burger-line:nth-child(1)
+        width: 100%
+        top: 0
+    &__burger-line:nth-child(2)
+        width: 60%
+        top: 8.3px
+    &__burger-line:nth-child(3)
+        width: 20%
+        top: 16.6px
     &__list 
         +flex(space-between, center, none)
         list-style-type: none
-    &__item 
+    &__item, .header__burger-item
         +flex(center, center, none)
         position: relative
         height: 50px
-    &__item::after
+    &__item::after, .header__burger-item::after
         content: ''
         position: absolute
         height: 2px
@@ -93,11 +116,11 @@
         bottom: 0
         left: 0
         transition: width .2s ease
-    &__item:hover::after
+    &__item:hover::after, .header__burger-item:hover::after
         width: 100%
     &__item:not(:last-child) 
         margin-right: 100px
-    &__link 
+    &__link, .header__burger-link
         +flex(center,center, none)
         +text($ff-inter, $fw-light, $fs-18, $c-white)
         letter-spacing: 0.02em
@@ -111,6 +134,17 @@
     background-color: $c-black
     backdrop-filter: blur(10px)
     padding: 25px
+.nav__burger.active-burger .nav__burger-line:nth-child(1),
+.nav__burger.active-burger .nav__burger-line:nth-child(2),
+.nav__burger.active-burger .nav__burger-line:nth-child(3)
+    width: 100%
+    top: 8.3px
+.nav__burger.active-burger .nav__burger-line:nth-child(2)
+    display: none
+.nav__burger.active-burger .nav__burger-line:nth-child(1)
+    transform: rotate(45deg)
+.nav__burger.active-burger .nav__burger-line:nth-child(3)
+    transform: rotate(-45deg)
 
 @keyframes indicator 
   0%,100% 
@@ -121,9 +155,11 @@
 @media (max-width: 1635px) 
     .header__title 
         font-size: $fs-64
-    
+@media (min-width: 921px) 
+    .header__burger-menu.active-menu-burger
+        transform: translateY(-315px)
 @media (max-width: 920px) 
-    .nav__list 
+    .nav__list, .nav__btns .nav__profile, .nav__btns .nav__shop-cart
         display: none
     .nav__burger
         display: block
