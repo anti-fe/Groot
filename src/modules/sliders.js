@@ -1,8 +1,8 @@
 const header = document.querySelector('.header');
 const dataImgs = [
-    'src/images/first-screen1.png',
-    'src/images/first-screen2.png',
-    'src/images/first-screen3.png'
+    './src/images/first-screen1.png',
+    './src/images/first-screen2.png',
+    './src/images/first-screen3.png'
 ];
 
 let countImg = 1;
