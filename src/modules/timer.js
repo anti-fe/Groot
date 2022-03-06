@@ -55,11 +55,11 @@ function setTimer() {
     if (arrDate.days >= 11 && arrDate.days <= 20) {
         daysText.innerHTML = `дней`;
     } else if (arrDate.days % 10 === 1) {
-        daysText.innerHTML = `${arrDate.days} день`;
+        daysText.innerHTML = `день`;
     } else if ((arrDate.days >= 2 && arrDate.days <= 4) || (arrDate.days >= 22 && arrDate.days <= 24) || (arrDate.days >= 32 && arrDate.days <= 34)) {
-        daysText.innerHTML = `${arrDate.days} дня`;
+        daysText.innerHTML = `дня`;
     } else if ((arrDate.days >= 5 && arrDate.days <= 9) || arrDate.days % 10 === 0) {
-        daysText.innerHTML = `${arrDate.days} дней`;
+        daysText.innerHTML = `дней`;
     }
     timerDays.innerHTML = `${arrDate.days}`;
     timerHours.innerHTML = `${arrDate.hours}`;
