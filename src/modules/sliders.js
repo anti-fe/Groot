@@ -1,6 +1,5 @@
 const header = document.querySelector('.header');
 const sliderDots = Array.from(document.querySelectorAll('.header__dots-item'));
-console.log(sliderDots[1]);
 const dataImgs = [
     './src/images/first-screen1.png',
     './src/images/first-screen2.png',

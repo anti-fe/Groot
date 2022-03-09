@@ -1,0 +1,84 @@
+.modal-window 
+    position: absolute
+    top: -1080px
+    left: 0
+    height: 100vh
+    width: 100vw
+    z-index: 55
+    transition: transform 0.3s ease
+    +flex(center,center,none)
+    &__img-section
+        position: relative
+    &__img 
+        position: absolute
+        top: 0
+        left: 0
+        object-fit: cover
+        width: 100%
+        height: 100%
+    &__logo
+        position: absolute
+        top: 50%
+        left: 50%
+        margin-left: -326px
+        margin-top: -62.13px
+        height: 124.27px
+        width: 654px
+    &__reg
+        background-color: $c-white
+        height: 100%
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+    &__form-wrapper
+        +flex(center,center,column)
+    &__form 
+        max-width: 531px
+    &__title 
+        +text($ff-mon,$fw-regular,$fs-64,$c-black)
+        margin-bottom: 72px
+    &__inputs-list
+        margin-bottom: 120px
+    &__input-cont
+        +flex(center,flex-start,column)
+    &__input-cont:not(:last-child)
+        margin-bottom: 50px
+    &__label 
+        +text($ff-inter,$fw-light,$fs-28,$c-black)
+        margin-bottom: 10px
+    &__input 
+        +text($ff-inter,$fw-regular,$fs-22,$c-black)
+        padding: 20px 20px 20px 20px
+        background-color: $c-input
+        border: 1px solid #DADADA
+        width: 100%
+        outline: none
+    &__input::placeholder
+        +text($ff-inter,$fw-light,$fs-22,$c-placeholder)
+    &__form-btn 
+        cursor: pointer
+        width: 100%
+        height: 60px
+        +text($ff-inter,$fw-bold,$fs-22,$c-white)
+        background-color: $c-black
+        border: none
+        position: relative
+        z-index: 0
+        transition: all 0.2s ease
+    &__form-btn:hover 
+        color: $c-black
+        border: 2px solid #000
+    &__form-btn::before 
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        background-color: $c-white
+        width: 100%
+        height: 0
+        transition: height .3s ease
+        z-index: -1
+    &__form-btn:hover::before 
+        height: 100%
+        
+
