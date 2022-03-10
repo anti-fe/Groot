@@ -13,7 +13,7 @@
         z-index: 56
         transition: all .4s ease
     &__burger-menu
-        +flex(center,center, none)
+        +flex(center,center, row)
         height: 315px
         width: 100%
         background-color: $c-black
@@ -40,7 +40,7 @@
         font-style: italic
         padding-top: 175px
     &__next 
-        +flex(center,center,none)
+        +flex(center,center,row)
         position: relative
         display: flex
         flex-direction: column
@@ -82,7 +82,7 @@
     background-color: transparent  
     border: none
 .nav 
-    +flex(space-between, center, none)
+    +flex(space-between, center, row)
     &__burger
         position: relative
         cursor: pointer
@@ -106,10 +106,10 @@
             width: 20%
             top: 16.6px
     &__list 
-        +flex(space-between, center, none)
+        +flex(space-between, center, row)
         list-style-type: none
     &__item, .header__burger-item
-        +flex(center, center, none)
+        +flex(center, center, row)
         position: relative
         height: 50px
     &__item::after, .header__burger-item::after
@@ -126,7 +126,7 @@
     &__item:not(:last-child) 
         margin-right: 100px
     &__link, .header__burger-link
-        +flex(center,center, none)
+        +flex(center,center, row)
         +text($ff-inter, $fw-light, $fs-18, $c-white)
         letter-spacing: 0.02em
         text-decoration: none

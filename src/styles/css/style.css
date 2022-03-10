@@ -34,10 +34,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   height: 315px;
   width: 100%;
   background-color: #262626;
@@ -111,10 +111,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: relative;
   display: flex;
   -ms-flex-direction: column;
@@ -184,10 +184,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .nav__burger {
   position: relative;
@@ -227,10 +227,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   list-style-type: none;
 }
 .nav__item, .nav .header__burger-item {
@@ -243,10 +243,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: relative;
   height: 50px;
 }
@@ -277,10 +277,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 18px;
@@ -502,10 +502,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin-top: 123px;
 }
 .new-collection__info {
@@ -535,10 +535,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .new-collection__img {
   width: 100%;
@@ -682,10 +682,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: none;
-          flex-direction: none;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .modal-window__close {
   position: absolute;
@@ -939,7 +939,7 @@
     font-size: 16px;
   }
 }
-@media (max-width: 410px) {
+@media (max-width: 420px) {
   .modal-window__form-wrapper {
     max-width: calc(100vw - 5%);
     margin: 0 auto;
@@ -947,10 +947,15 @@
 
   .modal-window__title {
     font-size: 36px;
+    margin-bottom: 36px;
   }
 
   .modal-window__label {
     font-size: 18px;
+  }
+
+  .modal-window__input-cont {
+    margin-bottom: 36px;
   }
 
   .modal-window__input::-webkit-input-placeholder {
@@ -975,6 +980,10 @@
 
   .modal-window__form-btn {
     font-size: 16px;
+  }
+
+  .modal-window__inputs-list {
+    margin-bottom: 42px;
   }
 }
 * {

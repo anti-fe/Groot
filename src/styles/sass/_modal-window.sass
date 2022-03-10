@@ -6,7 +6,7 @@
     width: 100vw
     z-index: 55
     transition: transform 0.3s ease
-    +flex(center,center,none)
+    +flex(center,center,row)
     &__close 
         position: absolute
         right: 50px
@@ -128,15 +128,20 @@
         font-size: $fs-16
     .modal-window__form-btn 
         font-size: $fs-16
-@media (max-width: 410px) 
+@media (max-width: 420px) 
     .modal-window__form-wrapper
         max-width: calc(100vw - 5%)
         margin: 0 auto
     .modal-window__title
         font-size: $fs-36
+        margin-bottom: 36px
     .modal-window__label 
         font-size: $fs-18
+    .modal-window__input-cont
+        margin-bottom: 36px
     .modal-window__input::placeholder
         font-size: $fs-16
     .modal-window__form-btn 
         font-size: $fs-16
+    .modal-window__inputs-list
+        margin-bottom: 42px
