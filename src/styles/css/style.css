@@ -906,6 +906,77 @@
     display: none;
   }
 }
+@media (max-width: 590px) {
+  .modal-window__title {
+    font-size: 36px;
+  }
+
+  .modal-window__label {
+    font-size: 18px;
+  }
+
+  .modal-window__input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::-moz-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input:-ms-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::-ms-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__form-btn {
+    font-size: 16px;
+  }
+}
+@media (max-width: 410px) {
+  .modal-window__form-wrapper {
+    max-width: calc(100vw - 5%);
+    margin: 0 auto;
+  }
+
+  .modal-window__title {
+    font-size: 36px;
+  }
+
+  .modal-window__label {
+    font-size: 18px;
+  }
+
+  .modal-window__input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::-moz-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input:-ms-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::-ms-input-placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__input::placeholder {
+    font-size: 16px;
+  }
+
+  .modal-window__form-btn {
+    font-size: 16px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
