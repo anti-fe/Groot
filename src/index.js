@@ -24,3 +24,4 @@ burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active-burger');
     modalBurger.classList.toggle('active-menu-burger');
 })
+
