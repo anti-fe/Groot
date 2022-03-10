@@ -687,6 +687,30 @@
       -ms-flex-direction: none;
           flex-direction: none;
 }
+.modal-window__close {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.modal-window__close-line {
+  background-color: #262626;
+  height: 3px;
+  width: 50px;
+  position: absolute;
+}
+.modal-window__close-line:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.modal-window__close-line:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
 .modal-window__img-section {
   position: relative;
 }
@@ -708,7 +732,7 @@
   height: 124.27px;
   width: 654px;
 }
-.modal-window__reg {
+.modal-window__reg, .modal-window__auth {
   background-color: #fff;
   height: 100%;
   width: 100%;
@@ -716,6 +740,13 @@
   display: grid;
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2, 1fr);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.modal-window__reg {
+  display: none;
 }
 .modal-window__form-wrapper {
   display: -webkit-box;
@@ -811,6 +842,9 @@
   font-size: 22px;
   color: #e0e0e0;
 }
+.modal-window__input:focus {
+  border: 2px solid #262626;
+}
 .modal-window__form-btn {
   cursor: pointer;
   width: 100%;
@@ -822,6 +856,7 @@
   background-color: #262626;
   border: none;
   position: relative;
+  margin-bottom: 25px;
   z-index: 0;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -845,7 +880,32 @@
 .modal-window__form-btn:hover::before {
   height: 100%;
 }
+.modal-window__label {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #262626;
+}
+.modal-window__reg-btn, .modal-window__auth-btn {
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #262626;
+  background-color: transparent;
+  border: none;
+}
 
+@media (max-width: 1290px) {
+  .modal-window__reg, .modal-window__auth {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .modal-window__img-section {
+    display: none;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -855,6 +915,7 @@
 
 body {
   background-color: #fff !important;
+  overflow-x: hidden;
 }
 
 a {

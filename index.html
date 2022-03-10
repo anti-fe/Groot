@@ -13,6 +13,36 @@
 <body>
     <header class="header">
         <div class="modal-window">
+            <button class="modal-window__close">
+                <div class="modal-window__close-line"></div>
+                <div class="modal-window__close-line"></div>
+            </button>
+            <div class="modal-window__auth">
+                <div class="modal-window__img-section">
+                    <img class="modal-window__img" src="./src/images/auth-img.png" alt="registration">
+                    <img class="modal-window__logo" src="./src/images/logo.svg" alt="logo">
+                </div>
+                <div class="modal-window__form-wrapper">
+                    <form class="modal-window__form">
+                        <h1 class="modal-window__title">Авторизация</h1>
+                        <div class="modal-window__inputs-list">
+                            <div class="modal-window__phone modal-window__input-cont">
+                                <label class="modal-window__label">Номер телефона</label>
+                                <input type="tel" class="modal-window__input"
+                                    placeholder="Введите номер телефона">
+                            </div>
+                            <div class="modal-window__password modal-window__input-cont">
+                                <label class="modal-window__label">Пароль</label>
+                                <input type="password" class="modal-window__input"
+                                    placeholder="Введите пароль">
+                            </div>
+                        </div>
+                        <button class="modal-window__form-btn" type="submit">Войти</button>
+                        <label class="modal-window__label" for="to-reg">Нет аккаунта? - </label>
+                        <button class="modal-window__reg-btn" id="to-reg" type="submit">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
             <div class="modal-window__reg">
                 <div class="modal-window__img-section">
                     <img class="modal-window__img" src="./src/images/registration-img.png" alt="registration">
@@ -23,28 +53,24 @@
                         <h1 class="modal-window__title">Регистрация</h1>
                         <div class="modal-window__inputs-list">
                             <div class="modal-window__fio modal-window__input-cont">
-                                <label for="input-fio" class="modal-window__label">ФИО</label>
-                                <input type="text" 
-                                        class="modal-window__input" 
-                                        id="input-fio"
-                                        placeholder="Введите имя, фамилию и отчество">
+                                <label class="modal-window__label">ФИО</label>
+                                <input type="text" class="modal-window__input"
+                                    placeholder="Введите имя, фамилию и отчество">
                             </div>
                             <div class="modal-window__phone modal-window__input-cont">
-                                <label for="input-tel" class="modal-window__label">Номер телефона</label>
-                                <input type="tel" 
-                                        class="modal-window__input" 
-                                        id="input-tel"
-                                        placeholder="Введите номер телефона">
+                                <label class="modal-window__label">Номер телефона</label>
+                                <input type="tel" class="modal-window__input"
+                                    placeholder="Введите номер телефона">
                             </div>
                             <div class="modal-window__password modal-window__input-cont">
-                                <label for="input-passw" class="modal-window__label">Пароль</label>
-                                <input type="password" 
-                                        class="modal-window__input" 
-                                        id="input-passw"
-                                        placeholder="Введите пароль">
+                                <label class="modal-window__label">Пароль</label>
+                                <input type="password" class="modal-window__input"
+                                    placeholder="Введите пароль">
                             </div>
                         </div>
                         <button class="modal-window__form-btn" type="submit">Зарегистрироваться</button>
+                        <label class="modal-window__label" for="to-auth">Уже зарегистрированны? - </label>
+                        <button class="modal-window__auth-btn" id="to-auth" type="submit">Авторизоваться</button>
                     </form>
                 </div>
             </div>
@@ -184,4 +210,5 @@
     <script src="src/modules/sliders.js"></script>
     <script src="src/modules/modal-window.js"></script>
 </body>
+
 </html>
