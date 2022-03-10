@@ -663,7 +663,7 @@
   }
 }
 .modal-window {
-  position: absolute;
+  position: fixed;
   top: -1080px;
   left: 0;
   height: 100vh;
