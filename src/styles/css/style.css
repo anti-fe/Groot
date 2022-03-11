@@ -842,8 +842,18 @@
   font-size: 22px;
   color: #e0e0e0;
 }
-.modal-window__input:focus {
-  border: 2px solid #262626;
+.modal-window__error {
+  border: 2px solid #FF7272;
+}
+.modal-window__success {
+  border: 2px solid #36D100;
+}
+.modal-window__errorMessage {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #ff7272;
+  margin-top: 10px;
 }
 .modal-window__form-btn {
   cursor: pointer;

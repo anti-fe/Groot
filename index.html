@@ -29,12 +29,14 @@
                             <div class="modal-window__phone modal-window__input-cont">
                                 <label class="modal-window__label">Номер телефона</label>
                                 <input type="tel" class="modal-window__input"
-                                    placeholder="Введите номер телефона">
+                                    placeholder="Введите номер телефона" name="phone">
+                                <p class="modal-window__errorMessage"></p>
                             </div>
                             <div class="modal-window__password modal-window__input-cont">
                                 <label class="modal-window__label">Пароль</label>
                                 <input type="password" class="modal-window__input"
-                                    placeholder="Введите пароль">
+                                    placeholder="Введите пароль" name="password">
+                                <p class="modal-window__errorMessage"></p>
                             </div>
                         </div>
                         <button class="modal-window__form-btn" type="submit">Войти</button>
@@ -55,17 +57,20 @@
                             <div class="modal-window__fio modal-window__input-cont">
                                 <label class="modal-window__label">ФИО</label>
                                 <input type="text" class="modal-window__input"
-                                    placeholder="Введите имя, фамилию и отчество">
+                                    placeholder="Введите имя, фамилию и отчество" name="fio">
+                                <p class="modal-window__errorMessage"></p>
                             </div>
                             <div class="modal-window__phone modal-window__input-cont">
                                 <label class="modal-window__label">Номер телефона</label>
                                 <input type="tel" class="modal-window__input"
-                                    placeholder="Введите номер телефона">
+                                    placeholder="Введите номер телефона" name="phone">
+                                <p class="modal-window__errorMessage"></p>   
                             </div>
                             <div class="modal-window__password modal-window__input-cont">
                                 <label class="modal-window__label">Пароль</label>
                                 <input type="password" class="modal-window__input"
-                                    placeholder="Введите пароль">
+                                    placeholder="Введите пароль" name="password">
+                                <p class="modal-window__errorMessage"></p>
                             </div>
                         </div>
                         <button class="modal-window__form-btn" type="submit">Зарегистрироваться</button>
@@ -209,6 +214,7 @@
     <script src="src/modules/timer.js"></script>
     <script src="src/modules/sliders.js"></script>
     <script src="src/modules/modal-window.js"></script>
+    <script src="src/modules/validation.js"></script>
 </body>
 
 </html>

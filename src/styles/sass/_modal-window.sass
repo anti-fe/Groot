@@ -77,8 +77,13 @@
         outline: none
         &::placeholder
             +text($ff-inter,$fw-light,$fs-22,$c-placeholder)
-        &:focus
-            border: 2px solid $c-black
+    &__error
+        border: 2px solid #FF7272
+    &__success
+        border: 2px solid #36D100
+    &__errorMessage
+        +text($ff-inter,$fw-regular,$fs-12,#ff7272)
+        margin-top: 10px
     &__form-btn 
         cursor: pointer
         width: 100%
@@ -112,6 +117,7 @@
         +text($ff-inter,$fw-bold,$fs-18,$c-black)
         background-color: transparent
         border: none
+    
         
 
 @media (max-width: 1290px) 
