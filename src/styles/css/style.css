@@ -662,6 +662,32 @@
     margin-right: 5px;
   }
 }
+.success-login {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 555;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 360px;
+  background-color: rgba(38, 38, 38, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.success-login__text {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  color: #fff;
+  text-align: center;
+}
+
 .modal-window {
   position: fixed;
   top: -1080px;
@@ -947,6 +973,10 @@
 
   .modal-window__form-btn {
     font-size: 16px;
+  }
+
+  .success-login__text {
+    font-size: 36px;
   }
 }
 @media (max-width: 420px) {

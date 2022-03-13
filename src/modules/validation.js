@@ -1,3 +1,4 @@
+const successLogin = document.querySelector('.success-login');
 const authForm = document.querySelectorAll('.modal-window__form')[0],
         regForm = document.querySelectorAll('.modal-window__form')[1];
 const authBtn = document.querySelectorAll('.modal-window__form-btn')[0],
@@ -25,32 +26,31 @@ function getAuthForm(e){
 
     validateAuthForm();
 
-    let authCheck = false;
-    checkHaveUser(authCheck);
-    if(authCheck == false){
-        //Если пользователь вошел в аккаунт
-        console.log("TRUE");
-        authInps.forEach(input=>{
-            input.classList.remove('modal-window__success');
-            input.value = '';
-        })
-        modalWindow.style.transform = 'translateY(-1080px)';
-        headerNav.style.display = 'block';
-        page.style.overflowY = 'visible';
-    } else {
-        //Если пользователь ввел не правильные данные
-        console.log("FALSE");
-    }
-}
-
-//Проверяем наличие пользователя в localStorage
-function checkHaveUser(authCheck){
+    //Проверяем наличие пользователя в localStorage
+    formDataAuth = new FormData(authForm);
+    formDataAuth = Object.fromEntries(formDataAuth.entries());
+    
     let usersArray = JSON.parse(localStorage.getItem('users'));
-    for(i = 0; i < Object.keys(usersArray).length; i++){
-        if(usersArray['phone'] == formDataAuth.phone && usersArray['password'] == formDataAuth.password) {
-            authCheck = true;
-        } else authCheck = false;
-    }
+
+
+    usersArray.forEach(item=>{
+        if((item['phone'] == formDataAuth.phone) && (item['password'] == formDataAuth.password)) {
+            //Если пользователь вошел в аккаунт
+            authInps.forEach(input=>{
+                input.classList.remove('modal-window__success');
+                input.value = '';
+            })
+            modalWindow.style.transform = 'translateY(-1080px)';
+            headerNav.style.display = 'block';
+            page.style.overflowY = 'visible';
+
+            successLogin.style.display = 'flex';
+            setTimeout(()=>{
+                successLogin.style.display = 'none';
+            }, 2000)
+            console.log('Вход в аккаунт');
+        }
+    })
 }
 
 //Получение данных из формы Регистрации

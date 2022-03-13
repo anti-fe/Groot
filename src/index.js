@@ -3,6 +3,7 @@ const nav = document.querySelector('.header__nav'),
     modalBurger = document.querySelector('.header__burger-menu');
 const mainLink = document.querySelector('.header__next'),
     mainBlock = document.querySelector('.main');
+const burgerProfileBtn = document.querySelector('.header__burger-profile'); 
 
 
 //Добавление подложки для навбара при скроле
@@ -25,3 +26,7 @@ burgerMenu.addEventListener('click', () => {
     modalBurger.classList.toggle('active-menu-burger');
 })
 
+burgerProfileBtn.addEventListener('click', ()=>{
+    burgerMenu.classList.remove('active-burger');
+    modalBurger.classList.remove('active-menu-burger');
+})
