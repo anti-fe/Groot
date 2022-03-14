@@ -29,12 +29,12 @@
         margin-bottom: 25px
     &__burger-btns
         +flex(space-between,flex-start, column)
+        height: 170px
     &__burger-menu.active-menu-burger
         transform: translateY(0px)
     &__burger-menu .nav__profile
         margin-right: 0
-    &__burger-profile
-        margin-bottom: 50px
+        margin-left: 0
     &__title 
         +text($ff-phil, $fw-bold, $fs-100, $c-white)
         font-style: italic
@@ -77,7 +77,7 @@
             margin-right: 33px
     &__dots-item.item-active
         background-color: $c-white    
-.profile-btn, .shop-cart-btn 
+.profile-btn, .shop-cart-btn, .log-out-btn  
     cursor: pointer
     background-color: transparent  
     border: none
@@ -135,6 +135,7 @@
         display: flex
     &__profile
         margin-right: 25px
+        margin-left: 25px
 .nav_sticky
     background-color: $c-black
     backdrop-filter: blur(10px)
@@ -165,7 +166,7 @@
     .header__burger-menu.active-menu-burger
         transform: translateY(-315px)
 @media (max-width: 920px) 
-    .nav__list, .nav__btns .nav__profile, .nav__btns .nav__shop-cart
+    .nav__list, .nav__btns .nav__profile, .nav__btns .nav__shop-cart, .nav__log-out
         display: none
     .nav__burger
         display: block

@@ -12,8 +12,9 @@ const phoneRegEx = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,11}(\s*)?$/;
 //в нижнем и верхнем регистре, не менее 6 символов.
 const passwordRegEx = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
 
-let usersData = localStorage.getItem('users') ? [JSON.parse(localStorage.getItem('users'))] : [];
+let usersData = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 let formDataAuth;
+let loggedUser;
 
 authBtn.addEventListener('click', getAuthForm);
 regBtn.addEventListener('click', getRegForm);
@@ -31,11 +32,19 @@ function getAuthForm(e){
     formDataAuth = Object.fromEntries(formDataAuth.entries());
     
     let usersArray = JSON.parse(localStorage.getItem('users'));
+    
 
-
-    usersArray.forEach(item=>{
-        if((item['phone'] == formDataAuth.phone) && (item['password'] == formDataAuth.password)) {
+    usersArray.forEach(user=>{
+        if((user['phone'] == formDataAuth.phone) && (user['password'] == formDataAuth.password)) {
             //Если пользователь вошел в аккаунт
+            //Помещаем данные вошедшего пользователя в переменную
+            let numberUser = 0; 
+            usersArray.forEach(user=>{
+                if(user['phone'] == formDataAuth.phone) {
+                    loggedUser = JSON.parse(localStorage.getItem('users'))[numberUser];
+                }
+                numberUser++;
+            })
             authInps.forEach(input=>{
                 input.classList.remove('modal-window__success');
                 input.value = '';
@@ -48,9 +57,12 @@ function getAuthForm(e){
             setTimeout(()=>{
                 successLogin.style.display = 'none';
             }, 2000)
-            console.log('Вход в аккаунт');
+            
+            
+            
         }
     })
+    console.log(loggedUser);
 }
 
 //Получение данных из формы Регистрации
@@ -97,7 +109,6 @@ function validateRegForm(e) {
     let overlap = false;
     formDataReg = new FormData(regForm);
     formDataReg = Object.fromEntries(formDataReg.entries());
-    console.log(usersData);
     usersData.forEach(user=>{
         if(user.phone === formDataReg.phone) {
             overlap = true;
