@@ -298,6 +298,10 @@
   margin-left: 25px;
 }
 
+.log-out-btn {
+  display: none;
+}
+
 .nav_sticky {
   background-color: #262626;
   -webkit-backdrop-filter: blur(10px);
@@ -361,7 +365,7 @@
 }
 @media (max-width: 920px) {
   .nav__list, .nav__btns .nav__profile, .nav__btns .nav__shop-cart, .nav__log-out {
-    display: none;
+    display: none !important;
   }
 
   .nav__burger {

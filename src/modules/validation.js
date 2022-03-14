@@ -5,19 +5,42 @@ const authBtn = document.querySelectorAll('.modal-window__form-btn')[0],
         regBtn = document.querySelectorAll('.modal-window__form-btn')[1];
 const authInps = authForm.querySelectorAll('input'),
         regInps = regForm.querySelectorAll('input');
+const logOutBtns = document.querySelectorAll('.log-out-btn'),
+        profileBtns = document.querySelectorAll('.profile-btn');
 
 const fioRegEx = /^([А-ЯA-Z]{2,})+\s+([А-ЯA-Z\s]{2,})+$/i;
 const phoneRegEx = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,11}(\s*)?$/;
 //Пароль хотя-бы с 1 цифрой, 1 спецсимволом, 1 латинскую букву 
 //в нижнем и верхнем регистре, не менее 6 символов.
-const passwordRegEx = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
+const passwordRegEx = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
 
 let usersData = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 let formDataAuth;
-let loggedUser;
+let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+
+//Если пользователь ранее авторизовался, то после перезагрузки страницы
+//Он все также будет авторизован
+if(localStorage.getItem('loggedUser')) {
+    //Появление кнопки выхода из аккаунта
+    logOutBtns.forEach(btn=>{
+        btn.style.display = 'block';
+    })
+    profileBtns.forEach(btn=>{
+        btn.removeEventListener('click', openModalWindow);
+        //Перенаправление на страницу Личный кабинет
+        btn.addEventListener('click', locateToAccount);
+    })
+
+}
+function locateToAccount() {
+    window.location.href = './src/pages/personal-account.html';
+}
 
 authBtn.addEventListener('click', getAuthForm);
 regBtn.addEventListener('click', getRegForm);
+logOutBtns.forEach(btn=>{
+    btn.addEventListener('click', logOut);
+})
 
 //Получение данных из формы Авторизации
 function getAuthForm(e){
@@ -42,6 +65,7 @@ function getAuthForm(e){
             usersArray.forEach(user=>{
                 if(user['phone'] == formDataAuth.phone) {
                     loggedUser = JSON.parse(localStorage.getItem('users'))[numberUser];
+                    localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
                 }
                 numberUser++;
             })
@@ -52,6 +76,11 @@ function getAuthForm(e){
             modalWindow.style.transform = 'translateY(-1080px)';
             headerNav.style.display = 'block';
             page.style.overflowY = 'visible';
+
+            //Появление кнопки выхода из аккаунта
+            logOutBtns.forEach(btn=>{
+                btn.style.display = 'block';
+            })
 
             successLogin.style.display = 'flex';
             setTimeout(()=>{
@@ -64,7 +93,6 @@ function getAuthForm(e){
     })
     console.log(loggedUser);
 }
-
 //Получение данных из формы Регистрации
 function getRegForm(e){
     e.preventDefault();
@@ -92,7 +120,6 @@ function getRegForm(e){
         page.style.overflowY = 'visible';
     } 
 }
-
 //Проверка всех полей формы Регистрации
 function validateRegForm(e) {
     //FIO
@@ -133,7 +160,7 @@ function validateRegForm(e) {
         setSuccess(regInps[2]);
     }
 }
-
+//Проверка всех полей формы Авторизации
 function validateAuthForm() {
     //PHONE
     const phoneInp = authInps[0].value.trim();
@@ -154,7 +181,7 @@ function validateAuthForm() {
         setSuccess(authInps[1]);
     }
 }
-
+//Показывать ошибки у инпутов в соответствии с переданными аргументами
 function setError(elem, errorMessage) {
     if(elem.classList.contains('modal-window__success')) {
         elem.classList.remove('modal-window__success');
@@ -165,6 +192,7 @@ function setError(elem, errorMessage) {
     errorText.textContent = errorMessage;
     elem.classList.add('modal-window__error');
 }
+//Показывать то, что пользователь все ввел успешно у инпутов
 function setSuccess(elem) {
     const parent = elem.parentElement;
     const errorText = parent.querySelector('.modal-window__errorMessage');
@@ -173,4 +201,19 @@ function setSuccess(elem) {
         errorText.style.display = 'none';
     }
     elem.classList.add('modal-window__success');
+}
+//Выход из аккаунта
+function logOut() {
+    //Убираем кнопки выхода из аккаунта
+    logOutBtns.forEach(btn=>{
+        btn.style.display = 'none';
+    })
+    profileBtns.forEach(btn=>{
+        //Убираем перенаправление 
+        btn.removeEventListener('click', locateToAccount);
+        //Появление модального окна при клике
+        btn.addEventListener('click',openModalWindow);
+    })
+    //Удаляем из localStorage объект с данными авторизованного пользователя
+    localStorage.removeItem('loggedUser');
 }

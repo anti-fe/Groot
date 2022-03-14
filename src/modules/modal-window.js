@@ -11,13 +11,16 @@ const modalAuth = document.querySelector('.modal-window__auth');
 const modalReg = document.querySelector('.modal-window__reg');
 
 profileBtn.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        modalWindow.style.visibility = 'visible';
-        modalWindow.style.transform = 'translateY(1080px)';
-        headerNav.style.display = 'none';
-        page.style.overflowY = 'hidden';
-    })
+    btn.addEventListener('click', openModalWindow);
 })
+
+function openModalWindow(e){
+    e.preventDefault();
+    modalWindow.style.visibility = 'visible';
+    modalWindow.style.transform = 'translateY(1080px)';
+    headerNav.style.display = 'none';
+    page.style.overflowY = 'hidden';
+}
 
 modalClose.addEventListener('click', (e)=>{
     e.preventDefault();

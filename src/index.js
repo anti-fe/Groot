@@ -3,9 +3,7 @@ const nav = document.querySelector('.header__nav'),
         modalBurger = document.querySelector('.header__burger-menu');
 const mainLink = document.querySelector('.header__next'),
         mainBlock = document.querySelector('.main');
-const burgerProfileBtn = document.querySelector('.header__burger-profile'),
-        logOutBtns = document.querySelectorAll('.log-out-btn');
-
+const burgerProfileBtn = document.querySelector('.header__burger-profile'); 
 
 //Добавление подложки для навбара при скроле
 window.addEventListener('scroll', () => {
@@ -31,9 +29,3 @@ burgerProfileBtn.addEventListener('click', ()=>{
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
-
-// logOutBtns.forEach(btn=>{
-//     btn.addEventListener('click', ()=>{
-//         console.log(loggedUser);
-//     })
-// })
