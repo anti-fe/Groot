@@ -1,9 +1,9 @@
 const header = document.querySelector('.header');
 const sliderDots = Array.from(document.querySelectorAll('.header__dots-item'));
 const dataImgs = [
-    './src/images/first-screen1.png',
-    './src/images/first-screen2.png',
-    './src/images/first-screen3.png'
+    './src/images/first-screen1.webp',
+    './src/images/first-screen2.webp',
+    './src/images/first-screen3.webp'
 ];
 
 let countImg = 1;
