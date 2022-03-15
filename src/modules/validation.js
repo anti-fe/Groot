@@ -12,10 +12,11 @@ const fioRegEx = /^([А-ЯA-Z]{2,})+\s+([А-ЯA-Z\s]{2,})+$/i;
 const phoneRegEx = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,11}(\s*)?$/;
 //Пароль хотя-бы с 1 цифрой, 1 спецсимволом, 1 латинскую букву 
 //в нижнем и верхнем регистре, не менее 6 символов.
-const passwordRegEx = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
+const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/
 
 let usersData = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 let formDataAuth;
+let formDataReg;
 let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
 
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
@@ -83,6 +84,7 @@ function getAuthForm(e){
             })
 
             successLogin.style.display = 'flex';
+            successLogin.style.transform = "translate(0px)";
             setTimeout(()=>{
                 successLogin.style.display = 'none';
             }, 2000)
@@ -91,7 +93,6 @@ function getAuthForm(e){
             
         }
     })
-    console.log(loggedUser);
 }
 //Получение данных из формы Регистрации
 function getRegForm(e){
@@ -115,6 +116,28 @@ function getRegForm(e){
             input.value = '';
             input.classList.remove('modal-window__success');
         })
+        //После успешной регистрации авторизовываемся 
+        let usersArray = JSON.parse(localStorage.getItem('users'));
+        let numberUser = 0; 
+        usersArray.forEach(user=>{
+            if(user['phone'] == formDataReg.phone) {
+                loggedUser = JSON.parse(localStorage.getItem('users'))[numberUser];
+                localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
+            }
+            numberUser++;
+        })
+
+        //Появление кнопки выхода из аккаунта
+        logOutBtns.forEach(btn=>{
+            btn.style.display = 'block';
+        })
+        profileBtns.forEach(btn=>{
+            btn.removeEventListener('click', openModalWindow);
+        //Перенаправление на страницу Личный кабинет
+        btn.addEventListener('click', locateToAccount);
+        })
+        successLogin.style.display = 'flex';
+        successLogin.style.transform = "translate(0px)";
         modalWindow.style.transform = 'translateY(-1080px)';
         headerNav.style.display = 'block';
         page.style.overflowY = 'visible';
@@ -155,7 +178,7 @@ function validateRegForm(e) {
     if(regInps[2].value.trim() === '') {
         setError(regInps[2], "Поле должно быть заполнено");
     } else if(!passwordRegEx.test(passwordInp)) {
-        setError(regInps[2], "Пример правильного пароля abcABC123$");
+        setError(regInps[2], "Пример правильного пароля abcde1");
     } else {
         setSuccess(regInps[2]);
     }

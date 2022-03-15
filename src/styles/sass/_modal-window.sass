@@ -1,17 +1,19 @@
 .success-login
-    display: none
+    display: flex
     justify-content: center
     align-items: center
     position: fixed
     z-index: 555
-    top: 0
+    top: 35%
     left: 0
-    width: 100%
-    height: 360px
-    background-color: rgba(38, 38, 38, 0.6)
+    transform: translate(-350px)
+    width: 350px
+    height: 200px
+    background-color: rgba(38, 38, 38, 0.7)
     backdrop-filter: blur(5px) 
+    transition: transform 0.3s ease
     &__text 
-        +text($ff-phil, $fw-regular, $fs-64, $c-white)
+        +text($ff-phil, $fw-regular, $fs-36, $c-white)
         text-align: center
 .modal-window 
     position: fixed
@@ -151,7 +153,7 @@
     .modal-window__form-btn 
         font-size: $fs-16
     .success-login__text 
-        font-size: $fs-36
+        font-size: $fs-22
 @media (max-width: 420px) 
     .modal-window__form-wrapper
         max-width: calc(100vw - 5%)
