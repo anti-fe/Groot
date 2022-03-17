@@ -103,7 +103,7 @@ body {
 .main__none-orders {
   font-family: "Inter", sans-serif;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 64px;
   color: #E0E0E0;
   margin-bottom: 95px;
   margin-top: 150px;
@@ -237,4 +237,33 @@ body {
   font-weight: 300;
   font-size: 28px;
   color: #262626;
+}
+
+@media (max-width: 1180px) {
+  .decor-line__photo {
+    height: 374px;
+  }
+}
+@media (max-width: 1025px) {
+  .main__title {
+    font-size: 48px;
+  }
+}
+@media (max-width: 900px) {
+  .decor-line__photo {
+    display: none;
+  }
+}
+@media (max-width: 775px) {
+  .main__none-orders {
+    font-size: 38px;
+  }
+}
+@media (max-width: 720) {
+  .main__btn {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    color: #262626;
+  }
 }

@@ -44,7 +44,7 @@ body
     &__orders
         +flex(center,center,column)
     &__none-orders
-        +text($ff-inter, $fw-light, $fs-100, #E0E0E0)
+        +text($ff-inter, $fw-light, $fs-64, #E0E0E0)
         margin-bottom: 95px
         margin-top: 150px
     &__orders-btn
@@ -112,4 +112,20 @@ body
         +text($ff-inter, $fw-bold, $fs-28, $c-black)
         margin-bottom: 20px
     &__text
+        +text($ff-inter, $fw-light, $fs-28, $c-black)
+
+@media (max-width: 1180px) 
+    .decor-line__photo
+        height: 374px
+@media (max-width: 1025px) 
+    .main__title 
+        font-size: $fs-48
+@media (max-width: 900px) 
+    .decor-line__photo
+        display: none
+@media (max-width: 775px) 
+    .main__none-orders
+        font-size: $fs-38
+@media (max-width:720) 
+    .main__btn
         +text($ff-inter, $fw-light, $fs-28, $c-black)
