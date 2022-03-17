@@ -1,0 +1,115 @@
+@import "mixins.sass"
+@import "vars.sass"
+
+body 
+    overflow-x: visible 
+.profile-btn
+    display: none
+.nav__log-out 
+    margin-right: 25px
+
+.decor-line
+    width: 100%
+    height: 1px
+    background-color: #E0E0E0
+    position: relative
+    &__photo
+        position: absolute
+        top: -70px
+        right: 0
+.main 
+    margin-top: 143px
+    +flex(space-between,flex-start,column)
+    &__wrapper 
+        width: 200vw
+        display: flex
+    &__header
+        +flex(space-between,flex-end, row)
+        margin-bottom: 50px
+        width: 100%
+    &__title 
+        +text($ff-phil, $fw-regular, $fs-64, $c-black)
+        line-height: 80%
+        width: auto
+        margin-top: 0
+        margin-bottom: 0
+    &__title::after 
+        display: none
+    &__section-title 
+        +text($ff-inter, $fw-regular, $fs-36, $c-black)
+        line-height: 80%
+    &__info 
+        margin-top: 70px
+        position: relative
+    &__orders
+        +flex(center,center,column)
+    &__none-orders
+        +text($ff-inter, $fw-light, $fs-100, #E0E0E0)
+        margin-bottom: 95px
+        margin-top: 150px
+    &__orders-btn
+        +text($ff-inter, $fw-bold, $fs-16, $c-white)
+        margin-bottom: 200px
+        width: 300px
+    &__cont 
+        width: calc(100vw - 7.5%)
+    &__info-cont
+        &:not(:last-child)
+            margin-bottom: 45px
+    &__input 
+        +text($ff-inter,$fw-regular,$fs-18,$c-black)
+        padding: 15px 15px 15px 15px
+        background-color: $c-input
+        border: 1px solid #DADADA
+        max-width: 386px
+        height: 60px
+        outline: none
+        &::placeholder
+            +text($ff-inter,$fw-light,$fs-18,$c-placeholder)
+    &__btn 
+        cursor: pointer
+        width: 260px
+        height: 60px
+        +text($ff-inter,$fw-bold,$fs-18,$c-white)
+        background-color: $c-black
+        border: none
+        position: relative
+        z-index: 0
+        transition: all 0.2s ease
+        &:hover 
+            color: $c-black
+            border: 2px solid $c-black
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            background-color: $c-white
+            width: 100%
+            height: 0
+            transition: height .3s ease
+            z-index: -1
+        &:hover::before 
+            height: 100%
+    &__dots
+        width: 70px
+        height: 25px
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 0 auto
+    &__dote-item
+        border-radius: 50%
+        background-color: #E0E0E0
+        width: 25px
+        height: 25px
+        &:not(:last-child)
+            margin-right: 20px
+    &__active-dote
+        background-color: $c-black
+.info-cont
+    &__title
+        +text($ff-inter, $fw-bold, $fs-28, $c-black)
+        margin-bottom: 20px
+    &__text
+        +text($ff-inter, $fw-light, $fs-28, $c-black)

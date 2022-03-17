@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groot - Главная</title>
+    <title>Groot - Личный кабинет пользователя</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/styles/css/style.css">
+    <link rel="stylesheet" href="./../styles/css/style.css">
+    <link rel="stylesheet" href="./../styles/css/profile-user.css">
+
 </head>
 <body>
     <header class="header">
@@ -21,8 +22,8 @@
             </div>
             <div class="modal-window__auth">
                 <div class="modal-window__img-section">
-                    <img class="modal-window__img" src="./src/images/auth-img.webp" alt="registration">
-                    <img class="modal-window__logo" src="./src/images/logo.svg" alt="logo">
+                    <img class="modal-window__img" src="./../images/auth-img.webp" alt="registration">
+                    <img class="modal-window__logo" src="./../images/logo.svg" alt="logo">
                 </div>
                 <div class="modal-window__form-wrapper">
                     <form class="modal-window__form">
@@ -49,8 +50,8 @@
             </div>
             <div class="modal-window__reg">
                 <div class="modal-window__img-section">
-                    <img class="modal-window__img" src="./src/images/registration-img.webp" alt="registration">
-                    <img class="modal-window__logo" src="./src/images/logo.svg" alt="logo">
+                    <img class="modal-window__img" src="./../images/registration-img.webp" alt="registration">
+                    <img class="modal-window__logo" src="./../images/logo.svg" alt="logo">
                 </div>
                 <div class="modal-window__form-wrapper">
                     <form class="modal-window__form">
@@ -82,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <nav class="header__nav">
+        <nav class="header__nav nav_sticky">
             <div class="header__nav-content nav cont">
                 <div class="header__burger-menu">
                     <ul class="header__burger-links">
@@ -90,7 +91,7 @@
                             <a href="#" class="header__burger-link">Коллекции</a>
                         </li>
                         <li class="header__burger-item">
-                            <a href="./src/pages/catalog.html"
+                            <a href="./catalog.html"
                                 class="header__burger-link">Каталог</a>
                             </li>
                         <li class="header__burger-item">
@@ -130,10 +131,10 @@
                         </button>
                     </div>
                 </div>
-                <a href="#"><img src="./src/images/logo.svg" alt="logo-groot" class="nav__logo"></a>
+                <a href="#"><img src="./../images/logo.svg" alt="logo-groot" class="nav__logo"></a>
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#" class="nav__link">Коллекции</a></li>
-                    <li class="nav__item"><a href="./src/pages/catalog.html" class="nav__link">Каталог</a></li>
+                    <li class="nav__item"><a href="./catalog.html" class="nav__link">Каталог</a></li>
                     <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
                 </ul>
                 <div class="nav__btns">
@@ -173,66 +174,58 @@
                 </div>
             </div>
         </nav>
-        <h1 class="header__title cont">Минималистичный дизайн мебели, сделанный для вашего комфорта</h1>
-        <a href="#" class="header__next cont">
-            <div class="header__next-bg">
-                <div class="header__next-line"></div>
-            </div>
-            <span class="header__next-text">Дальше</span>
-        </a>
-        <div class="header__dots">
-            <div class="header__dots-item item-active"></div>
-            <div class="header__dots-item"></div>
-            <div class="header__dots-item"></div>
-        </div>
     </header>
-    <main class="main">
-        <h2 class='main__title'>НАШИ РАБОТЫ</h2>
-        <div class="main__gallery">
-            <img src="./src/images/1.webp" alt="#" class="main__img">
-            <img src="./src/images/2.webp" alt="#" class="main__img">
-            <img src="./src/images/3.webp" alt="#" class="main__img">
-            <img src="./src/images/4.webp" alt="#" class="main__img">
-            <img src="./src/images/5.webp" alt="#" class="main__img">
-            <img src="./src/images/6.webp" alt="#" class="main__img">
-            <img src="./src/images/7.webp" alt="#" class="main__img">
-            <img src="./src/images/8.webp" alt="#" class="main__img">
+    <main class="main cont">
+        <div class="main__header">  
+            <h1 class="main__title">Личный кабинет</h1>
+            <h2 class="main__section-title">Данные пользователя и заказы</h2>
+        </div>
+        <div class="decor-line"></div>
+        <div class="main__wrapper">
+            
+            <div class="main__info main__cont">
+                <img class="decor-line__photo" src="./../images/profile-decor.webp" alt="decor-profile">
+                <div class="main__fio-cont main__info-cont">
+                    <h3 class="main__fio-title info-cont__title">ФИО</h3>
+                    <p class="main__fio-text info-cont__text">Пампиджон Георгий Пампиджонович</p>
+                </div>
+                <div class="main__phone-cont main__info-cont">
+                    <h3 class="main__phone-title info-cont__title">Номер телефона</h3>
+                    <p class="main__phone-text info-cont__text">+7(977)979-52-02</p>
+                </div>
+                <div class="main__email-cont main__info-cont">
+                    <h3 class="main__email-title info-cont__title">Почта</h3>
+                    <div class="main__input-cont">
+                        <input type="text" class="main__email-input main__input" placeholder="Введите почту">
+                        <button class="main__email-btn main__btn" type="submit">Подтвердить</button>
+                    </div>
+                </div>
+                <div class="main__password-cont main__info-cont">
+                    <h3 class="main__password-title info-cont__title">Пароль</h3>
+                    <p class="main__password-text info-cont__text">aaaaa1</p>
+                </div>
+                <div class="main__dots">
+                    <div class="main__dote-item main__active-dote"></div>
+                    <div class="main__dote-item"></div>
+                </div>
+            </div>
+            <div class="main__orders main__cont">
+                <h2 class="main__none-orders">Заказов нет (；⌣̀_⌣́)</h2>
+                <button class="main__orders-btn main__btn" type="submit">Перейти в каталог</button>
+                <div class="main__dots">
+                    <div class="main__dote-item"></div>
+                    <div class="main__dote-item main__active-dote"></div>
+                </div>
+            </div>
+
         </div>
 
     </main>
-    <section class="new-collection cont">
-        <div class="new-collection__header">
-            <div class="new-collection__info">
-                <h2 class="new-collection__title">La Dante</h2>
-                <p class="new-collection__descr">Дерево с утонченным покрытием</p>
-            </div>
-            <div class="new-collection__timer timer">
-                <div class="new-collection__days-cont timer__item">
-                    <div class="new-collection__days">0</div>
-                    <span class="new-collection__days-text"></span>
-                </div>
-                <div class="new-collection__hours-cont timer__item">
-                    <div class="new-collection__hours">00</div>
-                    <span class="new-collection__hours-text"></span>
-                </div>
-                <div class="new-collection__min-cont timer__item">
-                    <div class="new-collection__min">00</div>
-                    <span class="new-collection__min-text"></span>
-                </div>
-                <div class="new-collection__sec-cont timer__item">
-                    <div class="new-collection__sec">00</div>
-                    <span class="new-collection__sec-text"></span>
-                </div>
-            </div>
-        </div>
-        <img src="./src/images/new-collection-img.webp" alt="new collection" class="new-collection__img">
-    </section>
 
-    <script src="src/index.js"></script>
-    <script src="src/modules/timer.js"></script>
-    <script src="src/modules/sliders.js"></script>
-    <script src="src/modules/modal-window.js"></script>
-    <script src="src/modules/validation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../modules/user-profile.js"></script>
+    <script src="../modules/modal-window.js"></script>
+    <script src="../modules/validation.js"></script>
 </body>
-
 </html>
