@@ -35,6 +35,9 @@ body
         margin-bottom: 0
     &__title::after 
         display: none
+    &__section-title 
+        +text($ff-inter, $fw-regular, $fs-36, $c-black)
+        line-height: 80%
     &__info 
         margin-top: 70px
         position: relative
@@ -125,4 +128,4 @@ body
         font-size: $fs-38
 @media (max-width:720) 
     .main__btn
-        
+        +text($ff-inter, $fw-light, $fs-28, $c-black)
