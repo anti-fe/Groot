@@ -17,12 +17,15 @@ body
         position: absolute
         top: -70px
         right: 0
+.decor-line-orders
+    margin-top: 100px
 .main 
     margin-top: 143px
     +flex(space-between,flex-start,column)
     &__wrapper 
-        width: 200vw
+        width: 100%
         display: flex
+    
     &__header
         +flex(space-between,flex-end, row)
         margin-bottom: 50px
@@ -41,9 +44,12 @@ body
     &__info 
         margin-top: 70px
         position: relative
-    &__orders
-        +flex(center,center,column)
-    &__none-orders
+    &__orders 
+        +flex(center,center, column)
+    &__orders-header 
+        justify-content: flex-end
+        margin-top: 60px
+    &__orders-none
         +text($ff-inter, $fw-light, $fs-64, #E0E0E0)
         margin-bottom: 95px
         margin-top: 150px
@@ -52,7 +58,7 @@ body
         margin-bottom: 200px
         width: 300px
     &__cont 
-        width: calc(100vw - 7.5%)
+        width: 100%
     &__info-cont
         &:not(:last-child)
             margin-bottom: 45px
@@ -61,7 +67,6 @@ body
         padding: 15px 15px 15px 15px
         background-color: $c-input
         border: 1px solid #DADADA
-        max-width: 386px
         height: 60px
         outline: none
         &::placeholder
@@ -91,28 +96,13 @@ body
             z-index: -1
         &:hover::before 
             height: 100%
-    &__dots
-        width: 70px
-        height: 25px
-        display: flex
-        justify-content: center
-        align-items: center
-        margin: 0 auto
-    &__dote-item
-        border-radius: 50%
-        background-color: #E0E0E0
-        width: 25px
-        height: 25px
-        &:not(:last-child)
-            margin-right: 20px
-    &__active-dote
-        background-color: $c-black
 .info-cont
     &__title
         +text($ff-inter, $fw-bold, $fs-28, $c-black)
         margin-bottom: 20px
     &__text
         +text($ff-inter, $fw-light, $fs-28, $c-black)
+
 
 @media (max-width: 1180px) 
     .decor-line__photo
@@ -123,9 +113,43 @@ body
 @media (max-width: 900px) 
     .decor-line__photo
         display: none
-@media (max-width: 775px) 
-    .main__none-orders
-        font-size: $fs-38
-@media (max-width:720) 
+@media (max-width: 850px) 
+    .main__title
+        font-size: $fs-36
+    .main__section-title
+        font-size: $fs-26
+@media (max-width: 642px)
     .main__btn
-        +text($ff-inter, $fw-light, $fs-28, $c-black)
+        max-width: 170px
+        font-size: $fs-16
+@media (max-width: 620px)
+    .main__header
+        +flex(center, flex-start, column)
+    .main__title
+        margin-bottom: 20px
+    .main__section-title
+        margin-bottom: 25px
+    .main__header
+        margin-bottom: 0
+    .main__info-cont:not(:last-child)
+        margin-bottom: 30px
+    .info-cont__title
+        margin-bottom: 5px
+    .main__info
+        margin-top: 45px
+    .info-cont__title
+        font-size: $fs-18
+    .info-cont__text
+        font-size: $fs-18
+    .main__orders-none
+        font-size: $fs-36
+@media (max-width: 480px)
+    .main__email-input
+        margin-bottom: 5px
+        width: 100%
+    .main__email-btn
+        min-width: 100%
+    .main
+        margin-top: 110px
+
+
