@@ -305,7 +305,7 @@ body {
     font-size: 36px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 490px) {
   .main__email-input {
     margin-bottom: 5px;
     width: 100%;
