@@ -37,6 +37,9 @@ if (localStorage.getItem('loggedUser')) {
 function locateToAccount() {
     window.location.href = './src/pages/user-profile.html';
 }
+function locateToAdminAccount() {
+    window.location.href = './src/pages/admin-profile.html';
+}
 
 authBtn.addEventListener('click', getAuthForm);
 regBtn.addEventListener('click', getRegForm);
@@ -60,7 +63,33 @@ function getAuthForm(e) {
 
 
     usersArray.forEach(user => {
-        if ((user['phone'] == formDataAuth.phone) && (user['password'] == formDataAuth.password)) {
+        if(('admin' == formDataAuth.phone) && ('admin' == formDataAuth.password)) {
+            authInps.forEach(input => {
+                input.classList.remove('modal-window__error');
+                input.value = '';
+            })
+            modalWindow.style.transform = 'translateY(-1080px)';
+            headerNav.style.display = 'block';
+            page.style.overflowY = 'visible';
+
+            //Появление кнопки выхода из аккаунта
+            logOutBtns.forEach(btn => {
+                btn.style.display = 'block';
+            })
+
+            profileBtns.forEach(btn => {
+                btn.removeEventListener('click', openModalWindow);
+                //Перенаправление на страницу Личный кабинет
+                btn.addEventListener('click', locateToAdminAccount);
+            })
+
+            successLogin.style.display = 'flex';
+            successLogin.style.transform = "translate(0px)";
+            setTimeout(() => {
+                successLogin.style.transform = "translate(-350px)";
+                successLogin.style.display = 'none';
+            }, 2000)
+        } else if ((user['phone'] == formDataAuth.phone) && (user['password'] == formDataAuth.password)) {
             //Если пользователь вошел в аккаунт
             //Помещаем данные вошедшего пользователя в переменную
             let numberUser = 0;
@@ -97,6 +126,7 @@ function getAuthForm(e) {
                 successLogin.style.display = 'none';
             }, 2000)
         }
+        
     })
 }
 //Получение данных из формы Регистрации
