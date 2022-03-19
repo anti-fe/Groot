@@ -96,7 +96,7 @@ ul
         +text($ff-inter, $fw-regular, $fs-22, $c-black)
         margin-bottom: 25px
     &__section-link
-        +text($ff-inter, $fw-light, $fs-18, $c-black)
+        +text($ff-inter, $fw-light, $fs-18, gray)
         width: 100%
     &__section-link:hover
         text-decoration: underline
@@ -139,6 +139,11 @@ ul
         margin-bottom: 25px
     .footer__arrow
         +flex(center,center,row)
+@media (max-width: 805px)    
+    .footer__section-title
+        font-size: $fs-18
+    .footer__section-link
+        font-size: $fs-16
 @media (max-width: 510px) 
     .footer__end
         flex-direction: column

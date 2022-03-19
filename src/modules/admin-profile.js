@@ -47,121 +47,59 @@ function createCollectionItem(items) {
     const collectionItemCont = document.createElement('div');
     collectionItemCont.classList.add('main__collection-item-list');
     items.forEach(elem=>{
-        const e = document.createElement('div');
-        e.classList.add('main__collection-item');
-        e.innerHTML = `   <p class="main__item-title">${elem['nameItem']}</p>
+        const collectionItem = document.createElement('div');
+        collectionItem.classList.add('main__collection-item');
+        collectionItem.innerHTML = `
+        <p class="main__item-title">${elem['nameItem']}</p>
         <span class="main__item-price">${elem['priceItem']} ₽</span>
         <div class="main__delete-btn main__delete-btn-item">
             <div class="main__delete-btn-line"></div>
             <div class="main__delete-btn-line"></div>
         </div>`
-        collectionItemCont.append(e);
 
+        collectionItemCont.append(collectionItem);
     })
-
-    
-    collectionListCont.appendChild(collectionItemCont);
+    const mainCollections = document.querySelectorAll('.main__collection');
+    mainCollections[mainCollections.length-1].appendChild(collectionItemCont);
 }
 
 function createCollectionCont(item) {
     const collectionCont = document.createElement('div');
-    collectionCont.classList.add('main__collection-info');
+    collectionCont.classList.add('main__collection');
     collectionCont.innerHTML = 
-    `
-             <h4 class="main__collection-name">${item['nameCollection']}</h4>
-             <div class="main__collection-btns">
-                 <div class="main__delete-btn">
-                     <div class="main__delete-btn-line"></div>
-                     <div class="main__delete-btn-line"></div>
-                 </div>
-                 <div class="arrow">
-                     <div class="arrow__line"></div>
-                     <div class="arrow__line"></div>
-                 </div>
-             </div>
-         `
+    `   <div class="main__collection-info">
+            <h4 class="main__collection-name">${item['nameCollection']}</h4>
+            <div class="main__collection-btns">
+                <div class="main__delete-btn">
+                    <div class="main__delete-btn-line"></div>
+                    <div class="main__delete-btn-line"></div>
+                </div>
+                <div class="arrow">
+                    <div class="arrow__line"></div>
+                    <div class="arrow__line"></div>
+                </div>
+            </div>
+        </div>
+     `
     
     collectionListCont.appendChild(collectionCont);
 }
 
-
 collectionList.forEach(item=>{
     createCollectionCont(item);
-        createCollectionItem(item['collectionItems']);
- 
+    createCollectionItem(item['collectionItems']);
 })
 
-
-// function createCollection() {
-//     let collectionCont;
-//     collectionList.forEach(item=>{
-//         createAllCollection()
-        
-//     })
-//     return collectionCont;
-// }    
-// function createAllCollection(){
-//     collectionCont = 
-//         `<div class="main__collection">
-//             ${createCollectionInside()}
-//             ${createCollectionItem()}
-//         </div>
-//         `
-// }
-// function createCollectionInside() {
-//     let collectionInside;
-//     collectionList.forEach(item=> {
-//         collectionInside = 
-//         `<div class="main__collection-info">
-//             <h4 class="main__collection-name">${item['nameCollection']}</h4>
-//             <div class="main__collection-btns">
-//                 <div class="main__delete-btn">
-//                     <div class="main__delete-btn-line"></div>
-//                     <div class="main__delete-btn-line"></div>
-//                 </div>
-//                 <div class="arrow">
-//                     <div class="arrow__line"></div>
-//                     <div class="arrow__line"></div>
-//                 </div>
-//             </div>
-//         </div>`
-//     })
-    
-//     return collectionInside;
-// }    
-// function createCollectionItem() {
-//     let collectionItem;
-//     collectionList.forEach(item=>{
-//         item['collectionItems'].forEach(item=>{
-//             collectionItem = 
-//             `<div class="main__collection-item-list">
-//                 <div class="main__collection-item">
-//                     <p class="main__item-title">${item['nameItem']}</p>
-//                     <span class="main__item-price">${item['priceItem']} ₽</span>
-//                     <div class="main__delete-btn main__delete-btn-item">
-//                         <div class="main__delete-btn-line"></div>
-//                         <div class="main__delete-btn-line"></div>
-//                     </div>
-//                 </div>
-//             </div>`
-//         })
-//     })
-//     return collectionItem;
-    
-// }
-
-
-// let res = createCollection();
-// deleteItemsCont[0].innerHTML = res;
-
-const collectionName = document.querySelectorAll('.main__collection-name');
-collectionName.forEach(item=>{
-    item.addEventListener('click', ()=>{
-        let parent = item.parentElement.parentElement;
-        let itemList = parent.querySelector('.main__collection-item-list');
-        let arrow = parent.querySelector('.main__collection-btns').querySelector('.arrow');
-        itemList.classList.toggle('main__collection-item-list_active');
-        arrow.classList.toggle('active-arrow');
+const collectionInfo = document.querySelectorAll('.main__collection-info');
+collectionInfo.forEach(item=>{
+    item.addEventListener('click', (e)=>{
+        if(e.target.className !== 'main__delete-btn' && e.target.className !== 'main__delete-btn-line') {
+            let parent = item.parentElement;
+            let itemList = parent.querySelector('.main__collection-item-list');
+            let arrow = parent.querySelector('.main__collection-btns').querySelector('.arrow');
+            itemList.classList.toggle('main__collection-item-list_active');
+            arrow.classList.toggle('active-arrow');
+        }
     })
 })
 

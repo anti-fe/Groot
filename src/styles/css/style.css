@@ -1210,7 +1210,7 @@ ul {
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 18px;
-  color: #262626;
+  color: gray;
   width: 100%;
 }
 .footer__section-link:hover {
@@ -1329,6 +1329,15 @@ ul {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+}
+@media (max-width: 805px) {
+  .footer__section-title {
+    font-size: 18px;
+  }
+
+  .footer__section-link {
+    font-size: 16px;
   }
 }
 @media (max-width: 510px) {

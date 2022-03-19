@@ -129,6 +129,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
+  cursor: pointer;
   margin-bottom: 10px;
 }
 .main__collection-name {
@@ -238,9 +239,41 @@
 .main__delete-btn-item {
   margin-right: 0;
 }
+.main__item-title {
+  width: 230px;
+}
 .main__item-title, .main__item-price {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: #262626;
+}
+
+@media (max-width: 1145px) {
+  .main__section-title {
+    font-size: 22px;
+  }
+}
+@media (max-width: 935px) {
+  .main__section-title {
+    font-size: 18px;
+  }
+}
+@media (max-width: 805px) {
+  .main__wrapper {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 100px;
+    -webkit-column-gap: 0;
+       -moz-column-gap: 0;
+            column-gap: 0;
+  }
+
+  .main__collection-item:not(:last-child) {
+    border-bottom: 1px solid #E0E0E0;
+  }
+
+  .main__item-title {
+    width: 125px;
+  }
 }

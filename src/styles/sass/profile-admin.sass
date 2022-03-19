@@ -55,6 +55,7 @@
     &__collection-info
         +flex(space-between,center,row)
         width: 100%
+        cursor: pointer
         margin-bottom: 10px
     &__collection-name
         +text($ff-inter, $fw-regular, $fs-22, $c-black)
@@ -95,7 +96,24 @@
         margin-bottom: 10px
     &__delete-btn-item
         margin-right: 0
+    &__item-title
+        width: 230px
     &__item-title, &__item-price
         +text($ff-inter, $fw-regular, $fs-18, $c-black)
 
-            
+@media (max-width: 1145px)
+    .main__section-title 
+        font-size: $fs-22
+    
+@media (max-width: 935px)
+    .main__section-title 
+        font-size: $fs-18
+@media (max-width: 805px)
+    .main__wrapper 
+        grid-template-columns: 1fr
+        row-gap: 100px
+        column-gap: 0
+    .main__collection-item:not(:last-child)
+        border-bottom: 1px solid #E0E0E0
+    .main__item-title 
+        width: 125px
