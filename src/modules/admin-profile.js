@@ -6,6 +6,10 @@ const footerSection = document.querySelectorAll('.footer__section');
 const mainCollection = document.querySelector('.main__collection');
 const collectionListCont = document.querySelector('.main__collection-list');
 
+const selectCollection = document.querySelector('.main__select-collection'),
+        optionElse = document.querySelector('#main__option-else'),
+        inpNewCollection = document.querySelector('.main__new-collection')
+
 //Добавляем класс active к иконке бургера и ему самому
 burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active-burger');
@@ -101,6 +105,31 @@ collectionInfo.forEach(item=>{
             arrow.classList.toggle('active-arrow');
         }
     })
+})
+
+//ADD COLLECTION AND ITEM
+
+
+createOptionsSelect()
+function createOptionsSelect(){
+    //create Collection Options Select
+    collectionList.forEach(item=>{
+        let option = document.createElement('option');
+        option.classList.add('main__option-collection', 'main__option');
+        option.setAttribute('value', `${item.nameCollection}`);
+        option.textContent = `${item.nameCollection}`;
+
+        selectCollection.insertBefore(option, optionElse);
+    })
+}
+
+selectCollection.addEventListener('change', ()=>{
+    //Если выбран "Новая" показывать инпут 
+    if(selectCollection.value == 'else') {
+        inpNewCollection.style.display = 'block';
+    } else {
+        inpNewCollection.style.display = 'none';
+    }
 })
 
 
