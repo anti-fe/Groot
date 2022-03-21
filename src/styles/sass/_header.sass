@@ -114,15 +114,17 @@
         height: 50px
     &__item::after, .header__burger-item::after
         content: ''
+        display: block
         position: absolute
         height: 2px
         width: 0
-        background-color: #ffffff83
+        background-color: #ffffff
         bottom: 0
-        left: 0
-        transition: width .2s ease
+        right: 0
+        transition: width .3s 
     &__item:hover::after, .header__burger-item:hover::after
         width: 100%
+        left: 0
     &__item:not(:last-child) 
         margin-right: 100px
     &__link, .header__burger-link

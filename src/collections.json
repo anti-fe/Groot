@@ -1,5 +1,4 @@
-//collections[0]["collectionItems"][0]["nameItem"]  
-const collections = [ 
+ [ 
     {
         "idCollection": 1,
         "nameCollection": "Arden",
@@ -243,7 +242,7 @@ const collections = [
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 48100,
                 "typeItem": "table"
-            },
+            }
         ]
     },
     {
@@ -489,9 +488,7 @@ const collections = [
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 48100,
                 "typeItem": "table"
-            },
+            }
         ]
     }
 ]
-
-localStorage.setItem('collections', JSON.stringify(collections));

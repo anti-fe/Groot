@@ -251,17 +251,19 @@
 }
 .nav__item::after, .nav .header__burger-item::after {
   content: "";
+  display: block;
   position: absolute;
   height: 2px;
   width: 0;
-  background-color: #ffffff83;
+  background-color: #ffffff;
   bottom: 0;
-  left: 0;
-  -webkit-transition: width 0.2s ease;
-  transition: width 0.2s ease;
+  right: 0;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 .nav__item:hover::after, .nav .header__burger-item:hover::after {
   width: 100%;
+  left: 0;
 }
 .nav__item:not(:last-child) {
   margin-right: 100px;

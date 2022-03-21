@@ -14,24 +14,46 @@ const phoneRegEx = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,11}(\s*)?$/;
 //в нижнем и верхнем регистре, не менее 6 символов.
 const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/
 
+let admin = {
+    "fio": "admin",
+    "phone": "admin",
+    "password": "admin"
+}
+
 let usersData = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+if(!usersData[0]) {
+    usersData.push(admin);
+}
+
+localStorage.setItem('users', JSON.stringify(usersData));
+
 let formDataAuth;
 let formDataReg;
+
 let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+
+usersData.push(admin);
 
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
 //Он все также будет авторизован
 if (localStorage.getItem('loggedUser')) {
+    if (JSON.parse(localStorage.getItem('loggedUser'))['fio'] === "admin"){
+        profileBtns.forEach(btn => {
+            btn.removeEventListener('click', openModalWindow);
+            //Перенаправление на страницу Личный кабинет
+            btn.addEventListener('click', locateToAdminAccount);
+        })
+    } else {
+        profileBtns.forEach(btn => {
+            btn.removeEventListener('click', openModalWindow);
+            //Перенаправление на страницу Личный кабинет
+            btn.addEventListener('click', locateToAccount);
+        })
+    }
     //Появление кнопки выхода из аккаунта
     logOutBtns.forEach(btn => {
         btn.style.display = 'block';
     })
-    profileBtns.forEach(btn => {
-        btn.removeEventListener('click', openModalWindow);
-        //Перенаправление на страницу Личный кабинет
-        btn.addEventListener('click', locateToAccount);
-    })
-
 }
 
 function locateToAccount() {
@@ -63,7 +85,9 @@ function getAuthForm(e) {
 
 
     usersArray.forEach(user => {
-        if(('admin' == formDataAuth.phone) && ('admin' == formDataAuth.password)) {
+        if(('admin' == formDataAuth.phone) && ('admin' == formDataAuth.password)) { 
+            localStorage.setItem('loggedUser', JSON.stringify(admin));  
+
             authInps.forEach(input => {
                 input.classList.remove('modal-window__error');
                 input.value = '';

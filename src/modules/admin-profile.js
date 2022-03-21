@@ -29,6 +29,7 @@ logOutBtn.forEach(item=>{
 
 localStorage.setItem('loggedUser', JSON.stringify([{
     "fio": "admin",
+    "phone": "admin",
     "password": "admin"
 }]))
 
@@ -55,7 +56,7 @@ function createCollectionItem(items) {
         collectionItem.classList.add('main__collection-item');
         collectionItem.innerHTML = `
         <p class="main__item-title">${elem['nameItem']}</p>
-        <span class="main__item-price">${elem['priceItem']} ₽</span>
+        <span class="main__item-price">${elem['articleItem']}</span>
         <div class="main__delete-btn main__delete-btn-item">
             <div class="main__delete-btn-line"></div>
             <div class="main__delete-btn-line"></div>
