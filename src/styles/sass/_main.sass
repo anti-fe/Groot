@@ -27,6 +27,14 @@
     &__img 
         height: 100%
         width: 100%
+        overflow: hidden
+        position: relative    
+    &__img-item
+        height: 100%
+        width: 100%
+        transition: transform .4s ease
+        &:hover
+            transform: scale(1.1)
     &__img:nth-child(1) 
         grid-area: a
     &__img:nth-child(2) 

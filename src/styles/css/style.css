@@ -431,6 +431,20 @@
 .main__img {
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.main__img-item {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+.main__img-item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .main__img:nth-child(1) {
   -ms-grid-row: 1;
