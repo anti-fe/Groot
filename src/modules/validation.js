@@ -12,7 +12,7 @@ const fioRegEx = /^([А-ЯA-Z]{2,})+\s+([А-ЯA-Z\s]{2,})+$/i;
 const phoneRegEx = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,11}(\s*)?$/;
 //Пароль хотя-бы с 1 цифрой, 1 спецсимволом, 1 латинскую букву 
 //в нижнем и верхнем регистре, не менее 6 символов.
-const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/
+const passwordRegEx = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/;
 
 let admin = {
     "fio": "admin",
@@ -37,7 +37,7 @@ usersData.push(admin);
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
 //Он все также будет авторизован
 if (localStorage.getItem('loggedUser')) {
-    if (JSON.parse(localStorage.getItem('loggedUser'))['fio'] === "admin"){
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin"){
         profileBtns.forEach(btn => {
             btn.removeEventListener('click', openModalWindow);
             //Перенаправление на страницу Личный кабинет
@@ -57,10 +57,18 @@ if (localStorage.getItem('loggedUser')) {
 }
 
 function locateToAccount() {
-    window.location.href = './src/pages/user-profile.html';
+    if(!document.querySelector('.page-name')) {
+        window.location.href = './src/pages/user-profile.html';
+    } else if(document.querySelector('.page-name')) {
+        window.location.href = '../pages/user-profile.html';
+    }
 }
 function locateToAdminAccount() {
-    window.location.href = './src/pages/admin-profile.html';
+    if(!document.querySelector('.page-name')){
+        window.location.href = './src/pages/admin-profile.html';
+    } else if(document.querySelector('.page-name')) {
+        window.location.href = '../pages/admin-profile.html';
+    }
 }
 
 authBtn.addEventListener('click', getAuthForm);

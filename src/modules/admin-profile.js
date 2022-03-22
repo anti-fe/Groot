@@ -2,7 +2,6 @@ const burgerMenu = document.querySelector('.nav__burger'),
         modalBurger = document.querySelector('.header__burger-menu'),
         burgerProfileBtn = document.querySelector('.header__burger-profile'),
         logOutBtn = document.querySelectorAll('.log-out-btn'); 
-const footerSection = document.querySelectorAll('.footer__section');
 const mainCollection = document.querySelector('.main__collection');
 const collectionListCont = document.querySelector('.main__collection-list');
 
@@ -32,17 +31,6 @@ localStorage.setItem('loggedUser', JSON.stringify([{
     "phone": "admin",
     "password": "admin"
 }]))
-
-footerSection.forEach(item=>{
-    item.addEventListener('click', ()=>{
-        let itemList = item.querySelector('.footer__section-list');
-        let itemArrow = item.querySelector('.footer__section-head').querySelector('.footer__arrow');
-
-        itemList.classList.toggle('footer__active-list');
-        itemArrow.classList.toggle('footer__active-arrow');
-    })
-})
-
 
 
 const collectionList = JSON.parse(localStorage.getItem('collections'));
