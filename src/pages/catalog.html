@@ -7,6 +7,7 @@
     <title>Groot - Каталог</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/css/style.css">
+    <link rel="stylesheet" href="../styles/css/catalog.css">
 </head>
 <body>
     <input type="hidden" name="catalog" class="page-name">
@@ -174,7 +175,56 @@
             </div>
         </nav>
     </header>
+    <main class="main cont">
+        <div class="main__header">
+            <h1 class="main__title">Каталог</h1>
+        </div>
+        <div class="main__wrapper">
+            <aside class="main__filter">
+                <div class="main__filter-section">
+                    <h3 class="main__filter-name">Фильтр</h3>
+                    <div class="main__filter-items">
+                        <div class="main__filter-option">
+                            <div class="main__filter-radio">
+                                <input class="main__filter-radio-btn" data-filter='ascending' type="radio" name="filter" id="filter-up">
+                                <div class="main__filter-cust-radio"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-up">По возрастанию</label>
+                        </div>
+                        <div class="main__filter-option">
+                            <div class="main__filter-radio">
+                                <input class="main__filter-radio-btn" data-filter='descending' type="radio" name="filter" id="filter-down">
+                                <div class="main__filter-cust-radio"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-down">По убыванию</label>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="main__filter-section">
+                    <h3 class="main__filter-name">Коллекции</h3>
+                    <div class="main__filter-items" id="filter-collection-items">                
+                    </div>
+                </div>
+            </aside>
+            <div class="main__body">
+                <div class="main__search">
+                    <input type="text" class="main__search-input" placeholder="Введите название интересующей вас мебели">
+                    <div class="main__search-btn-cont">
+                        <button class="main__search-btn main__btn">Найти</button>
+                        <svg class="main__search-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.5 30.5L19.5802 19.5802" stroke="white" stroke-width="3"/>
+                            <circle r="10.5494" transform="matrix(-1 0 0 1 12.0492 12.0494)" stroke="white" stroke-width="3"/>
+                        </svg>    
+                    </div>
+                </div>
+                <svg class="main__filter-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 21H5V19H2V17H5V15H7V21ZM22 19H9V17H22V19ZM17 15H15V13H2V11H15V9.012H17V15ZM22 13H19V11H22V13ZM11 9H9V7H2V5H9V3H11V9ZM22 7H13V5H22V7Z" fill="#2E3A59"/>
+                </svg>
+                <div class="main__cards-list"></div>
+            </div>
+        </div>
+    </main>
     <footer class="footer">
         <div class="footer__content cont">
             <div class="footer__main">
