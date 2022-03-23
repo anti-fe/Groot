@@ -7,6 +7,7 @@ const mainWrapper = document.querySelector('.main__wrapper'),
         mainCont = document.querySelectorAll('.main__cont');
 const footerSection = document.querySelectorAll('.footer__section');
 const userInfoConts = document.querySelectorAll('.info-cont__text');
+const ordersBtn = document.querySelector('.main__orders-btn');
 
 //Добавляем класс active к иконке бургера и ему самому
 burgerMenu.addEventListener('click', () => {
@@ -39,3 +40,7 @@ footerSection.forEach(item=>{
 userInfoConts[0].textContent = JSON.parse(localStorage.getItem('loggedUser'))['fio'];
 userInfoConts[1].textContent = JSON.parse(localStorage.getItem('loggedUser'))['phone'];
 userInfoConts[2].textContent = JSON.parse(localStorage.getItem('loggedUser'))['password'];
+
+ordersBtn.addEventListener('click', ()=>{
+    window.location.href = "../pages/catalog.html";
+})

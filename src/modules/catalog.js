@@ -3,7 +3,12 @@ const burgerMenu = document.querySelector('.nav__burger'),
         modalBurger = document.querySelector('.header__burger-menu'),
         burgerProfileBtn = document.querySelector('.header__burger-profile'),
         logOutBtn = document.querySelectorAll('.log-out-btn'); 
-const filterCollectionItems = document.querySelector('#filter-collection-items');
+const filterCollectionItems = document.querySelector('#filter-collection-items'),
+        filterTypeItems = document.querySelector('#filter-type-items');
+const rangeInput = document.querySelector('.main__filter-range'),
+        rangeValue = document.querySelector('.main__filter-res-price'),
+        rangePrices = document.querySelectorAll('.main__filter-range-price');
+const cardsList = document.querySelector('.main__cards-list');
 
         
 footerSection.forEach(item=>{
@@ -33,9 +38,9 @@ logOutBtn.forEach(item=>{
 })
 
 
+//Collection checkbox value
 const collectionList = JSON.parse(localStorage.getItem('collections'));
-console.log(collectionList[0]['nameCollection']);
-function setCheckbox() {
+function setCollectionCheckbox() {
     collectionList.forEach(item=>{
         const filterOption = document.createElement('div');
         filterOption.classList.add('main__filter-option');
@@ -54,4 +59,48 @@ function setCheckbox() {
         filterCollectionItems.appendChild(filterOption);
     })
 }
-setCheckbox();
+setCollectionCheckbox();
+
+//Range input
+rangeInput.addEventListener('input', ()=>{
+    if(rangeInput.value.length === 5) {
+        let rangeInputVal1 =  rangeInput.value.slice(0, 2);
+        let rangeInputVal2 =  rangeInput.value.slice(2);
+        rangeValue.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
+    } else {
+        let rangeInputVal1 =  rangeInput.value.slice(0, 3);
+        let rangeInputVal2 =  rangeInput.value.slice(3);
+        rangeValue.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
+    }
+})
+
+//Open filter on mobile
+cardsList.addEventListener('click', ()=>{
+
+})
+
+//Create card
+function createCard() {
+    collectionList.forEach(item=>{
+        item['collectionItems'].forEach(elem=>{
+            const cardCont = document.createElement('div');
+            cardCont.classList.add('main__card', 'card');
+            cardCont.setAttribute('data-collection-id', item['idCollection']);
+            cardCont.setAttribute('data-item-id', elem['idItem']);
+
+            const card = `
+            <div class="card__img-block">
+                <img class="card__img" src="${elem['photoItem']}" alt="product-img">
+            </div>
+            <h3 class="card__name">${elem['nameItem']}</h3>
+            <div class="card__main">
+                <span class="card__price">${elem['priceItem']} ₽</span>
+                <button class="card__btn main__btn">В корзину</button>
+            </div>
+            `
+            cardCont.innerHTML = card;
+            cardsList.appendChild(cardCont);
+        })
+    })
+}
+createCard();

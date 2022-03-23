@@ -200,13 +200,64 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="main__filter-section">
                     <h3 class="main__filter-name">Коллекции</h3>
                     <div class="main__filter-items" id="filter-collection-items">                
                     </div>
                 </div>
+                <div class="main__filter-section">
+                    <h3 class="main__filter-name">Тип</h3>
+                    <div class="main__filter-items" id="filter-type-items">    
+
+                        <div class="main__filter-option">
+                            <div class="main__filter-checkbox">
+                                <input class="main__filter-checkbox-btn" data-filter='armchair' type="checkbox" name="filter-type" id="filter-armchair">
+                                <div class="main__filter-cust-checkbox"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-armchair">Кресло</label>
+                        </div>   
+                        <div class="main__filter-option">
+                            <div class="main__filter-checkbox">
+                                <input class="main__filter-checkbox-btn" data-filter='chair' type="checkbox" name="filter-type" id="filter-chair">
+                                <div class="main__filter-cust-checkbox"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-chair">Стул</label>
+                        </div>   
+                        <div class="main__filter-option">
+                            <div class="main__filter-checkbox">
+                                <input class="main__filter-checkbox-btn" data-filter='sofa' type="checkbox" name="filter-type" id="filter-sofa">
+                                <div class="main__filter-cust-checkbox"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-sofa">Диван</label>
+                        </div>   
+                        <div class="main__filter-option">
+                            <div class="main__filter-checkbox">
+                                <input class="main__filter-checkbox-btn" data-filter='table' type="checkbox" name="filter-type" id="filter-table">
+                                <div class="main__filter-cust-checkbox"></div>
+                            </div>
+                            <label class="main__filter-label" for="filter-table">Стол</label>
+                        </div>   
+
+                    </div>
+                </div>
+                <div class="main__filter-section">
+                    <div class="main__filter-section-header">
+                        <h3 class="main__filter-name">Цена</h3>
+                        <span class="main__filter-res-price">до 16.700 ₽</span>
+                    </div>
+                    <div class="main__filter-section-body">
+                        <input class="main__filter-range" type="range" name="filter-range" id="main__filter-range" min="12000" max="137000">
+                        <div class="main__filter-range-prices">
+                            <span class="main__filter-range-price">12.000 ₽</span>
+                            <span class="main__filter-range-price">137.000 ₽</span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <button class="main__filter-btn main__btn">Применить</button>
             </aside>
+
             <div class="main__body">
                 <div class="main__search">
                     <input type="text" class="main__search-input" placeholder="Введите название интересующей вас мебели">
@@ -221,7 +272,8 @@
                 <svg class="main__filter-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 21H5V19H2V17H5V15H7V21ZM22 19H9V17H22V19ZM17 15H15V13H2V11H15V9.012H17V15ZM22 13H19V11H22V13ZM11 9H9V7H2V5H9V3H11V9ZM22 7H13V5H22V7Z" fill="#2E3A59"/>
                 </svg>
-                <div class="main__cards-list"></div>
+                <div class="main__cards-list">
+                </div>
             </div>
         </div>
     </main>
