@@ -30,14 +30,14 @@ localStorage.setItem('users', JSON.stringify(usersData));
 let formDataAuth;
 let formDataReg;
 
-let loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+let loggedUser = [JSON.parse(localStorage.getItem('loggedUser'))];
 
 usersData.push(admin);
 
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
 //Он все также будет авторизован
 if (localStorage.getItem('loggedUser')) {
-    if (JSON.parse(localStorage.getItem('loggedUser'))['fio'] === "admin"){
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin"){
         profileBtns.forEach(btn => {
             btn.removeEventListener('click', openModalWindow);
             //Перенаправление на страницу Личный кабинет
