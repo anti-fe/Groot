@@ -7,181 +7,199 @@
                 "idItem": 1,
                 "articleItem": "m7mNOntT",
                 "nameItem": "Кресло",
-                "photoItem": "../images/collections/Arden/armchair/6.png",
+                "photoItem": "../images/collections/Arden/armchair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "78 x 97 x 107 см",
                 "priceItem": 43200,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 2,
                 "articleItem": "xsk3xDSt",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/1.png",
+                "photoItem": "../images/collections/Arden/armchair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 3,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/5.png",
+                "photoItem": "../images/collections/Arden/armchair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "124 x 90 x 80 см",
                 "priceItem": 67400,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 4,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/2.png",
+                "photoItem": "../images/collections/Arden/armchair/2.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 5,
                 "articleItem": "72cDUpta",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/3.png",
+                "photoItem": "../images/collections/Arden/armchair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 140 x 88 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 6,
                 "articleItem": "T31DYmI0",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/4.png",
+                "photoItem": "../images/collections/Arden/armchair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "84 x 98 x 88 см",
                 "priceItem": 41750,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 7,
                 "articleItem": "YJgBNRQN",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/2.png",
+                "photoItem": "../images/collections/Arden/sofa/2.webp",
                 "materialItem": "Флок",
                 "sizeItem": "164 x 98 x 90 см",
                 "priceItem": 88000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 8,
                 "articleItem": "reNQBN6Y",
                 "nameItem": "2-местный диван-кровать",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 93800,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 9,
                 "articleItem": "lKGSEVAy",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/4.webp",
                 "materialItem": "Флок",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 107400,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 10,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "2-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/1.png",
+                "photoItem": "../images/collections/Arden/sofa/1.webp",
                 "materialItem": "Флок",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 11,
                 "articleItem": "vZCphsQp",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 77000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 12,
                 "articleItem": "QEnCHfEt",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/6.webp",
                 "materialItem": "Флок",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 123750,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 13,
                 "articleItem": "e4OsmQg3",
                 "nameItem": "Обеденный стул",
-                "photoItem": "../images/collections/Arden/chair/6.png",
+                "photoItem": "../images/collections/Arden/chair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "53 x 62 x 90 см",
                 "priceItem": 17820,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 14,
                 "articleItem": "kMI6dVr6",
                 "nameItem": "Обеденный стул на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/1.png",
+                "photoItem": "../images/collections/Arden/chair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "49 x 62 x 90 см",
                 "priceItem": 13700,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 15,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Стул с подлокотниками на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/5.png",
+                "photoItem": "../images/collections/Arden/chair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 67400,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 16,
                 "articleItem": "KdGOh9CB",
                 "nameItem": "Стул с подлокотниками на деревянной опоре",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 19900,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 17,
                 "articleItem": "OW0egipI",
                 "nameItem": "Стул с подлокотниками на колесиках",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 21450,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 18,
                 "articleItem": "J04H4CuA",
                 "nameItem": "Обеденный стул на колесиках",
-                "photoItem": "../images/collections/Arden/chair/4.png",
+                "photoItem": "../images/collections/Arden/chair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 16200,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 19,
@@ -191,7 +209,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "45 x 45 x 50 см",
                 "priceItem": 7200,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 20,
@@ -201,7 +220,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "60 x 60 x 40 см",
                 "priceItem": 9900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 21,
@@ -211,7 +231,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "-",
                 "priceItem": 17900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 22,
@@ -221,7 +242,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "100 x 100 x 74 см",
                 "priceItem": 41400,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 23,
@@ -231,7 +253,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 52300,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             },
             {
                 "idItem": 24,
@@ -241,7 +264,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 48100,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Arden"
             }
         ]
     },
@@ -253,181 +277,199 @@
                 "idItem": 1,
                 "articleItem": "m7mNOntT",
                 "nameItem": "Кресло",
-                "photoItem": "../images/collections/Arden/armchair/6.png",
+                "photoItem": "../images/collections/Arden/armchair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "78 x 97 x 107 см",
                 "priceItem": 43200,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 2,
                 "articleItem": "xsk3xDSt",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/1.png",
+                "photoItem": "../images/collections/Arden/armchair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 3,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/5.png",
+                "photoItem": "../images/collections/Arden/armchair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "124 x 90 x 80 см",
                 "priceItem": 67400,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 4,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/2.png",
+                "photoItem": "../images/collections/Arden/armchair/2.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 5,
                 "articleItem": "72cDUpta",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/3.png",
+                "photoItem": "../images/collections/Arden/armchair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 140 x 88 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 6,
                 "articleItem": "T31DYmI0",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/4.png",
+                "photoItem": "../images/collections/Arden/armchair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "84 x 98 x 88 см",
                 "priceItem": 41750,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 7,
                 "articleItem": "YJgBNRQN",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/2.png",
+                "photoItem": "../images/collections/Arden/sofa/2.webp",
                 "materialItem": "Флок",
                 "sizeItem": "164 x 98 x 90 см",
                 "priceItem": 88000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 8,
                 "articleItem": "reNQBN6Y",
                 "nameItem": "2-местный диван-кровать",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 93800,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 9,
                 "articleItem": "lKGSEVAy",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/4.webp",
                 "materialItem": "Флок",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 107400,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 10,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "2-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/1.png",
+                "photoItem": "../images/collections/Arden/sofa/1.webp",
                 "materialItem": "Флок",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 11,
                 "articleItem": "vZCphsQp",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 77000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 12,
                 "articleItem": "QEnCHfEt",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/6.webp",
                 "materialItem": "Флок",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 123750,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 13,
                 "articleItem": "e4OsmQg3",
                 "nameItem": "Обеденный стул",
-                "photoItem": "../images/collections/Arden/chair/6.png",
+                "photoItem": "../images/collections/Arden/chair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "53 x 62 x 90 см",
                 "priceItem": 17820,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 14,
                 "articleItem": "kMI6dVr6",
                 "nameItem": "Обеденный стул на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/1.png",
+                "photoItem": "../images/collections/Arden/chair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "49 x 62 x 90 см",
                 "priceItem": 13700,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 15,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Стул с подлокотниками на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/5.png",
+                "photoItem": "../images/collections/Arden/chair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 67400,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 16,
                 "articleItem": "KdGOh9CB",
                 "nameItem": "Стул с подлокотниками на деревянной опоре",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 19900,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 17,
                 "articleItem": "OW0egipI",
                 "nameItem": "Стул с подлокотниками на колесиках",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 21450,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 18,
                 "articleItem": "J04H4CuA",
                 "nameItem": "Обеденный стул на колесиках",
-                "photoItem": "../images/collections/Arden/chair/4.png",
+                "photoItem": "../images/collections/Arden/chair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 16200,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 19,
@@ -437,7 +479,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "45 x 45 x 50 см",
                 "priceItem": 7200,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 20,
@@ -447,7 +490,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "60 x 60 x 40 см",
                 "priceItem": 9900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 21,
@@ -457,7 +501,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "-",
                 "priceItem": 17900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 22,
@@ -467,7 +512,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "100 x 100 x 74 см",
                 "priceItem": 41400,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 23,
@@ -477,7 +523,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 52300,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             },
             {
                 "idItem": 24,
@@ -487,7 +534,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 48100,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Tenebroso"
             }
         ]
     },
@@ -499,181 +547,199 @@
                 "idItem": 1,
                 "articleItem": "m7mNOntT",
                 "nameItem": "Кресло",
-                "photoItem": "../images/collections/Arden/armchair/6.png",
+                "photoItem": "../images/collections/Arden/armchair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "78 x 97 x 107 см",
                 "priceItem": 43200,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 2,
                 "articleItem": "xsk3xDSt",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/1.png",
+                "photoItem": "../images/collections/Arden/armchair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 3,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/5.png",
+                "photoItem": "../images/collections/Arden/armchair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "124 x 90 x 80 см",
                 "priceItem": 67400,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 4,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/2.png",
+                "photoItem": "../images/collections/Arden/armchair/2.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 5,
                 "articleItem": "72cDUpta",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/3.png",
+                "photoItem": "../images/collections/Arden/armchair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 140 x 88 см",
                 "priceItem": 72500,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 6,
                 "articleItem": "T31DYmI0",
                 "nameItem": "Кресло-кровать",
-                "photoItem": "../images/collections/Arden/armchair/4.png",
+                "photoItem": "../images/collections/Arden/armchair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "84 x 98 x 88 см",
                 "priceItem": 41750,
-                "typeItem": "armchair"
+                "typeItem": "armchair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 7,
                 "articleItem": "YJgBNRQN",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/2.png",
+                "photoItem": "../images/collections/Arden/sofa/2.webp",
                 "materialItem": "Флок",
                 "sizeItem": "164 x 98 x 90 см",
                 "priceItem": 88000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 8,
                 "articleItem": "reNQBN6Y",
                 "nameItem": "2-местный диван-кровать",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "144 x 98 x 90 см",
                 "priceItem": 93800,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 9,
                 "articleItem": "lKGSEVAy",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/4.webp",
                 "materialItem": "Флок",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 107400,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 10,
                 "articleItem": "Bn9dUlkB",
                 "nameItem": "2-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/1.png",
+                "photoItem": "../images/collections/Arden/sofa/1.webp",
                 "materialItem": "Флок",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 59900,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 11,
                 "articleItem": "vZCphsQp",
                 "nameItem": "3-местный диван",
-                "photoItem": "../images/collections/Arden/sofa/3.png",
+                "photoItem": "../images/collections/Arden/sofa/3.webp",
                 "materialItem": "Флок",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 77000,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 12,
                 "articleItem": "QEnCHfEt",
                 "nameItem": "Угловой диван",
-                "photoItem": "../images/collections/Arden/sofa/4.png",
+                "photoItem": "../images/collections/Arden/sofa/6.webp",
                 "materialItem": "Флок",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 123750,
-                "typeItem": "sofa"
+                "typeItem": "sofa",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 13,
                 "articleItem": "e4OsmQg3",
                 "nameItem": "Обеденный стул",
-                "photoItem": "../images/collections/Arden/chair/6.png",
+                "photoItem": "../images/collections/Arden/chair/6.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "53 x 62 x 90 см",
                 "priceItem": 17820,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 14,
                 "articleItem": "kMI6dVr6",
                 "nameItem": "Обеденный стул на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/1.png",
+                "photoItem": "../images/collections/Arden/chair/1.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "49 x 62 x 90 см",
                 "priceItem": 13700,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 15,
                 "articleItem": "TfEUUMeD",
                 "nameItem": "Стул с подлокотниками на металлической опоре",
-                "photoItem": "../images/collections/Arden/chair/5.png",
+                "photoItem": "../images/collections/Arden/chair/5.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "258 x 150 x 90 см",
                 "priceItem": 67400,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 16,
                 "articleItem": "KdGOh9CB",
                 "nameItem": "Стул с подлокотниками на деревянной опоре",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "104 x 112 x 88 см",
                 "priceItem": 19900,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 17,
                 "articleItem": "OW0egipI",
                 "nameItem": "Стул с подлокотниками на колесиках",
-                "photoItem": "../images/collections/Arden/chair/3.png",
+                "photoItem": "../images/collections/Arden/chair/3.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "220 x 98 x 90 см",
                 "priceItem": 21450,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 18,
                 "articleItem": "J04H4CuA",
                 "nameItem": "Обеденный стул на колесиках",
-                "photoItem": "../images/collections/Arden/chair/4.png",
+                "photoItem": "../images/collections/Arden/chair/4.webp",
                 "materialItem": "Ткань",
                 "sizeItem": "269 x 170 x 91 см",
                 "priceItem": 16200,
-                "typeItem": "chair"
+                "typeItem": "chair",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 19,
@@ -683,7 +749,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "45 x 45 x 50 см",
                 "priceItem": 7200,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 20,
@@ -693,7 +760,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "60 x 60 x 40 см",
                 "priceItem": 9900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 21,
@@ -703,7 +771,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "-",
                 "priceItem": 17900,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 22,
@@ -713,7 +782,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "100 x 100 x 74 см",
                 "priceItem": 41400,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 23,
@@ -723,7 +793,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 52300,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             },
             {
                 "idItem": 24,
@@ -733,7 +804,8 @@
                 "materialItem": "Шпонированный МДФ",
                 "sizeItem": "160 x 80 x 74 см",
                 "priceItem": 48100,
-                "typeItem": "table"
+                "typeItem": "table",
+                "nameCollection": "Le Rosa"
             }
         ]
     }

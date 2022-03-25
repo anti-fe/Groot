@@ -291,6 +291,9 @@
 .main__btn:hover::before {
   height: 100%;
 }
+.main__filter-btn {
+  display: none;
+}
 .main__search {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -481,6 +484,23 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+@media (max-width: 1140px) {
+  .main__search-input::-webkit-input-placeholder {
+    font-size: 16px;
+  }
+  .main__search-input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .main__search-input:-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .main__search-input::-ms-input-placeholder {
+    font-size: 16px;
+  }
+  .main__search-input::placeholder {
+    font-size: 16px;
+  }
+}
 @media (max-width: 990px) {
   .card__btn {
     width: 50%;
@@ -526,6 +546,7 @@
 }
 @media (max-width: 500px) {
   .card__name {
+    font-size: 18px;
     margin-bottom: 15px;
   }
 

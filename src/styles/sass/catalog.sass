@@ -157,6 +157,8 @@
             z-index: -1
         &:hover::before 
             height: 100%
+    &__filter-btn
+        display: none
     &__search
         +flex(flex-start,normal,row)
         margin-bottom: 60px
@@ -234,7 +236,9 @@
     .main__cards-list
         gap: 15px
         grid-template-columns: repeat(2, 1fr)
-
+@media (max-width: 1140px)
+    .main__search-input::placeholder 
+        font-size: $fs-16
 @media (max-width: 990px) 
     .card__btn
         width: 50%
@@ -258,9 +262,11 @@
         margin-bottom: 10px
 @media (max-width: 500px)
     .card__name
+        font-size: $fs-18
         margin-bottom: 15px
     .card__price
         font-size: $fs-16
+
 
 
 
