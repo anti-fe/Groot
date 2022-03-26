@@ -22,6 +22,34 @@ const searchInput = document.querySelector('.main__search-input'),
 let inputVal;
 
 
+//Переход на страницу с товаром 
+setTimeout(()=>{
+    const cardsListWithCards = document.querySelector('.main__cards-list');
+    cardsListWithCards.addEventListener('click', (e)=>{
+        if(e.target.classList.contains('card__btn')) {
+            const collectionName = e.target.parentElement.parentElement.dataset['collectionname'];
+            const itemName = e.target.parentElement.parentElement.dataset['itemname'];
+            const itemType = e.target.parentElement.parentElement.dataset['itemtype'];
+            const itemPrice = e.target.parentElement.parentElement.dataset['itemprice'];
+            const itemMaterial = e.target.parentElement.parentElement.dataset['itemmaterial'];
+            const itemSize = e.target.parentElement.parentElement.dataset['itemsize'];
+            const itemPhoto = e.target.parentElement.parentElement.dataset['itemimg'];
+            const product = 
+            {
+                "collectionName": collectionName,
+                "itemName": itemName,
+                "itemType": itemType,
+                "itemPrice": itemPrice,
+                "itemMaterial": itemMaterial,
+                "itemSize": itemSize,
+                "itemPhoto": itemPhoto
+            }
+            localStorage.setItem('product', JSON.stringify(product));
+            window.location.href = '../pages/product.html';
+        }
+    });
+});
+
 mainFilter.addEventListener('change', (e)=>{
     getFilter(e);
 });
@@ -171,9 +199,12 @@ function createCard() {
         item['collectionItems'].forEach(elem => {
             const cardCont = document.createElement('div');
             cardCont.classList.add('main__card', 'card', 'card_visible');
+            cardCont.setAttribute('data-itemName', elem['nameItem']);
             cardCont.setAttribute('data-collectionName', item['nameCollection']);
             cardCont.setAttribute('data-itemType', elem['typeItem']);
+            cardCont.setAttribute('data-itemMaterial', elem['materialItem']);
             cardCont.setAttribute('data-itemPrice', elem['priceItem']);
+            cardCont.setAttribute('data-itemSize', elem['sizeItem']);
             cardCont.setAttribute('data-itemImg', elem['photoItem']);
 
             const card = `
@@ -194,12 +225,15 @@ function createCard() {
 }
 createCard();
 
-function createOneCard(nameItem, nameCollection, typeItem, priceItem, itemImg) {
+function createOneCard(nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
     const cardCont = document.createElement('div');
     cardCont.classList.add('main__card', 'card', 'card_visible');
+    cardCont.setAttribute('data-itemName', nameItem);
     cardCont.setAttribute('data-collectionName', nameCollection);
     cardCont.setAttribute('data-itemType', typeItem);
+    cardCont.setAttribute('data-itemMaterial', materialItem);
     cardCont.setAttribute('data-itemPrice', priceItem);
+    cardCont.setAttribute('data-itemSize', sizeItem);
     cardCont.setAttribute('data-itemImg', itemImg);
 
     const card = `
@@ -243,30 +277,26 @@ function getFilter(e) {
         let sortedItemPrice = allItemsCollection.filter(item=>{
             if(checkedTypeName.length === 0 && checkedCollectionName.length > 0) {
                 if(item['priceItem'] <= +inputVal && checkedCollectionName.includes(item['nameCollection'])) {
-                    console.log(item);
                     return item;
                 }
             } else if(checkedTypeName.length > 0 && checkedCollectionName.length === 0) {
                 if(item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem'])) {
-                    console.log(item);
                     return item;
                 }
             } else if(checkedTypeName.length > 0 && checkedCollectionName.length > 0) {
                 console.log(item['nameCollection'],item['typeItem']);
                 if(item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem']) && checkedCollectionName.includes(item['nameCollection'])) {
-                    console.log(item);
                     return item;
                 }
             } else {
                 if(item['priceItem'] <= +inputVal) {
-                    console.log(item);
                     return item;
                 }
             }
         });
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item=>{
-            createOneCard(item['nameItem'],item['nameCollection'],item['typeItem'],item['priceItem'],item['photoItem']);
+            createOneCard(item['idItem'],item['nameItem'],item['nameCollection'],item['typeItem'],item['priceItem'], item['materialItem'], item['sizeItem'],item['photoItem']);
         })
     }
     function filterType() {

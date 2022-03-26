@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +7,10 @@
     <title>Groot - Каталог</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/css/style.css">
-    <link rel="stylesheet" href="../styles/css/catalog.css">
+    <link rel="stylesheet" href="../styles/css/product.css">
 </head>
 <body>
-    <input type="hidden" name="catalog" class="page-name">
+    <input type="hidden" name="product" class="page-name">
     <header class="header">
         <div class="success-login">
             <p class="success-login__text">Вы успешно вошли в аккаунт!</p>
@@ -175,113 +175,10 @@
             </div>
         </nav>
     </header>
+
     <main class="main cont">
-        <div class="main__header">
-            <h1 class="main__title">Каталог</h1>
-        </div>
-        <div class="main__wrapper">
-            <aside class="main__filter">
-                <div class="main__filter-section">
-                    <h3 class="main__filter-name">Фильтр</h3>
-                    <div class="main__filter-items">
-                        <div class="main__filter-option">
-                            <div class="main__filter-radio">
-                                <input class="main__filter-radio-btn" checked data-filter='default' type="radio" name="filter" id="filter-default">
-                                <div class="main__filter-cust-radio"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-default">По обычному</label>
-                        </div>
-                        <div class="main__filter-option">
-                            <div class="main__filter-radio">
-                                <input class="main__filter-radio-btn" data-filter='ascending' type="radio" name="filter" id="filter-up">
-                                <div class="main__filter-cust-radio"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-up">По возрастанию</label>
-                        </div>
-                        <div class="main__filter-option">
-                            <div class="main__filter-radio">
-                                <input class="main__filter-radio-btn" data-filter='descending' type="radio" name="filter" id="filter-down">
-                                <div class="main__filter-cust-radio"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-down">По убыванию</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="main__filter-section">
-                    <h3 class="main__filter-name">Коллекции</h3>
-                    <div class="main__filter-items" id="filter-collection-items">                
-                    </div>
-                </div>
-                <div class="main__filter-section">
-                    <h3 class="main__filter-name">Тип</h3>
-                    <div class="main__filter-items" id="filter-type-items">    
-
-                        <div class="main__filter-option">
-                            <div class="main__filter-checkbox">
-                                <input class="main__filter-checkbox-btn" data-filter='armchair' type="checkbox" name="filter-type" id="filter-armchair">
-                                <div class="main__filter-cust-checkbox"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-armchair">Кресло</label>
-                        </div>   
-                        <div class="main__filter-option">
-                            <div class="main__filter-checkbox">
-                                <input class="main__filter-checkbox-btn" data-filter='chair' type="checkbox" name="filter-type" id="filter-chair">
-                                <div class="main__filter-cust-checkbox"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-chair">Стул</label>
-                        </div>   
-                        <div class="main__filter-option">
-                            <div class="main__filter-checkbox">
-                                <input class="main__filter-checkbox-btn" data-filter='sofa' type="checkbox" name="filter-type" id="filter-sofa">
-                                <div class="main__filter-cust-checkbox"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-sofa">Диван</label>
-                        </div>   
-                        <div class="main__filter-option">
-                            <div class="main__filter-checkbox">
-                                <input class="main__filter-checkbox-btn" data-filter='table' type="checkbox" name="filter-type" id="filter-table">
-                                <div class="main__filter-cust-checkbox"></div>
-                            </div>
-                            <label class="main__filter-label" for="filter-table">Стол</label>
-                        </div>   
-
-                    </div>
-                </div>
-                <div class="main__filter-section">
-                    <div class="main__filter-section-header">
-                        <h3 class="main__filter-name">Цена</h3>
-                        <span class="main__filter-res-price"></span>
-                    </div>
-                    <div class="main__filter-section-body">
-                        <input class="main__filter-range" data-filter="price" type="range" name="filter-range" id="main__filter-range" min="12000" max="137000">
-                        <div class="main__filter-range-prices">
-                            <span class="main__filter-range-price">12.000 ₽</span>
-                            <span class="main__filter-range-price">137.000 ₽</span>
-                        </div>
-                    </div>
-                </div>
-                <button class="main__filter-btn main__btn">Применить</button>
-            </aside>
-
-            <div class="main__body">
-                <div class="main__search">
-                    <input type="text" class="main__search-input" placeholder="Введите название интересующей вас мебели">
-                    <div class="main__search-btn-cont">
-                        <button class="main__search-btn main__btn">Найти</button>
-                        <svg class="main__search-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M30.5 30.5L19.5802 19.5802" stroke="white" stroke-width="3"/>
-                            <circle r="10.5494" transform="matrix(-1 0 0 1 12.0492 12.0494)" stroke="white" stroke-width="3"/>
-                        </svg>    
-                    </div>
-                </div>
-                <svg class="main__filter-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 21H5V19H2V17H5V15H7V21ZM22 19H9V17H22V19ZM17 15H15V13H2V11H15V9.012H17V15ZM22 13H19V11H22V13ZM11 9H9V7H2V5H9V3H11V9ZM22 7H13V5H22V7Z" fill="#2E3A59"/>
-                </svg>
-                <div class="main__cards-list">
-                </div>
-            </div>
-        </div>
     </main>
+    
     <footer class="footer">
         <div class="footer__content cont">
             <div class="footer__main">
@@ -413,8 +310,7 @@
         </div>
     </footer>
 
-    <script src="../modules/catalog.js"></script>
-    <script src="../modules/setCollection.js"></script>
+    <script src="../modules/product.js"></script>
     <script src="../modules/modal-window.js"></script>
     <script src="../modules/validation.js"></script>
 </body>

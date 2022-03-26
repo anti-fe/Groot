@@ -4,11 +4,20 @@ const burgerMenu = document.querySelector('.nav__burger'),
         logOutBtn = document.querySelectorAll('.log-out-btn'); 
 const mainCollection = document.querySelector('.main__collection');
 const collectionListCont = document.querySelector('.main__collection-list');
-
 const selectCollection = document.querySelector('.main__select-collection'),
         optionElse = document.querySelector('#main__option-else'),
-        inpNewCollection = document.querySelector('.main__new-collection')
+        inpNewCollection = document.querySelector('.main__new-collection');
+const footerSection = document.querySelectorAll('.footer__section');
 
+
+footerSection.forEach(item => {
+    item.addEventListener('click', () => {
+        let itemList = item.querySelector('.footer__section-list');
+        let itemArrow = item.querySelector('.footer__section-head').querySelector('.footer__arrow');
+        itemList.classList.toggle('footer__active-list');
+        itemArrow.classList.toggle('footer__active-arrow');
+    })
+})       
 //Добавляем класс active к иконке бургера и ему самому
 burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active-burger');
@@ -35,13 +44,21 @@ localStorage.setItem('loggedUser', JSON.stringify([{
 
 const collectionList = JSON.parse(localStorage.getItem('collections'));
 
+collectionListCont.addEventListener('click', (e)=>{
+    deleteCollection(e);
+})
+collectionListCont.addEventListener('click', (e)=>{
+    deleteCollectionItem(e);
+})
+
 function createCollectionItem(items) {
-   
     const collectionItemCont = document.createElement('div');
     collectionItemCont.classList.add('main__collection-item-list');
     items.forEach(elem=>{
         const collectionItem = document.createElement('div');
         collectionItem.classList.add('main__collection-item');
+        collectionItem.setAttribute('data-articleitem', elem['articleItem']);
+
         collectionItem.innerHTML = `
         <p class="main__item-title">${elem['nameItem']}</p>
         <span class="main__item-price">${elem['articleItem']}</span>
@@ -59,6 +76,8 @@ function createCollectionItem(items) {
 function createCollectionCont(item) {
     const collectionCont = document.createElement('div');
     collectionCont.classList.add('main__collection');
+    collectionCont.setAttribute('data-namecollection', item['nameCollection']);
+
     collectionCont.innerHTML = 
     `   <div class="main__collection-info">
             <h4 class="main__collection-name">${item['nameCollection']}</h4>
@@ -121,6 +140,27 @@ selectCollection.addEventListener('change', ()=>{
     }
 })
 
+function deleteCollection(e) {
+    if(e.target.className === 'main__delete-btn') {
+        let oldParent = e.target.parentElement.parentElement.parentElement;
+        let nameCollection = e.target.parentElement.parentElement.parentElement.dataset['namecollection'];
+        collectionList.forEach((item,i)=>{
+            if(item['nameCollection'] === nameCollection) {
+                collectionList.splice(i, i+1);
+            }
+        })
+        //Удаляем коллекцию из LS
+        localStorage.setItem('collections', JSON.stringify(collectionList));
+        oldParent.classList.add('collection_hidden');
+        setTimeout(()=>{
+            oldParent.remove();
+        }, 300);
+    }
+}
+function deleteCollectionItem(e) {
+    let collectionListItems = document.querySelectorAll('.main__collection-item-list_active');
+    console.log(collectionListItems);
+}
 
 function createArticle() {
     const articlePattern = 'qwertyuiopasdfghjklzxcvbnm123456789QWERTYUIOASDFGHJKLZXCVBNM#@$%&!';

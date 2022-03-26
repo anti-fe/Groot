@@ -1,0 +1,131 @@
+@import "mixins.sass"
+@import "vars.sass"
+    
+.main
+    &__body
+        display: grid
+        grid-template-columns: 1fr 0.95fr
+        column-gap: 50px
+        width: 100%
+        margin-bottom: 80px
+    &__header
+        margin-top: 130px
+        margin-bottom: 50px
+        width: 100%
+    &__title 
+        +text($ff-phil,$fw-light, $fs-64, $c-black)
+        text-align: start
+        margin-top: 0
+        margin-bottom: 0
+        width: 100%
+        &::after 
+            display: none
+    &__btn 
+        cursor: pointer
+        width: 100%
+        height: 50px
+        +text($ff-inter,$fw-bold,$fs-18,$c-white)
+        background-color: $c-black
+        border: none
+        position: relative
+        z-index: 0
+        transition: all 0.2s ease
+        &:hover 
+            color: $c-black
+            border: 2px solid $c-black
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            background-color: $c-white
+            width: 100%
+            height: 0
+            transition: height .3s ease
+            z-index: -1
+        &:hover::before 
+            height: 100%
+    &__product-photo-cont
+        +flex(center,normal,row)
+    &__product-img
+        max-width: 100%
+        width: 100%
+        object-fit: cover
+        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04))
+    &__product-else-img
+        max-width: 100%
+        max-height: 300px
+        filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04))
+    &__product-photos
+        +flex(space-between,center,row)
+        &>*:not(:last-child)
+            margin-right: 15px
+        margin-bottom: 80px
+    &__product-prop-item
+        +flex(space-between, center,row)
+        &:not(:last-child)
+            margin-bottom: 30px
+    &__product-prop-name
+        +text($ff-inter,$fw-light,$fs-22, #878787)
+    &__product-prop-value
+        +text($ff-inter,$fw-light,$fs-22,$c-black)
+    &__product-count-cont
+        +flex(normal,center,row)
+    &__product-count-btn
+        user-select: none
+        width: 35px
+        height: 35px
+        line-height: 70%
+        +flex(center,center,row)
+        font-weight: $fw-light
+    &__product-count-value
+        margin: 0 12px 
+    &__product-res
+        position: relative
+        margin-top: 80px
+        &::before
+           content: ''
+           position: absolute
+           top: -30px
+           left: 0
+           width: 100%
+           height: 1px
+           background-color: #E0E0E0 
+    &__product-price-value
+        +text($ff-inter,$fw-bold,$fs-28,$c-black)
+
+@media (max-width: 920px)
+    .main__body
+        grid-template-columns: 1fr
+    .main__header
+        margin-bottom: 25px
+    .main__product-photo-cont
+        margin-bottom: 20px
+    .main__product-photos
+        justify-content: center
+        &>*:not(:last-child)
+            margin-right: 25px
+        margin-bottom: 50px
+    .main__product-else-img
+        max-height: 240px
+    .main__product-prop
+        width: 100%
+    .main__product-info
+        +flex(normal,center,column)
+    .main__product-prop-item:not(:last-child)
+            margin-bottom: 15px
+@media (max-width: 580px)
+    .main__title
+        font-size: $fs-38
+    .main__product-prop-name, .main__product-prop-value
+        font-size: $fs-18
+    .main__product-photos
+        margin-bottom: 15px
+@media (max-width: 470px)
+    .main__product-prop-item
+        +flex(normal, flex-start, column)
+    .main__product-prop-name
+        margin-bottom: 5px
+@media (max-width: 360px)
+    .main__title
+        font-size: $fs-26

@@ -12,6 +12,9 @@
     position: relative
 .footer 
     margin-top: 80px
+.collection_hidden
+    transform: translateX(-600px)
+    display: none
 .main 
     margin-top: 143px
     +flex(space-between,flex-start,column)
@@ -39,10 +42,13 @@
     &__section-title
         +text($ff-inter, $fw-bold, $fs-28, $c-black) 
         margin-bottom: 30px
+    &__collection-list
+        +flex(normal, normal, column)
     &__collection
         +flex(space-between,center,column)
         position: relative
         margin-bottom: 10px
+        transition: all .3s ease
         &::before
             content:''
             position: absolute
