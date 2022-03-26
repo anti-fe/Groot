@@ -296,7 +296,7 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item=>{
-            createOneCard(item['idItem'],item['nameItem'],item['nameCollection'],item['typeItem'],item['priceItem'], item['materialItem'], item['sizeItem'],item['photoItem']);
+            createOneCard(item['nameItem'],item['nameCollection'],item['typeItem'],item['priceItem'], item['materialItem'], item['sizeItem'],item['photoItem']);
         })
     }
     function filterType() {
