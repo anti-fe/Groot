@@ -101,5 +101,5 @@ function createProductPage(item) {
     };
     console.log(product);
     localStorage.setItem('product', JSON.stringify(product));
-    // window.location.href = 'src/pages/product.html';
+    window.location.href = 'src/pages/product.html';
 }
