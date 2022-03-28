@@ -6,8 +6,10 @@ const timerDays = document.querySelector('.new-collection__days'),
     hoursText = document.querySelector('.new-collection__hours-text'),
     minText = document.querySelector('.new-collection__min-text'),
     secText = document.querySelector('.new-collection__sec-text');
+const timerCont = document.querySelector('.new-collection__timer'),
+    timeIsOver = document.querySelector('.new-collection__time-is-over');
 
-const deadLine = new Date(2022, 2, 32, 59, 1, 0);
+const deadLine = new Date(2022, 2, 27, 36, 0, 0);
 
 let date,
     ourMls,
@@ -129,8 +131,18 @@ function setTimer() {
     timerHours.innerHTML = arrDate.hours;
     timerMinutes.innerHTML = arrDate.minutes;
     timerSeconds.innerHTML = arrDate.seconds;
+    return timerSect = {
+        "days" : arrDate.days,
+        "hours" : arrDate.hours,
+        "minutes" : arrDate.minutes,
+        "seconds" : arrDate.seconds,
+    }
 }
 
 let intervalDate = setInterval(() => {
     setTimer();
+    if(timerSect["days"] <= 0 && +timerSect["hours"] <= 0 && +timerSect["minutes"] <= 0 && +timerSect["seconds"] <= 0) {
+        timerCont.classList.add('timer_hidden');
+        timeIsOver.classList.add('time-is-over_visible');
+    }
 }, 1000);

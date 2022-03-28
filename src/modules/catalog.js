@@ -26,29 +26,37 @@ let inputVal;
 setTimeout(()=>{
     const cardsListWithCards = document.querySelector('.main__cards-list');
     cardsListWithCards.addEventListener('click', (e)=>{
-        if(e.target.classList.contains('card__btn')) {
-            const collectionName = e.target.parentElement.parentElement.dataset['collectionname'];
-            const itemName = e.target.parentElement.parentElement.dataset['itemname'];
-            const itemType = e.target.parentElement.parentElement.dataset['itemtype'];
-            const itemPrice = e.target.parentElement.parentElement.dataset['itemprice'];
-            const itemMaterial = e.target.parentElement.parentElement.dataset['itemmaterial'];
-            const itemSize = e.target.parentElement.parentElement.dataset['itemsize'];
-            const itemPhoto = e.target.parentElement.parentElement.dataset['itemimg'];
-            const product = 
-            {
-                "collectionName": collectionName,
-                "itemName": itemName,
-                "itemType": itemType,
-                "itemPrice": itemPrice,
-                "itemMaterial": itemMaterial,
-                "itemSize": itemSize,
-                "itemPhoto": itemPhoto
-            }
-            localStorage.setItem('product', JSON.stringify(product));
-            window.location.href = '../pages/product.html';
+        const item = e.target;
+        const secondParentItem = e.target.parentElement.parentElement;
+        //Если пользователь кликнул на карточку товара
+        if(item.classList.contains('main__card')){
+            createProductPage(item);
+        } else if (secondParentItem.classList.contains('main__card')) {
+            createProductPage(secondParentItem);
         }
     });
 });
+function createProductPage(item) {
+    const collectionName = item.dataset['collectionname'];
+    const itemName = item.dataset['itemname'];
+    const itemType = item.dataset['itemtype'];
+    const itemPrice = item.dataset['itemprice'];
+    const itemMaterial = item.dataset['itemmaterial'];
+    const itemSize = item.dataset['itemsize'];
+    const itemPhoto = item.dataset['itemimg'];
+    const product = 
+    {
+        "collectionName": collectionName,
+        "itemName": itemName,
+        "itemType": itemType,
+        "itemPrice": itemPrice,
+        "itemMaterial": itemMaterial,
+        "itemSize": itemSize,
+        "itemPhoto": itemPhoto
+    }
+    localStorage.setItem('product', JSON.stringify(product));
+    window.location.href = '../pages/product.html';
+}
 
 mainFilter.addEventListener('change', (e)=>{
     getFilter(e);
@@ -211,8 +219,10 @@ function createCard() {
             <div class="card__img-block">
                 <img class="card__img" src="${elem['photoItem']}" alt="product-img">
             </div>
-            <h3 class="card__collection">${item['nameCollection']}</h3>
-            <h3 class="card__name">${elem['nameItem']}</h3>
+            <div class="card__header">
+                <h3 class="card__collection">${item['nameCollection']}</h3>
+                <h3 class="card__name">${elem['nameItem']}</h3>
+            </div>
             <div class="card__main">
                 <span class="card__price">${elem['priceItem']} ₽</span>
                 <button class="card__btn main__btn">В корзину</button>
@@ -240,8 +250,10 @@ function createOneCard(nameItem, nameCollection, typeItem, priceItem, materialIt
     <div class="card__img-block">
         <img class="card__img" src="${itemImg}" alt="product-img">
     </div>
-    <h3 class="card__collection">${nameCollection}</h3>
-    <h3 class="card__name">${nameItem}</h3>
+    <div class="card__header">
+        <h3 class="card__collection">${nameCollection}</h3>
+        <h3 class="card__name">${nameItem}</h3>
+    </div>
     <div class="card__main">
         <span class="card__price">${priceItem} ₽</span>
         <button class="card__btn main__btn">В корзину</button>

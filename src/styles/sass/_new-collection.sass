@@ -1,4 +1,15 @@
 .new-collection
+    .time-is-over_visible
+        display: flex !important
+    &__time-is-over
+        display: none
+        align-items: center
+        justify-content: center
+        background-color: $c-black
+        height: 120px
+        width: 100%
+    &__text-over
+        +text($ff-mon, $fw-light, $fs-26, $c-white)
     &__header
         +flex(space-between, center, row)
         margin-top: 123px
@@ -16,6 +27,8 @@
         margin-top: 90px
 
 .timer
+    &_hidden
+        display: none !important
     &__item
         +flex(center, center, column)
         position: relative
@@ -46,6 +59,10 @@
         order: 3
     .new-collection__img 
         order: 2
+    .new-collection__time-is-over
+        order: 2
+    .new-collection__img
+        margin-top: 65px
     
 @media (max-width: 750px) 
     .new-collection__header 
@@ -53,6 +70,8 @@
     .new-collection__title
         font-size: $fs-28
     .new-collection__descr
+        font-size: $fs-22
+    .new-collection__text-over
         font-size: $fs-22
     .timer__item
         height: 85px
@@ -63,6 +82,10 @@
        font-size: $fs-16
     .timer__item:first-child
         margin-right: 20px
+    .timer__item>:nth-child(2)
+        bottom: -35px !important
 @media (max-width: 385px) 
     .timer__item:first-child
         margin-right: 5px
+    .new-collection__time-is-over
+        height: 80px
