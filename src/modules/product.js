@@ -103,7 +103,6 @@ function setTextPrice(price) {
 
         return `${rangeInputVal1}.${rangeInputVal2}.${rangeInputVal3} ₽`;
     }
-    console.log(+price);
     let rangeInputVal1 = price.slice(0, price.length-3);
     let rangeInputVal2 = price.slice(price.length-3);
     return `${rangeInputVal1}.${rangeInputVal2} ₽`;

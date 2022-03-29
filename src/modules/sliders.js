@@ -80,7 +80,6 @@ sliderTrack.addEventListener('click',(e)=>{
 })
 
 function createProductPage(item) {
-    console.log(item);
     const collectionName = item.dataset['collectionname'];
     const itemName = item.dataset['itemname'];
     const itemType = item.dataset['itemtype'];
@@ -99,7 +98,6 @@ function createProductPage(item) {
         "itemSize": itemSize,
         "itemPhoto": itemPhoto
     };
-    console.log(product);
     localStorage.setItem('product', JSON.stringify(product));
     window.location.href = 'src/pages/product.html';
 }

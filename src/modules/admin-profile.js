@@ -29,6 +29,10 @@ burgerProfileBtn.addEventListener('click', ()=>{
     modalBurger.classList.remove('active-menu-burger');
 })
 
+if(!JSON.parse(localStorage.getItem('loggedUser'))) {
+    window.location.href = '../../index.html';
+}
+
 logOutBtn.forEach(item=>{
     item.addEventListener("click",()=>{
         window.location.href = '../../index.html';

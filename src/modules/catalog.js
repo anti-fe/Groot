@@ -1,4 +1,5 @@
 const footerSection = document.querySelectorAll('.footer__section');
+const btnsProfile = document.querySelectorAll('.profile-btn');
 const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
     burgerProfileBtn = document.querySelector('.header__burger-profile'),
@@ -13,7 +14,7 @@ const filterIcon = document.querySelector('.main__filter-icon'),
     mainFilter = document.querySelector('.main__filter'),
     filterBtn = document.querySelector('.main__filter-btn')
 const filterPrice = document.querySelector('.main__filter-range'),
-    filterRadio = document.querySelectorAll('.main__filter-radio-btn');
+    filterRadio = document.querySelectorAll('.main__filter-radio-btn'),
     filterType = document.querySelectorAll('[name = "filter-type"]');
 const minPrice = document.querySelectorAll('.main__filter-range-price')[0],
     maxPrice = document.querySelectorAll('.main__filter-range-price')[1];
@@ -21,6 +22,16 @@ const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
 let inputVal;
 
+
+if (localStorage.getItem('loggedUser')) {
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
+        btnsProfile.forEach(item=>{
+            console.log(item);
+            // item.removeEventListener('click', locateToAccount);
+            item.addEventListener('click', locateToAdminAccount);
+        })
+    }
+}
 
 //Переход на страницу с товаром 
 setTimeout(()=>{
@@ -110,7 +121,6 @@ function searchFilterItems(e){
         })
     }
     
-    console.log();
     let textInput = searchInput.value.trim().toLowerCase();
     [...allCards].forEach(item=>{
         let cardName = item.querySelector('.card__name').textContent;
@@ -224,7 +234,7 @@ function createCard() {
                 <h3 class="card__name">${elem['nameItem']}</h3>
             </div>
             <div class="card__main">
-                <span class="card__price">${elem['priceItem']} ₽</span>
+                <span class="card__price">${setTextPrice(elem['priceItem'].toString())}</span>
                 <button class="card__btn main__btn">В корзину</button>
             </div>
             `
@@ -255,7 +265,7 @@ function createOneCard(nameItem, nameCollection, typeItem, priceItem, materialIt
         <h3 class="card__name">${nameItem}</h3>
     </div>
     <div class="card__main">
-        <span class="card__price">${priceItem} ₽</span>
+        <span class="card__price">${setTextPrice(priceItem.toString())}</span>
         <button class="card__btn main__btn">В корзину</button>
     </div>
     `
@@ -269,6 +279,12 @@ collectionList.forEach(item=>{
         allItemsCollection.push(elem);
     })
 })
+
+function setTextPrice(price) {
+    let rangeInputVal1 = price.slice(0, price.length-3);
+    let rangeInputVal2 = price.slice(price.length-3);
+    return `${rangeInputVal1}.${rangeInputVal2} ₽`;
+}
 
 // Filter card
 function getFilter(e) {
@@ -296,7 +312,6 @@ function getFilter(e) {
                     return item;
                 }
             } else if(checkedTypeName.length > 0 && checkedCollectionName.length > 0) {
-                console.log(item['nameCollection'],item['typeItem']);
                 if(item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem']) && checkedCollectionName.includes(item['nameCollection'])) {
                     return item;
                 }
@@ -418,4 +433,25 @@ function getFilter(e) {
         filterType()
         filterPrice()   
     }
+}
+
+
+
+function locateToAdminAccount() {
+    if(!document.querySelector('.page-name')){
+        window.location.href = './src/pages/admin-profile.html';
+    } else if(document.querySelector('.page-name')) {
+        window.location.href = '../pages/admin-profile.html';
+    }
+}
+
+function locateToAccount() {
+    if(!document.querySelector('.page-name')) {
+        window.location.href = './src/pages/user-profile.html';
+    } else if(document.querySelector('.page-name')) {
+
+        window.location.href = '../pages/user-profile.html';
+    }
+
+    
 }

@@ -31,8 +31,10 @@ let formDataAuth;
 let formDataReg;
 
 let loggedUser = [JSON.parse(localStorage.getItem('loggedUser'))];
-
-usersData.push(admin);
+console.log(usersData);
+if(!usersData[0]['fio']) {
+    usersData.push(admin);
+}
 
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
 //Он все также будет авторизован
@@ -94,7 +96,7 @@ function getAuthForm(e) {
 
     usersArray.forEach(user => {
         if(('admin' == formDataAuth.phone) && ('admin' == formDataAuth.password)) { 
-            localStorage.setItem('loggedUser', JSON.stringify(admin));  
+            localStorage.setItem('loggedUser', JSON.stringify([admin]));  
 
             authInps.forEach(input => {
                 input.classList.remove('modal-window__error');
@@ -127,7 +129,7 @@ function getAuthForm(e) {
             let numberUser = 0;
             usersArray.forEach(user => {
                 if (user['phone'] == formDataAuth.phone) {
-                    loggedUser = JSON.parse(localStorage.getItem('users'))[numberUser];
+                    loggedUser = [JSON.parse(localStorage.getItem('users'))[numberUser]];
                     localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
                 }
                 numberUser++;
@@ -188,7 +190,7 @@ function getRegForm(e) {
         let numberUser = 0;
         usersArray.forEach(user => {
             if (user['phone'] == formDataReg.phone) {
-                loggedUser = JSON.parse(localStorage.getItem('users'))[numberUser];
+                loggedUser = [JSON.parse(localStorage.getItem('users'))[numberUser]];
                 localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
             }
             numberUser++;

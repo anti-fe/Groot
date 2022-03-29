@@ -20,6 +20,10 @@ burgerProfileBtn.addEventListener('click', ()=>{
     modalBurger.classList.remove('active-menu-burger');
 })
 
+if(!JSON.parse(localStorage.getItem('loggedUser'))) {
+    window.location.href = '../../index.html';
+}
+
 logOutBtn.forEach(item=>{
     item.addEventListener("click",()=>{
         window.location.href = '../../index.html';
@@ -37,9 +41,9 @@ footerSection.forEach(item=>{
 })
 
 //Устанавливаем информацию в ЛК, беря ее из localStorage
-userInfoConts[0].textContent = JSON.parse(localStorage.getItem('loggedUser'))['fio'];
-userInfoConts[1].textContent = JSON.parse(localStorage.getItem('loggedUser'))['phone'];
-userInfoConts[2].textContent = JSON.parse(localStorage.getItem('loggedUser'))['password'];
+userInfoConts[0].textContent = JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'];
+userInfoConts[1].textContent = JSON.parse(localStorage.getItem('loggedUser'))[0]['phone'];
+userInfoConts[2].textContent = JSON.parse(localStorage.getItem('loggedUser'))[0]['password'];
 
 ordersBtn.addEventListener('click', ()=>{
     window.location.href = "../pages/catalog.html";

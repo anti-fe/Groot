@@ -5,6 +5,7 @@ const mainLink = document.querySelector('.header__next'),
         mainBlock = document.querySelector('.main');
 const burgerProfileBtn = document.querySelector('.header__burger-profile'); 
 const footerSection = document.querySelectorAll('.footer__section');
+const btnsProfile = document.querySelectorAll('.profile-btn');
 
 
 footerSection.forEach(item => {
@@ -15,6 +16,13 @@ footerSection.forEach(item => {
         itemArrow.classList.toggle('footer__active-arrow');
     })
 })       
+if (localStorage.getItem('loggedUser')) {
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === 'admin') {
+        btnsProfile.forEach(item=>{
+            item.addEventListener('click', locateToAdminAccount);
+        })
+    }
+}
 
 //Добавление подложки для навбара при скроле
 window.addEventListener('scroll', () => {
@@ -40,3 +48,19 @@ burgerProfileBtn.addEventListener('click', ()=>{
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
+
+function locateToAdminAccount() {
+    if(!document.querySelector('.page-name')){
+        window.location.href = './src/pages/admin-profile.html';
+    } else if(document.querySelector('.page-name')) {
+        window.location.href = '../pages/admin-profile.html';
+    }
+}
+
+function locateToAccount() {
+    if(!document.querySelector('.page-name')) {
+        window.location.href = './src/pages/user-profile.html';
+    } else if(document.querySelector('.page-name')) {
+        window.location.href = '../pages/user-profile.html';
+    }
+}
