@@ -12,9 +12,6 @@
     position: relative
 .footer 
     margin-top: 80px
-.collection_hidden
-    transform: translateX(-600px)
-    display: none
 .main 
     margin-top: 143px
     +flex(space-between,flex-start,column)
@@ -44,6 +41,9 @@
         margin-bottom: 30px
     &__collection-list
         +flex(normal, normal, column)
+    &__collection_hidden
+        transform: translateX(-600px)
+        display: none
     &__collection
         +flex(space-between,center,column)
         position: relative
@@ -94,12 +94,16 @@
         display: none
     &__collection-item-list_active
         +flex(space-between,center,column)
+    &__collection-item_hidden
+        transform: translateX(-600px)
+        display: none
     &__collection-item
         display: none
         +flex(space-between,center,row)
         width: 100%
         margin-left: 25px
         margin-bottom: 10px
+        transition: transform .3s ease
     &__delete-btn-item
         margin-right: 0
     &__item-title

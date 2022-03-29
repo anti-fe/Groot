@@ -1,14 +1,18 @@
 const burgerMenu = document.querySelector('.nav__burger'),
-        modalBurger = document.querySelector('.header__burger-menu'),
-        burgerProfileBtn = document.querySelector('.header__burger-profile'),
-        logOutBtn = document.querySelectorAll('.log-out-btn'); 
+    modalBurger = document.querySelector('.header__burger-menu'),
+    burgerProfileBtn = document.querySelector('.header__burger-profile'),
+    logOutBtn = document.querySelectorAll('.log-out-btn');
 const mainCollection = document.querySelector('.main__collection');
 const collectionListCont = document.querySelector('.main__collection-list');
 const selectCollection = document.querySelector('.main__select-collection'),
-        optionElse = document.querySelector('#main__option-else'),
-        inpNewCollection = document.querySelector('.main__new-collection');
+    optionElse = document.querySelector('#main__option-else'),
+    inpNewCollection = document.querySelector('.main__new-collection');
 const footerSection = document.querySelectorAll('.footer__section');
+const addItemBtn = document.querySelector('.main__add-item-btn');
 
+let collectionList = JSON.parse(localStorage.getItem('collections'));
+let collectionItems = [],
+    collectionItemData;
 
 footerSection.forEach(item => {
     item.addEventListener('click', () => {
@@ -17,24 +21,24 @@ footerSection.forEach(item => {
         itemList.classList.toggle('footer__active-list');
         itemArrow.classList.toggle('footer__active-arrow');
     })
-})       
+})
 //Добавляем класс active к иконке бургера и ему самому
 burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active-burger');
     modalBurger.classList.toggle('active-menu-burger');
 })
 
-burgerProfileBtn.addEventListener('click', ()=>{
+burgerProfileBtn.addEventListener('click', () => {
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
 
-if(!JSON.parse(localStorage.getItem('loggedUser'))) {
+if (!JSON.parse(localStorage.getItem('loggedUser'))) {
     window.location.href = '../../index.html';
 }
 
-logOutBtn.forEach(item=>{
-    item.addEventListener("click",()=>{
+logOutBtn.forEach(item => {
+    item.addEventListener("click", () => {
         window.location.href = '../../index.html';
     })
 })
@@ -46,19 +50,17 @@ localStorage.setItem('loggedUser', JSON.stringify([{
 }]))
 
 
-const collectionList = JSON.parse(localStorage.getItem('collections'));
-
-collectionListCont.addEventListener('click', (e)=>{
+collectionListCont.addEventListener('click', (e) => {
     deleteCollection(e);
 })
-collectionListCont.addEventListener('click', (e)=>{
+collectionListCont.addEventListener('click', (e) => {
     deleteCollectionItem(e);
 })
 
 function createCollectionItem(items) {
     const collectionItemCont = document.createElement('div');
     collectionItemCont.classList.add('main__collection-item-list');
-    items.forEach(elem=>{
+    items.forEach(elem => {
         const collectionItem = document.createElement('div');
         collectionItem.classList.add('main__collection-item');
         collectionItem.setAttribute('data-articleitem', elem['articleItem']);
@@ -74,7 +76,7 @@ function createCollectionItem(items) {
         collectionItemCont.append(collectionItem);
     })
     const mainCollections = document.querySelectorAll('.main__collection');
-    mainCollections[mainCollections.length-1].appendChild(collectionItemCont);
+    mainCollections[mainCollections.length - 1].appendChild(collectionItemCont);
 }
 
 function createCollectionCont(item) {
@@ -82,8 +84,8 @@ function createCollectionCont(item) {
     collectionCont.classList.add('main__collection');
     collectionCont.setAttribute('data-namecollection', item['nameCollection']);
 
-    collectionCont.innerHTML = 
-    `   <div class="main__collection-info">
+    collectionCont.innerHTML =
+        `   <div class="main__collection-info">
             <h4 class="main__collection-name">${item['nameCollection']}</h4>
             <div class="main__collection-btns">
                 <div class="main__delete-btn">
@@ -97,19 +99,19 @@ function createCollectionCont(item) {
             </div>
         </div>
      `
-    
+
     collectionListCont.appendChild(collectionCont);
 }
 
-collectionList.forEach(item=>{
+collectionList.forEach(item => {
     createCollectionCont(item);
     createCollectionItem(item['collectionItems']);
 })
 
 const collectionInfo = document.querySelectorAll('.main__collection-info');
-collectionInfo.forEach(item=>{
-    item.addEventListener('click', (e)=>{
-        if(e.target.className !== 'main__delete-btn' && e.target.className !== 'main__delete-btn-line') {
+collectionInfo.forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (e.target.className !== 'main__delete-btn' && e.target.className !== 'main__delete-btn-line') {
             let parent = item.parentElement;
             let itemList = parent.querySelector('.main__collection-item-list');
             let arrow = parent.querySelector('.main__collection-btns').querySelector('.arrow');
@@ -120,12 +122,11 @@ collectionInfo.forEach(item=>{
 })
 
 //ADD COLLECTION AND ITEM
-
-
 createOptionsSelect()
-function createOptionsSelect(){
+
+function createOptionsSelect() {
     //create Collection Options Select
-    collectionList.forEach(item=>{
+    collectionList.forEach(item => {
         let option = document.createElement('option');
         option.classList.add('main__option-collection', 'main__option');
         option.setAttribute('value', `${item.nameCollection}`);
@@ -135,9 +136,9 @@ function createOptionsSelect(){
     })
 }
 
-selectCollection.addEventListener('change', ()=>{
+selectCollection.addEventListener('change', () => {
     //Если выбран "Новая" показывать инпут 
-    if(selectCollection.value == 'else') {
+    if (selectCollection.value == 'else') {
         inpNewCollection.style.display = 'block';
     } else {
         inpNewCollection.style.display = 'none';
@@ -145,25 +146,145 @@ selectCollection.addEventListener('change', ()=>{
 })
 
 function deleteCollection(e) {
-    if(e.target.className === 'main__delete-btn') {
-        let oldParent = e.target.parentElement.parentElement.parentElement;
-        let nameCollection = e.target.parentElement.parentElement.parentElement.dataset['namecollection'];
-        collectionList.forEach((item,i)=>{
-            if(item['nameCollection'] === nameCollection) {
-                collectionList.splice(i, i+1);
-            }
-        })
-        //Удаляем коллекцию из LS
-        localStorage.setItem('collections', JSON.stringify(collectionList));
-        oldParent.classList.add('collection_hidden');
-        setTimeout(()=>{
-            oldParent.remove();
-        }, 300);
+    let oldParent = e.target.parentElement.parentElement.parentElement;
+
+    if (e.target.className === 'main__delete-btn') {
+        deleteCollectionContent(oldParent);
+    } else if (e.target.parentElement.className === 'main__delete-btn') {
+        deleteCollectionContent(oldParent.parentElement);
     }
 }
+
+function deleteCollectionContent(item) {
+    let nameCollection = item.dataset['namecollection'];
+    collectionList.forEach((elem, i) => {
+        if (elem['nameCollection'] === nameCollection) {
+            if (elem['idCollection'] === i + 1) {
+                collectionList.splice(i, 1);
+
+            }
+        }
+    })
+    //Удаляем коллекцию из LS
+    localStorage.setItem('collections', JSON.stringify(collectionList));
+    item.classList.add('main__collection_hidden');
+    setTimeout(() => {
+        item.remove();
+    }, 300);
+}
+
 function deleteCollectionItem(e) {
-    let collectionListItems = document.querySelectorAll('.main__collection-item-list_active');
-    console.log(collectionListItems);
+    let parent = e.target.parentElement;
+    if (e.target.classList.contains('main__delete-btn-item')) {
+        deleteCollectionItemContent(parent);
+    } else if (e.target.parentElement.classList.contains('main__delete-btn-item')) {
+        deleteCollectionItemContent(parent.parentElement);
+    }
+}
+
+function deleteCollectionItemContent(item) {
+    let articleItem = item.dataset['articleitem'];
+    collectionList.forEach((superItem, i) => {
+        superItem['collectionItems'].forEach((elem, l) => {
+            if (elem['articleItem'] === articleItem) {
+                superItem['collectionItems'].splice(l, 1);
+            }
+        })
+    })
+    //Удаляем мебель коллекции из LS
+    localStorage.setItem('collections', JSON.stringify(collectionList));
+    item.classList.add('main__collection-item_hidden');
+    setTimeout(() => {
+        item.remove();
+    }, 300);
+}
+
+addItemBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const form = document.querySelector('.main__add-items-content');
+    const selectCollection = document.querySelector('.main__select-collection'),
+        inputNameCollection = document.querySelector('#nameCollection');
+    inputNameItem = document.querySelector('#nameItem'),
+        inputMaterialItem = document.querySelector('#materialItem'),
+        inputSizeItem = document.querySelector('#sizeItem'),
+        inputPriceItem = document.querySelector('#priceItem'),
+        selectTypeItem = document.querySelector('.main__select-type');
+
+    createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem);
+
+})
+
+function createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem) {
+    //Создаем мебель коллекции
+    if (inputNameItem.value !== '' &&
+        inputMaterialItem.value !== '' &&
+        inputSizeItem.value !== '' &&
+        inputPriceItem.value !== '' &&
+        selectTypeItem.value !== '' &&
+        (selectCollection.value !== '' && selectCollection.value !== 'else')) {
+            let countItems = 0;
+            collectionList.forEach(item=>{
+                if(item['nameCollection'] === selectCollection.value) {
+                    countItems = item['collectionItems'].length + 1;
+                }
+            })
+            console.log(countItems);
+            collectionItemData = {
+                "idItem": countItems,
+                "articleItem": createArticle(),
+                "nameItem": inputNameItem.value,
+                "sizeItem": inputSizeItem.value,
+                "materialItem": inputMaterialItem.value,
+                "typeItem": selectTypeItem.value,
+                "priceItem": +(inputPriceItem.value),
+                "nameCollection": selectCollection.value,
+                // "photoItem": inputPhotoItem.value,
+            }
+            //Добавляем созданную мебель в коллекцию
+            collectionList.forEach(item=>{
+                if(item['nameCollection'] === selectCollection.value) {
+                    item['collectionItems'].push(collectionItemData);
+                }
+            })
+        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection);
+    } else if (inputNameItem.value !== '' &&
+        inputMaterialItem.value !== '' &&
+        inputSizeItem.value !== '' &&
+        inputPriceItem.value !== '' &&
+        selectTypeItem.value !== '' &&
+        (selectCollection.value === 'else')) {
+            collectionItemData = {
+                "idItem": 1,
+                "articleItem": createArticle(),
+                "nameItem": inputNameItem.value,
+                "sizeItem": inputSizeItem.value,
+                "materialItem": inputMaterialItem.value,
+                "typeItem": selectTypeItem.value,
+                "priceItem": +(inputPriceItem.value),
+                "nameCollection": inputNameCollection.value,
+                // "photoItem": inputPhotoItem.value,
+            }
+            //Добавляем созданную мебель в коллекцию
+            collectionItems.push(collectionItemData);
+            collectionList.push({
+                "idCollection": collectionList.length + 1,
+                "nameCollection": inputNameCollection.value,
+                "collectionItems": collectionItems
+            })
+        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection);
+    }
+    localStorage.setItem('collections', JSON.stringify(collectionList));
+
+}
+function clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection){
+    //Очищаем все поля ввода
+    inputNameItem.value = '';
+    inputMaterialItem.value = '';
+    inputSizeItem.value = '';
+    inputPriceItem.value = '';
+    selectTypeItem.value = '';
+    inputNameCollection.value = '';
 }
 
 function createArticle() {

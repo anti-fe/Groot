@@ -31,7 +31,7 @@ let formDataAuth;
 let formDataReg;
 
 let loggedUser = [JSON.parse(localStorage.getItem('loggedUser'))];
-console.log(usersData);
+
 if(!usersData[0]['fio']) {
     usersData.push(admin);
 }
@@ -39,7 +39,7 @@ if(!usersData[0]['fio']) {
 //Если пользователь ранее авторизовался, то после перезагрузки страницы
 //Он все также будет авторизован
 if (localStorage.getItem('loggedUser')) {
-    if (JSON.parse(localStorage.getItem('loggedUser'))['fio'] === "admin"){
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin"){
         profileBtns.forEach(btn => {
             btn.removeEventListener('click', openModalWindow);
             //Перенаправление на страницу Личный кабинет
@@ -177,7 +177,12 @@ function getRegForm(e) {
         //Если введены коректные данные 
         //Добавляем в localStorage
         formDataReg = new FormData(regForm);
+        //Добавляем id пользователю
+        const countUsers = JSON.parse(localStorage.getItem('users')).length; 
+        formDataReg.append('id', countUsers);
+        
         formDataReg = Object.fromEntries(formDataReg.entries());
+
         usersData.push(formDataReg);
         localStorage.setItem('users', JSON.stringify(usersData));
 

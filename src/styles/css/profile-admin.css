@@ -17,12 +17,6 @@
   margin-top: 80px;
 }
 
-.collection_hidden {
-  -webkit-transform: translateX(-600px);
-          transform: translateX(-600px);
-  display: none;
-}
-
 .main {
   margin-top: 143px;
   display: -webkit-box;
@@ -108,6 +102,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.main__collection_hidden {
+  -webkit-transform: translateX(-600px);
+          transform: translateX(-600px);
+  display: none;
 }
 .main__collection {
   display: -webkit-box;
@@ -240,6 +239,11 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.main__collection-item_hidden {
+  -webkit-transform: translateX(-600px);
+          transform: translateX(-600px);
+  display: none;
+}
 .main__collection-item {
   display: none;
   display: -webkit-box;
@@ -258,6 +262,10 @@
   width: 100%;
   margin-left: 25px;
   margin-bottom: 10px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .main__delete-btn-item {
   margin-right: 0;

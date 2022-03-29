@@ -22,16 +22,15 @@ const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
 let inputVal;
 
-
-if (localStorage.getItem('loggedUser')) {
-    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
-        btnsProfile.forEach(item=>{
-            console.log(item);
-            // item.removeEventListener('click', locateToAccount);
-            item.addEventListener('click', locateToAdminAccount);
-        })
-    }
-}
+// if (localStorage.getItem('loggedUser')) {
+//     if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
+//         btnsProfile.forEach(item=>{
+//             console.log(item);
+//             // item.removeEventListener('click', locateToAccount);
+//             item.addEventListener('click', locateToAdminAccount);
+//         })
+//     }
+// }
 
 //Переход на страницу с товаром 
 setTimeout(()=>{
@@ -92,13 +91,6 @@ burgerProfileBtn.addEventListener('click', () => {
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
-
-logOutBtn.forEach(item => {
-    item.addEventListener("click", () => {
-        window.location.href = '../../index.html';
-    })
-})
-
 
 //Collection checkbox value
 const collectionList = JSON.parse(localStorage.getItem('collections'));
@@ -438,20 +430,13 @@ function getFilter(e) {
 
 
 function locateToAdminAccount() {
-    if(!document.querySelector('.page-name')){
-        window.location.href = './src/pages/admin-profile.html';
-    } else if(document.querySelector('.page-name')) {
-        window.location.href = '../pages/admin-profile.html';
+    if(document.querySelector('.page-name')) {
+        window.location.href = 'admin-profile.html';
     }
 }
 
 function locateToAccount() {
-    if(!document.querySelector('.page-name')) {
-        window.location.href = './src/pages/user-profile.html';
-    } else if(document.querySelector('.page-name')) {
-
-        window.location.href = '../pages/user-profile.html';
+    if(document.querySelector('.page-name')) {
+        window.location.href = 'user-profile.html';
     }
-
-    
 }

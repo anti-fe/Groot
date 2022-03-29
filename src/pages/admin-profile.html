@@ -188,25 +188,29 @@
 
             <div class="main__add-items main__section">
                 <h3 class="main__section-title">Добавление коллекций и мебели</h3>
-                <div class="main__add-items-content">
+                <form class="main__add-items-content">
                     <div class="main__add-items-collection-block">
                         <select class="main__select-collection main__select" name="collection">
                             <option value="" class="main__option-collection main__option">Выберите коллекцию</option>
                             <option value="else" id="main__option-else" class="main__option-collection main__option">Новая</option>
                         </select>
-                        <input class="main__new-collection main__add-input" type="text" placeholder="Введите название коллекции">
+                        <input class="main__new-collection main__add-input" id="nameCollection" type="text" placeholder="Введите название коллекции">
                     </div>
                     <div class="main__add-item-block">
-                        <input class="main__add-input" type="text" placeholder="Введите название мебели">
-                        <input class="main__add-input" type="text" placeholder="Введите материал мебели">
-                        <input class="main__add-input" type="text" placeholder="Введите размеры мебели">
-                        <input class="main__add-input" type="text" placeholder="Введите цену мебели">
-                        <select class="main__select-collection main__select" name="collection">
+                        <input class="main__add-input" id="nameItem" type="text" placeholder="Введите название мебели">
+                        <input class="main__add-input" id="materialItem" type="text" placeholder="Введите материал мебели">
+                        <input class="main__add-input" id="sizeItem" type="text" placeholder="Введите размеры мебели">
+                        <input class="main__add-input" id="priceItem" type="number" placeholder="Введите цену мебели">
+                        <select class="main__select-type main__select" name="collection">
                             <option value="" class="main__option-type main__option">Выберите тип мебели</option>
+                            <option value="armchair" class="main__option-type main__option">Кресло</option>
+                            <option value="сhair" class="main__option-type main__option">Стул</option>
+                            <option value="sofa" class="main__option-type main__option">Диван</option>
+                            <option value="table" class="main__option-type main__option">Стол</option>
                         </select>
                         <button class="main__add-item-btn main__btn">Добавить</button>
                     </div>
-                </div>
+                </form>
 
             </div>
         </div>
