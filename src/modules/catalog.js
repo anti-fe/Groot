@@ -22,15 +22,13 @@ const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
 let inputVal;
 
-// if (localStorage.getItem('loggedUser')) {
-//     if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
-//         btnsProfile.forEach(item=>{
-//             console.log(item);
-//             // item.removeEventListener('click', locateToAccount);
-//             item.addEventListener('click', locateToAdminAccount);
-//         })
-//     }
-// }
+if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio']) {
+    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
+        btnsProfile.forEach(item=>{
+            item.addEventListener('click', locateToAdminAccount);
+        })
+    }
+}
 
 //Переход на страницу с товаром 
 setTimeout(()=>{

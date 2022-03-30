@@ -306,6 +306,8 @@ function setSuccess(elem) {
 }
 //Выход из аккаунта
 function logOut() {
+    //Очищаем ошибки
+    
     //Убираем кнопки выхода из аккаунта
     logOutBtns.forEach(btn => {
         btn.style.display = 'none';
@@ -313,6 +315,7 @@ function logOut() {
     profileBtns.forEach(btn => {
         //Убираем перенаправление 
         btn.removeEventListener('click', locateToAccount);
+        btn.removeEventListener('click', locateToAdminAccount);
         //Появление модального окна при клике
         btn.addEventListener('click', openModalWindow);
     })

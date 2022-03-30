@@ -10,6 +10,9 @@ const selectCollection = document.querySelector('.main__select-collection'),
 const footerSection = document.querySelectorAll('.footer__section');
 const addItemBtn = document.querySelector('.main__add-item-btn');
 const errorMessage = document.querySelector('.main__error-message');
+const fileInput = document.querySelector('.main__file-input');
+let uploadedFile = document.querySelector('.main__label-file');
+let inputFilePath;
 
 let collectionList = JSON.parse(localStorage.getItem('collections'));
 let collectionItems = [],
@@ -57,6 +60,7 @@ collectionListCont.addEventListener('click', (e) => {
 collectionListCont.addEventListener('click', (e) => {
     deleteCollectionItem(e);
 })
+fileInput.addEventListener('change', customInputFile);
 
 function createCollectionItem(items) {
     const collectionItemCont = document.createElement('div');
@@ -203,25 +207,26 @@ function deleteCollectionItemContent(item) {
 addItemBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const form = document.querySelector('.main__add-items-content');
     const selectCollection = document.querySelector('.main__select-collection'),
         inputNameCollection = document.querySelector('#nameCollection');
-    inputNameItem = document.querySelector('#nameItem'),
+        inputNameItem = document.querySelector('#nameItem'),
         inputMaterialItem = document.querySelector('#materialItem'),
         inputSizeItem = document.querySelector('#sizeItem'),
         inputPriceItem = document.querySelector('#priceItem'),
+        inputPhotoItem = document.querySelector('#photoItem'),
         selectTypeItem = document.querySelector('.main__select-type');
 
-    createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem);
+    createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPhotoItem, inputPriceItem, selectTypeItem);
 
 })
 
-function createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem) {
+function createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPhotoItem, inputPriceItem, selectTypeItem) {
     //Создаем мебель коллекции
     if (inputNameItem.value !== '' &&
         inputMaterialItem.value !== '' &&
         inputSizeItem.value !== '' &&
         inputPriceItem.value !== '' &&
+        inputPhotoItem.value !== '' &&
         selectTypeItem.value !== '' &&
         (selectCollection.value !== '' && selectCollection.value !== 'else')) {
             addItemBtn.classList.remove('main__add-collection_error');
@@ -243,7 +248,7 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                 "typeItem": selectTypeItem.value,
                 "priceItem": +(inputPriceItem.value),
                 "nameCollection": selectCollection.value,
-                // "photoItem": inputPhotoItem.value,
+                "photoItem": inputPhotoItem.value,
             }
             //Добавляем созданную мебель в коллекцию
             collectionList.forEach(item=>{
@@ -251,11 +256,12 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                     item['collectionItems'].push(collectionItemData);
                 }
             })
-        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection);
+        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, uploadedFile, selectTypeItem, inputNameCollection);
     } else if (inputNameItem.value !== '' &&
         inputMaterialItem.value !== '' &&
         inputSizeItem.value !== '' &&
         inputPriceItem.value !== '' &&
+        inputPhotoItem.value !== '' &&
         selectTypeItem.value !== '' &&
         (selectCollection.value === 'else')) {
             addItemBtn.classList.remove('main__add-collection_error');
@@ -270,7 +276,7 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                 "typeItem": selectTypeItem.value,
                 "priceItem": +(inputPriceItem.value),
                 "nameCollection": inputNameCollection.value,
-                // "photoItem": inputPhotoItem.value,
+                "photoItem": inputPhotoItem.value,
             }
             //Добавляем созданную мебель в коллекцию
             collectionItems.push(collectionItemData);
@@ -279,7 +285,7 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                 "nameCollection": inputNameCollection.value,
                 "collectionItems": collectionItems
             })
-        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection);
+        clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, uploadedFile, selectTypeItem, inputNameCollection);
     } else {
         addItemBtn.classList.add('main__add-collection_error');
         errorMessage.style.display = 'flex';
@@ -294,6 +300,7 @@ function clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPrice
     inputSizeItem.value = '';
     inputPriceItem.value = '';
     selectTypeItem.value = '';
+    uploadedFile.textContent = '';
     inputNameCollection.value = '';
 }
 
@@ -305,4 +312,12 @@ function createArticle() {
         articleText += articlePattern.charAt(Math.floor(Math.random() * articlePattern.length));
     }
     return articleText;
+}
+
+function customInputFile() {
+    inputFilePath = fileInput.value;
+    const inputFileValue = fileInput.files[0]['name'];
+    const inputText = uploadedFile.querySelector('.main__add-input-text');
+    inputText.textContent = inputFileValue;
+    console.log(fileInput.files)
 }
