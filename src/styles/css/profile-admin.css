@@ -416,6 +416,26 @@
   margin-top: 10px;
   width: 100%;
 }
+.main__add-collection_error {
+  background-color: #ff5050;
+  border: 2px solid #ff5050;
+}
+.main__error-message {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ff7272;
+  width: 100%;
+  margin-top: 15px;
+}
 .main__new-collection {
   display: none;
 }

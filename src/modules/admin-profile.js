@@ -9,6 +9,7 @@ const selectCollection = document.querySelector('.main__select-collection'),
     inpNewCollection = document.querySelector('.main__new-collection');
 const footerSection = document.querySelectorAll('.footer__section');
 const addItemBtn = document.querySelector('.main__add-item-btn');
+const errorMessage = document.querySelector('.main__error-message');
 
 let collectionList = JSON.parse(localStorage.getItem('collections'));
 let collectionItems = [],
@@ -223,13 +224,16 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
         inputPriceItem.value !== '' &&
         selectTypeItem.value !== '' &&
         (selectCollection.value !== '' && selectCollection.value !== 'else')) {
+            addItemBtn.classList.remove('main__add-collection_error');
+            errorMessage.style.display = 'none';
+
             let countItems = 0;
             collectionList.forEach(item=>{
                 if(item['nameCollection'] === selectCollection.value) {
                     countItems = item['collectionItems'].length + 1;
                 }
             })
-            console.log(countItems);
+
             collectionItemData = {
                 "idItem": countItems,
                 "articleItem": createArticle(),
@@ -254,6 +258,9 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
         inputPriceItem.value !== '' &&
         selectTypeItem.value !== '' &&
         (selectCollection.value === 'else')) {
+            addItemBtn.classList.remove('main__add-collection_error');
+            errorMessage.style.display = 'none';
+
             collectionItemData = {
                 "idItem": 1,
                 "articleItem": createArticle(),
@@ -273,6 +280,9 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                 "collectionItems": collectionItems
             })
         clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPriceItem, selectTypeItem, inputNameCollection);
+    } else {
+        addItemBtn.classList.add('main__add-collection_error');
+        errorMessage.style.display = 'flex';
     }
     localStorage.setItem('collections', JSON.stringify(collectionList));
 
