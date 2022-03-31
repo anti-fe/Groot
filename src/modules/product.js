@@ -8,11 +8,25 @@ const burgerMenu = document.querySelector('.nav__burger'),
     burgerProfileBtn = document.querySelector('.header__burger-profile');
 const footerSection = document.querySelectorAll('.footer__section');
 const countCont = document.querySelector('.main__product-count-cont');
+const addInShopCart = document.querySelector('.main__add-product');
 
 const collectionList = JSON.parse(localStorage.getItem('collections'));
+//Локальная корзина товаров
+let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
 
 countCont.addEventListener('click',(e)=>{
     setCountItem(e);
+})
+addInShopCart.addEventListener('click',(e)=>{
+    e.preventDefault();
+
+    const parentItem = e.target.parentElement.parentElement.parentElement.parentElement;
+    if(addInShopCart.classList.contains('main__add-product_active')) {
+        window.location.href = "shop-cart.html";
+    } else if (addInShopCart.classList.contains('main__add-product')) {
+        addToShopCart(parentItem);
+        addInShopCart.classList.add('main__add-product_active');
+    }
 })
 
 footerSection.forEach(item => {
@@ -32,6 +46,49 @@ burgerProfileBtn.addEventListener('click', ()=>{
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
+
+//Берем всю информацию хранящуюся в дата атрибутах карточки
+function getInfoCard(item) {
+    const itemId = item.dataset['itemid'];
+    const collectionName = item.dataset['collectionname'];
+    const itemName = item.dataset['itemname'];
+    const itemType = item.dataset['itemtype'];
+    const itemPrice = item.dataset['itemprice'];
+    const itemMaterial = item.dataset['itemmaterial'];
+    const itemSize = item.dataset['itemsize'];
+    const itemPhoto = item.dataset['itemimg'];
+
+    const cardInfo = {
+        "itemId":itemId,
+        "collectionName":collectionName,
+        "itemName":itemName,
+        "itemType":itemType,
+        "itemPrice":itemPrice,
+        "itemMaterial":itemMaterial,
+        "itemSize":itemSize,
+        "itemPhoto":itemPhoto,
+    }
+    return cardInfo;
+}
+
+function addToShopCart(item) {
+    const cardInfo = getInfoCard(item);
+    const product = {
+        "itemId": cardInfo["itemId"],
+        "collectionName": cardInfo["collectionName"],
+        "itemName": cardInfo["itemName"],
+        "itemType": cardInfo["itemType"],
+        "itemPrice": cardInfo["itemPrice"],
+        "itemMaterial": cardInfo["itemMaterial"],
+        "itemSize": cardInfo["itemSize"],
+        "itemPhoto": cardInfo["itemPhoto"]
+    }
+    //Добавляем товар в локальную корзину товаров
+    shopCart.push(product);
+    //Добавляем локальную корзину товаров в LS
+    localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+}
+
 
 function setPageProduct() {
     if (product) {
@@ -86,8 +143,19 @@ function setPageProduct() {
                 </div>
             </div>
             `;
-        mainWrapper.innerHTML = productPage;
-        mainCont.appendChild(mainWrapper);
+            
+            mainWrapper.innerHTML = productPage;
+            mainCont.appendChild(mainWrapper);
+
+            const mainBody = document.querySelector('.main__body');
+            mainBody.setAttribute('data-itemId', product['itemId']);
+            mainBody.setAttribute('data-itemName', product['itemName']);
+            mainBody.setAttribute('data-collectionName', product['collectionName']);
+            mainBody.setAttribute('data-itemType', product['itemType']);
+            mainBody.setAttribute('data-itemMaterial', product['itemMaterial']);
+            mainBody.setAttribute('data-itemPrice', product['itemPrice']);
+            mainBody.setAttribute('data-itemSize', product['itemSize']);
+            mainBody.setAttribute('data-itemImg', product['itemPhoto']);
     }
 }
 

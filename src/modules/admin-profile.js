@@ -230,7 +230,6 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
         selectTypeItem.value !== '' &&
         (selectCollection.value !== '' && selectCollection.value !== 'else')) {
             addItemBtn.classList.remove('main__add-collection_error');
-            errorMessage.style.display = 'none';
 
             let countItems = 0;
             collectionList.forEach(item=>{
@@ -265,7 +264,7 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
         selectTypeItem.value !== '' &&
         (selectCollection.value === 'else')) {
             addItemBtn.classList.remove('main__add-collection_error');
-            errorMessage.style.display = 'none';
+            // errorMessage.style.display = 'none';
 
             collectionItemData = {
                 "idItem": 1,
@@ -300,7 +299,7 @@ function clearInputs(inputNameItem, inputMaterialItem, inputSizeItem, inputPrice
     inputSizeItem.value = '';
     inputPriceItem.value = '';
     selectTypeItem.value = '';
-    uploadedFile.textContent = '';
+    uploadedFile.textContent = 'Выберите изображение';
     inputNameCollection.value = '';
 }
 

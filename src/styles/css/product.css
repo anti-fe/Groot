@@ -61,6 +61,11 @@
 .main__btn:hover::before {
   height: 100%;
 }
+.main__add-product_active {
+  background-color: #fff;
+  color: #262626;
+  border: 2px solid #262626;
+}
 .main__product-photo-cont {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -155,6 +160,7 @@
           flex-direction: row;
 }
 .main__product-count-btn {
+  border: 1px solid #262626;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

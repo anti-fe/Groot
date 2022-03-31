@@ -45,6 +45,10 @@
             z-index: -1
         &:hover::before 
             height: 100%
+    &__add-product_active
+        background-color: $c-white 
+        color: $c-black 
+        border: 2px solid $c-black 
     &__product-photo-cont
         +flex(center,normal,row)
     &__product-img
@@ -72,6 +76,7 @@
     &__product-count-cont
         +flex(normal,center,row)
     &__product-count-btn
+        border: 1px solid $c-black
         user-select: none
         width: 35px
         height: 35px

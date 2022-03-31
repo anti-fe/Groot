@@ -1,0 +1,156 @@
+@import "mixins.sass"
+@import "vars.sass"
+
+.main
+    align-items: normal
+    &__delete-btn
+        cursor: pointer
+        +flex(center,center,row)
+        position: relative
+        min-height: 50px
+        min-width: 50px
+        background-color: $c-black
+    &__delete-btn:hover>.main__delete-btn-line
+        transform: rotateZ(180deg)
+    &__delete-btn-line
+        width: 20px
+        height: 2px
+        background-color: $c-white
+        position: absolute
+        transition: transform .2s ease
+        &:nth-child(1)
+            transform: rotate(45deg)
+        &:nth-child(2)
+            transform: rotate(-45deg)
+    &__btn 
+        cursor: pointer
+        width: 100%
+        height: 50px
+        +text($ff-inter,$fw-bold,$fs-18,$c-white)
+        background-color: $c-black
+        border: none
+        position: relative
+        z-index: 0
+        transition: all 0.2s ease
+        &:hover 
+            color: $c-black
+            border: 2px solid $c-black
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            background-color: $c-white
+            width: 100%
+            height: 0
+            transition: height .3s ease
+            z-index: -1
+        &:hover::before 
+            height: 100%
+    &__header
+        margin-top: 130px
+        margin-bottom: 50px
+        width: 100%
+        position: relative
+        &::before 
+            content: ''
+            bottom: -60px
+            left: 0
+            width: 100%
+            height: 1px
+            position: absolute
+            background-color: #E0E0E0
+    &__title 
+        +text($ff-phil,$fw-light, $fs-64, $c-black)
+        text-align: start
+        margin-top: 0
+        margin-bottom: 0
+        width: 100%
+        &::after 
+            display: none
+    &__card
+        +flex(normal,flex-start,row)
+        margin: 120px 0
+        position: relative
+        &::after
+            content: ''
+            position: absolute
+            bottom: -60px
+            left: 0 
+            background-color: #E0E0E0
+            height: 1px
+            width: 100%
+        &:first-child
+            margin: 60px 0
+    &__card-info-item
+        +flex(space-between,center,row)
+        &:not(:last-child) 
+            margin-bottom: 35px
+    &__card-content-wrapper
+        width: 100%
+    &__card-photo-block
+        margin-right: 60px
+    &__card-photo
+        width: 100%
+        height: 100%
+        object-fit: cover
+    &__card-header
+        +flex(space-between,center,row)
+        width: 100%
+        margin-bottom: 60px
+    &__card-title
+        +text($ff-inter,$fw-light, $fs-36, $c-black)
+    &__count-cont
+        +flex(center,center,row)
+    &__info-title
+        +text($ff-inter,$fw-light, $fs-22, #878787)
+    &__info-value
+        +text($ff-inter,$fw-light, $fs-22, $c-black)
+    &__count-btn
+        +text($ff-inter,$fw-light, $fs-22, $c-white)
+        +flex(center,center,row)
+        border: 1px solid $c-black
+        width: 35px
+        height: 35px
+        line-height: 70%
+        user-select: none
+    &__count-value
+        margin: 0 15px
+    &__card-price
+        +flex(space-between, center, row)
+        margin-top: 60px
+    &__info-price
+        +text($ff-inter,$fw-bold, $fs-28, $c-black)
+
+@media (max-width: 920px)
+    .main__card
+        flex-direction: column
+    .main__card-photo-block
+        width: 100%
+        margin-bottom: 50px
+@media (max-width: 500px)
+    .main__card-header
+        margin-bottom: 35px
+    .main__card-photo-block
+        margin-right: 0
+        margin-bottom: 20px
+    .main__card-info-item:not(:last-child) 
+        margin-bottom: 12px
+    .main__delete-btn
+        width: 40px
+        height: 40px
+    .main__card-title
+        font-size: 22px
+    .main__info-title, .main__info-value
+        font-size: 16px
+    .main__info-price
+        font-size: 22px
+    .main__card
+        margin: 60px 0
+        &::after
+                bottom: -30px
+@media (max-width: 390px)
+    .main__card
+        flex-direction: column
+    .main__card-photo-block
+        width: auto

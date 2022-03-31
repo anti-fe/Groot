@@ -253,7 +253,7 @@
   content: "";
   display: block;
   position: absolute;
-  height: 2px;
+  height: 1px;
   width: 0;
   background-color: #ffffff;
   bottom: 0;
@@ -1387,6 +1387,16 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+input {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
 }
 
 ::-webkit-scrollbar {

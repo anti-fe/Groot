@@ -22,29 +22,40 @@ const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
 let inputVal;
 
-if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio']) {
+//Локальная корзина товаров
+let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
+
+if (localStorage.getItem('loggedUser')) {
     if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
-        btnsProfile.forEach(item=>{
+        btnsProfile.forEach(item => {
             item.addEventListener('click', locateToAdminAccount);
         })
     }
 }
 
 //Переход на страницу с товаром 
-setTimeout(()=>{
+setTimeout(() => {
     const cardsListWithCards = document.querySelector('.main__cards-list');
-    cardsListWithCards.addEventListener('click', (e)=>{
+    cardsListWithCards.addEventListener('click', (e) => {
         const item = e.target;
         const secondParentItem = e.target.parentElement.parentElement;
         //Если пользователь кликнул на карточку товара
-        if(item.classList.contains('main__card')){
-            createProductPage(item);
+        if(item.classList.contains('card__btn_active')) {
+            window.location.href = "shop-cart.html";
+        } else if (item.classList.contains('card__btn')) {
+            addToShopCart(secondParentItem);
+            item.classList.add('card__btn_active')
         } else if (secondParentItem.classList.contains('main__card')) {
             createProductPage(secondParentItem);
+        } else if (item.classList.contains('main__card')) {
+            createProductPage(item);
         }
     });
 });
-function createProductPage(item) {
+
+//Берем всю информацию хранящуюся в дата атрибутах карточки
+function getInfoCard(item) {
+    const itemId = item.dataset['itemid'];
     const collectionName = item.dataset['collectionname'];
     const itemName = item.dataset['itemname'];
     const itemType = item.dataset['itemtype'];
@@ -52,21 +63,55 @@ function createProductPage(item) {
     const itemMaterial = item.dataset['itemmaterial'];
     const itemSize = item.dataset['itemsize'];
     const itemPhoto = item.dataset['itemimg'];
-    const product = 
-    {
-        "collectionName": collectionName,
-        "itemName": itemName,
-        "itemType": itemType,
-        "itemPrice": itemPrice,
-        "itemMaterial": itemMaterial,
-        "itemSize": itemSize,
-        "itemPhoto": itemPhoto
+
+    const cardInfo = {
+        "itemId":itemId,
+        "collectionName":collectionName,
+        "itemName":itemName,
+        "itemType":itemType,
+        "itemPrice":itemPrice,
+        "itemMaterial":itemMaterial,
+        "itemSize":itemSize,
+        "itemPhoto":itemPhoto,
+    }
+    return cardInfo;
+}
+
+function addToShopCart(item) {
+    const cardInfo = getInfoCard(item);
+    const product = {
+        "itemId": cardInfo["itemId"],
+        "collectionName": cardInfo["collectionName"],
+        "itemName": cardInfo["itemName"],
+        "itemType": cardInfo["itemType"],
+        "itemPrice": cardInfo["itemPrice"],
+        "itemMaterial": cardInfo["itemMaterial"],
+        "itemSize": cardInfo["itemSize"],
+        "itemPhoto": cardInfo["itemPhoto"]
+    }
+    //Добавляем товар в локальную корзину товаров
+    shopCart.push(product);
+    //Добавляем локальную корзину товаров в LS
+    localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+}
+
+function createProductPage(item) {
+    const cardInfo = getInfoCard(item);
+    const product = {
+        "itemId": cardInfo["itemId"],
+        "collectionName": cardInfo["collectionName"],
+        "itemName": cardInfo["itemName"],
+        "itemType": cardInfo["itemType"],
+        "itemPrice": cardInfo["itemPrice"],
+        "itemMaterial": cardInfo["itemMaterial"],
+        "itemSize": cardInfo["itemSize"],
+        "itemPhoto": cardInfo["itemPhoto"]
     }
     localStorage.setItem('product', JSON.stringify(product));
     window.location.href = '../pages/product.html';
 }
 
-mainFilter.addEventListener('change', (e)=>{
+mainFilter.addEventListener('change', (e) => {
     getFilter(e);
 });
 
@@ -95,33 +140,39 @@ const collectionList = JSON.parse(localStorage.getItem('collections'));
 
 searchBtn.addEventListener('click', searchFilterItems);
 
+function setTextPrice(price) {
+    let rangeInputVal1 = price.slice(0, price.length - 3);
+    let rangeInputVal2 = price.slice(price.length - 3);
+    return `${rangeInputVal1}.${rangeInputVal2} ₽`;
+}
+
 // Сортировка товара при вводе в поиск
-function searchFilterItems(e){
+function searchFilterItems(e) {
     e.preventDefault();
     const allCards = document.querySelectorAll('.main__card');
 
-    if(!searchInput.value.trim() === '') {
+    if (!searchInput.value.trim() === '') {
         cardsList.innerHTML = null;
         createCard();
     } else {
-        [...allCards].forEach(item=>{
-            if(item.classList.contains('card_hidden')) {
+        [...allCards].forEach(item => {
+            if (item.classList.contains('card_hidden')) {
                 item.classList.remove('card_hidden');
             }
         })
     }
-    
+
     let textInput = searchInput.value.trim().toLowerCase();
-    [...allCards].forEach(item=>{
+    [...allCards].forEach(item => {
         let cardName = item.querySelector('.card__name').textContent;
-        if(cardName.toLowerCase().indexOf(textInput) != -1){
+        if (cardName.toLowerCase().indexOf(textInput) != -1) {
             item.classList.add('card_visible');
             item.classList.remove('card_hidden');
         } else {
             item.classList.add('card_hidden');
             item.classList.remove('card_visible');
-        }   
-    })  
+        }
+    })
 }
 
 function setCollectionCheckbox() {
@@ -144,12 +195,17 @@ function setCollectionCheckbox() {
 setCollectionCheckbox();
 
 function setInputValue() {
-    if (rangeInput.value.length === 5) {
+    if (rangeInput.value.length === 4) {
+        let rangeInputVal1 = rangeInput.value.slice(0, 1);
+        let rangeInputVal2 = rangeInput.value.slice(1);
+        inputVal = `${rangeInputVal1}${rangeInputVal2}`;
+        rangeValue.innerHTML = `до ${rangeInputVal1}.${rangeInputVal2} ₽`;
+    } else if (rangeInput.value.length === 5) {
         let rangeInputVal1 = rangeInput.value.slice(0, 2);
         let rangeInputVal2 = rangeInput.value.slice(2);
         inputVal = `${rangeInputVal1}${rangeInputVal2}`;
         rangeValue.innerHTML = `до ${rangeInputVal1}.${rangeInputVal2} ₽`;
-    } else {
+    } else if (rangeInput.value.length === 6) {
         let rangeInputVal1 = rangeInput.value.slice(0, 3);
         let rangeInputVal2 = rangeInput.value.slice(3);
         inputVal = `${rangeInputVal1}${rangeInputVal2}`;
@@ -162,37 +218,22 @@ setInputValue();
 rangeInput.addEventListener('input', () => {
     setInputValue();
 })
-
-
 //Range min and max price
-function setMinMaxPrice(){
+function setMinMaxPrice() {
     let pricesItems = [];
-    collectionList.forEach(item=>{
-        item['collectionItems'].forEach(elem=>{
+    collectionList.forEach(item => {
+        item['collectionItems'].forEach(elem => {
             pricesItems.push(elem['priceItem'])
         })
     })
     let maxPriceItem = Math.max.apply(null, pricesItems);
     let minPriceItem = Math.min.apply(null, pricesItems);
-
-    if (minPriceItem.length === 5) {
-        let rangeInputVal1 = minPriceItem.toString().slice(0, 2);
-        let rangeInputVal2 = minPriceItem.toString().slice(2);
-        minPrice.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
-    } else if (minPriceItem.length === 4){
-        let rangeInputVal1 = minPriceItem.toString().slice(0, 1);
-        let rangeInputVal2 = minPriceItem.toString().slice(1);
-        minPrice.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
-    }
-    if (maxPriceItem.length === 5) {
-        let rangeInputVal1 = maxPriceItem.toString().slice(0, 2);
-        let rangeInputVal2 = maxPriceItem.toString().slice(2);
-        maxPrice.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
-    } else if (maxPriceItem.length === 4){
-        let rangeInputVal1 = maxPriceItem.toString().slice(0, 1);
-        let rangeInputVal2 = maxPriceItem.toString().slice(1);
-        maxPrice.innerHTML = `${rangeInputVal1}.${rangeInputVal2} ₽`;
-    }
+    //Устанавливаем min max атрибуты input range
+    rangeInput.setAttribute("min", minPriceItem);
+    rangeInput.setAttribute("max", maxPriceItem);
+    //Устанавливаем текстовые значения около input range
+    maxPrice.innerText = setTextPrice(maxPriceItem.toString());
+    minPrice.innerText = setTextPrice(minPriceItem.toString());
 }
 setMinMaxPrice();
 
@@ -204,9 +245,18 @@ filterIcon.addEventListener('click', () => {
 //Create card
 function createCard() {
     collectionList.forEach(item => {
-        item['collectionItems'].forEach(elem => {
+        item['collectionItems'].forEach((elem,i) => {
+            // console.log(elem['idItem'], Number(shopCart[i]['itemId']));
+            // console.log(elem['nameCollection'], shopCart[i]['collectionName']);
+            // if(i <= shopCart.length-1) {
+            //     if(elem['idItem'] === Number(shopCart[i]['itemId']) && elem['nameCollection'] === shopCart[i]['collectionName']){
+            //         console.log(`${elem['idItem']} - содержится в корзине!`);
+            //     }
+            // }
+
             const cardCont = document.createElement('div');
             cardCont.classList.add('main__card', 'card', 'card_visible');
+            cardCont.setAttribute('data-itemId', elem['idItem']);
             cardCont.setAttribute('data-itemName', elem['nameItem']);
             cardCont.setAttribute('data-collectionName', item['nameCollection']);
             cardCont.setAttribute('data-itemType', elem['typeItem']);
@@ -235,9 +285,10 @@ function createCard() {
 }
 createCard();
 
-function createOneCard(nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
+function createOneCard(itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
     const cardCont = document.createElement('div');
     cardCont.classList.add('main__card', 'card', 'card_visible');
+    cardCont.setAttribute('data-itemId', itemId);
     cardCont.setAttribute('data-itemName', nameItem);
     cardCont.setAttribute('data-collectionName', nameCollection);
     cardCont.setAttribute('data-itemType', typeItem);
@@ -264,18 +315,11 @@ function createOneCard(nameItem, nameCollection, typeItem, priceItem, materialIt
 }
 
 let allItemsCollection = [];
-collectionList.forEach(item=>{
-    item['collectionItems'].forEach(elem=>{
+collectionList.forEach(item => {
+    item['collectionItems'].forEach(elem => {
         allItemsCollection.push(elem);
     })
 })
-
-function setTextPrice(price) {
-    let rangeInputVal1 = price.slice(0, price.length-3);
-    let rangeInputVal2 = price.slice(price.length-3);
-    return `${rangeInputVal1}.${rangeInputVal2} ₽`;
-}
-
 // Filter card
 function getFilter(e) {
     const cards = document.querySelectorAll('.main__card');
@@ -292,30 +336,31 @@ function getFilter(e) {
     let checkedTypeName = [...checkedType].map((item => item.dataset["filter"]));
 
     function filterPrice() {
-        let sortedItemPrice = allItemsCollection.filter(item=>{
-            if(checkedTypeName.length === 0 && checkedCollectionName.length > 0) {
-                if(item['priceItem'] <= +inputVal && checkedCollectionName.includes(item['nameCollection'])) {
+        let sortedItemPrice = allItemsCollection.filter(item => {
+            if (checkedTypeName.length === 0 && checkedCollectionName.length > 0) {
+                if (item['priceItem'] <= +inputVal && checkedCollectionName.includes(item['nameCollection'])) {
                     return item;
                 }
-            } else if(checkedTypeName.length > 0 && checkedCollectionName.length === 0) {
-                if(item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem'])) {
+            } else if (checkedTypeName.length > 0 && checkedCollectionName.length === 0) {
+                if (item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem'])) {
                     return item;
                 }
-            } else if(checkedTypeName.length > 0 && checkedCollectionName.length > 0) {
-                if(item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem']) && checkedCollectionName.includes(item['nameCollection'])) {
+            } else if (checkedTypeName.length > 0 && checkedCollectionName.length > 0) {
+                if (item['priceItem'] <= +inputVal && checkedTypeName.includes(item['typeItem']) && checkedCollectionName.includes(item['nameCollection'])) {
                     return item;
                 }
             } else {
-                if(item['priceItem'] <= +inputVal) {
+                if (item['priceItem'] <= +inputVal) {
                     return item;
                 }
             }
         });
         cardsList.innerHTML = null;
-        sortedItemPrice.forEach(item=>{
-            createOneCard(item['nameItem'],item['nameCollection'],item['typeItem'],item['priceItem'], item['materialItem'], item['sizeItem'],item['photoItem']);
+        sortedItemPrice.forEach(item => {
+            createOneCard(item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
         })
     }
+
     function filterType() {
         checkboxCollection = document.querySelectorAll('[name="filter-collection"]');
         checkedCollection = [...checkboxCollection].filter((item => item.checked));
@@ -326,15 +371,15 @@ function getFilter(e) {
         checkedTypeName = [...checkedType].map((item => item.dataset["filter"]));
 
         //Те карточки товаров, которые не скрыты
-        visibleCards = [...cards].filter(item=>{
-            if(item.classList.contains('card_visible')) {
+        visibleCards = [...cards].filter(item => {
+            if (item.classList.contains('card_visible')) {
                 return item;
             }
         })
         const sorted = visibleCards.filter((item) => {
             const typeEl = item.dataset['itemtype'];
 
-            if(!checkedTypeName.includes(typeEl)) {
+            if (!checkedTypeName.includes(typeEl)) {
                 item.classList.add('card_hidden');
                 item.classList.remove('card_visible');
             } else if (checkedTypeName.includes(typeEl)) {
@@ -344,14 +389,14 @@ function getFilter(e) {
         });
 
         //Те карточки товаров, которые скрыты
-        hiddenCards = [...cards].filter(item=>{
-            if(item.classList.contains('card_hidden') || checkedCollectionName.includes(item.dataset['collectionname'])) {
+        hiddenCards = [...cards].filter(item => {
+            if (item.classList.contains('card_hidden') || checkedCollectionName.includes(item.dataset['collectionname'])) {
                 return item;
             }
         })
-        if(checkedTypeName.length < 1){
+        if (checkedTypeName.length < 1) {
             hiddenCards.filter((item) => {
-                if(checkedCollectionName.includes(item.dataset['collectionname'])) {
+                if (checkedCollectionName.includes(item.dataset['collectionname'])) {
                     item.classList.remove('card_hidden');
                     item.classList.add('card_visible');
                 }
@@ -359,7 +404,7 @@ function getFilter(e) {
         }
     }
 
-    if(dataFilter === 'descending') {
+    if (dataFilter === 'descending') {
         const sorted = [...cards].sort((a, b) => {
             const priceElA = a.dataset['itemprice'];
             const priceElB = b.dataset['itemprice'];
@@ -367,7 +412,7 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sorted.forEach(el => cardsList.appendChild(el));
-    } else if(dataFilter === 'ascending') {
+    } else if (dataFilter === 'ascending') {
         const sorted = [...cards].sort((a, b) => {
             const priceElA = a.dataset['itemprice'];
             const priceElB = b.dataset['itemprice'];
@@ -375,10 +420,10 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sorted.forEach(el => cardsList.appendChild(el));
-    } else if(dataFilter === 'default') {
+    } else if (dataFilter === 'default') {
         cardsList.innerHTML = null;
         createCard();
-    } else if(dataFilterType === 'filter-collection') {
+    } else if (dataFilterType === 'filter-collection') {
         //При фильтрации очищать поиск 
         searchInput.value = '';
 
@@ -389,7 +434,7 @@ function getFilter(e) {
         const sorted = [...cards].filter((item) => {
             const collectionEl = item.dataset['collectionname'];
 
-            if(!checkedCollectionName.includes(collectionEl)) {
+            if (!checkedCollectionName.includes(collectionEl)) {
                 item.classList.add('card_hidden');
                 item.classList.remove('card_visible');
             } else {
@@ -397,10 +442,10 @@ function getFilter(e) {
                 item.classList.remove('card_hidden');
             }
         });
-        
+
         //Если ни одна коллекция не выбрана возвращать все карточки товаров    
-        if(checkedCollectionName.length < 1){
-            checkboxCollection.forEach(item=>{
+        if (checkedCollectionName.length < 1) {
+            checkboxCollection.forEach(item => {
                 checkedCollectionName.push(item.dataset['filter']);
             });
 
@@ -410,31 +455,29 @@ function getFilter(e) {
 
             })
         }
-    } else if(dataFilterType === 'filter-type') {
+    } else if (dataFilterType === 'filter-type') {
         //При фильтрации очищать поиск 
         searchInput.value = '';
 
-        filterPrice()  
+        filterPrice()
         filterType()
-    } else if(dataFilter === 'price') {
+    } else if (dataFilter === 'price') {
         //При фильтрации очищать поиск 
         searchInput.value = '';
 
         filterType()
-        filterPrice()   
+        filterPrice()
     }
 }
 
-
-
 function locateToAdminAccount() {
-    if(document.querySelector('.page-name')) {
+    if (document.querySelector('.page-name')) {
         window.location.href = 'admin-profile.html';
     }
 }
 
 function locateToAccount() {
-    if(document.querySelector('.page-name')) {
+    if (document.querySelector('.page-name')) {
         window.location.href = 'user-profile.html';
     }
 }
