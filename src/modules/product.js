@@ -20,9 +20,6 @@ countCont.addEventListener('click',(e)=>{
 })
 addInShopCart.addEventListener('click',(e)=>{
     e.preventDefault();
-    
-    //top:37 
-    //left:1071
 
     const parentItem = e.target.parentElement.parentElement.parentElement.parentElement;
     if(addInShopCart.classList.contains('main__add-product_active')) {
@@ -66,6 +63,7 @@ burgerProfileBtn.addEventListener('click', ()=>{
 })
 //Берем всю информацию хранящуюся в дата атрибутах карточки
 function getInfoCard(item) {
+    const itemCount = item.dataset['itemcount'];
     const itemId = item.dataset['itemid'];
     const collectionName = item.dataset['collectionname'];
     const itemName = item.dataset['itemname'];
@@ -76,6 +74,7 @@ function getInfoCard(item) {
     const itemPhoto = item.dataset['itemimg'];
 
     const cardInfo = {
+        "itemCount":itemCount,
         "itemId":itemId,
         "collectionName":collectionName,
         "itemName":itemName,
@@ -91,6 +90,7 @@ function getInfoCard(item) {
 function addToShopCart(item) {
     const cardInfo = getInfoCard(item);
     const product = {
+        "itemCount": cardInfo["itemCount"],
         "itemId": cardInfo["itemId"],
         "collectionName": cardInfo["collectionName"],
         "itemName": cardInfo["itemName"],
@@ -98,7 +98,8 @@ function addToShopCart(item) {
         "itemPrice": cardInfo["itemPrice"],
         "itemMaterial": cardInfo["itemMaterial"],
         "itemSize": cardInfo["itemSize"],
-        "itemPhoto": cardInfo["itemPhoto"]
+        "itemPhoto": cardInfo["itemPhoto"],
+        "itemCount": cardInfo["itemCount"]
     }
     //Добавляем товар в локальную корзину товаров
     shopCart.push(product);
@@ -165,6 +166,7 @@ function setPageProduct() {
             mainCont.appendChild(mainWrapper);
 
             const mainBody = document.querySelector('.main__body');
+            mainBody.setAttribute('data-itemCount', 1);
             mainBody.setAttribute('data-itemId', product['itemId']);
             mainBody.setAttribute('data-itemName', product['itemName']);
             mainBody.setAttribute('data-collectionName', product['collectionName']);
@@ -207,6 +209,7 @@ function setCountItem(e) {
         //Меняем значение счетчика
         countValue--;
         countBtn.textContent = countValue;
+        countBtn.parentElement.parentElement.parentElement.parentElement.parentElement.dataset['itemcount'] = countValue;
         //Меняем значение цены товара
         let resPrice = +itemPriceValue - +startPrice;
         //Меняем дата атрибут цены
@@ -220,6 +223,7 @@ function setCountItem(e) {
         //Меняем значение счетчика
         countValue++;
         countBtn.textContent = countValue;
+        countBtn.parentElement.parentElement.parentElement.parentElement.parentElement.dataset['itemcount'] = countValue;
         //Меняем значение цены товара
         let resPrice = +itemPriceValue + +startPrice;
         //Меняем дата атрибут цены

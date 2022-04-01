@@ -1,3 +1,4 @@
+const orderBtn = document.querySelector('.main__btn-order');
 const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
 //Локальная корзина товаров
@@ -31,6 +32,25 @@ burgerProfileBtn.addEventListener('click', () => {
 
 contWithCards.addEventListener('click', (e) => {
     btnClick(e);
+})
+
+orderBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    //Создание уведомления
+    const compliteOrder = document.createElement('div');
+    compliteOrder.classList.add('main__order-complite');
+    compliteOrder.classList.add('main__order-complite_active');
+    const compliteOrderText = document.createElement('h3');
+    compliteOrderText.classList.add('main__order-complite-text');
+    compliteOrderText.textContent = 'Заказ оформлен';
+    compliteOrder.appendChild(compliteOrderText);
+    mainCont.appendChild(compliteOrder);
+    setTimeout(()=>{
+        compliteOrder.classList.remove('main__order-complite_active');
+    },1000)
+    //Отправка заказа в LS
+    localStorage.setItem('order', JSON.stringify(shopCart));
 })
 
 function btnClick(e) {
@@ -86,14 +106,14 @@ function setPageShopCart() {
                             <span class="main__info-title">Количество:</span>
                             <div class="main__count-cont">
                                 <div class="main__count-btn main__btn" id="count-btn-minus">-</div>
-                                <span class="main__count-value main__info-value">1</span>
+                                <span class="main__count-value main__info-value">${item['itemCount']}</span>
                                 <div class="main__count-btn main__btn" id="count-btn-plus">+</div>
                             </div>
                         </div>
                     </div>
                     <div class="main__card-price">
                         <span class="main__info-title">Цена:</span>
-                        <span class="main__info-value main__info-price" data-ownitemprice="${item['itemPrice']}" data-itemprice="${item['itemPrice']}">${setTextPrice(item['itemPrice'].toString())}</span>
+                        <span class="main__info-value main__info-price" data-ownitemprice="${item['itemPrice']}" data-itemprice="${+item['itemPrice'] * +item['itemCount']}">${setTextPrice((item['itemPrice']*+item['itemCount']).toString())}</span>
                     </div>
                 </div>
             </div>`;
