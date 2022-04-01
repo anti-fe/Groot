@@ -1,3 +1,4 @@
+const mainCont = document.querySelector('.main')
 const footerSection = document.querySelectorAll('.footer__section');
 const btnsProfile = document.querySelectorAll('.profile-btn');
 const burgerMenu = document.querySelector('.nav__burger'),
@@ -45,6 +46,20 @@ setTimeout(() => {
         } else if (item.classList.contains('card__btn')) {
             addToShopCart(secondParentItem);
             item.classList.add('card__btn_active')
+
+            //Предупреждение о добавлении товара в корзину
+            const warningAdd = document.createElement('div');
+            warningAdd.classList.add('main__warning-add');
+            const warningAddText = document.createElement('h3');
+            warningAddText.textContent = 'Товар добавлен в корзину';
+            warningAddText.classList.add('main__warning-add-text');
+            warningAdd.appendChild(warningAddText);
+            mainCont.appendChild(warningAdd);
+
+            warningAdd.classList.add('main__warning-add_active');
+            setTimeout(()=>{
+                warningAdd.classList.remove('main__warning-add_active');
+            }, 1000);
         } else if (secondParentItem.classList.contains('main__card')) {
             createProductPage(secondParentItem);
         } else if (item.classList.contains('main__card')) {

@@ -6,6 +6,7 @@ setPageProduct();
 const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
     burgerProfileBtn = document.querySelector('.header__burger-profile');
+    shopCartBtns = document.querySelectorAll('.shop-cart-btn');
 const footerSection = document.querySelectorAll('.footer__section');
 const countCont = document.querySelector('.main__product-count-cont');
 const addInShopCart = document.querySelector('.main__add-product');
@@ -19,6 +20,9 @@ countCont.addEventListener('click',(e)=>{
 })
 addInShopCart.addEventListener('click',(e)=>{
     e.preventDefault();
+    
+    //top:37 
+    //left:1071
 
     const parentItem = e.target.parentElement.parentElement.parentElement.parentElement;
     if(addInShopCart.classList.contains('main__add-product_active')) {
@@ -26,6 +30,20 @@ addInShopCart.addEventListener('click',(e)=>{
     } else if (addInShopCart.classList.contains('main__add-product')) {
         addToShopCart(parentItem);
         addInShopCart.classList.add('main__add-product_active');
+
+        //Предупреждение о добавлении товара в корзину
+        const warningAdd = document.createElement('div');
+        warningAdd.classList.add('main__warning-add');
+        const warningAddText = document.createElement('h3');
+        warningAddText.textContent = 'Товар добавлен в корзину';
+        warningAddText.classList.add('main__warning-add-text');
+        warningAdd.appendChild(warningAddText);
+        mainCont.appendChild(warningAdd);
+
+        warningAdd.classList.add('main__warning-add_active');
+        setTimeout(()=>{
+            warningAdd.classList.remove('main__warning-add_active');
+        }, 1000);
     }
 })
 
@@ -46,7 +64,6 @@ burgerProfileBtn.addEventListener('click', ()=>{
     burgerMenu.classList.remove('active-burger');
     modalBurger.classList.remove('active-menu-burger');
 })
-
 //Берем всю информацию хранящуюся в дата атрибутах карточки
 function getInfoCard(item) {
     const itemId = item.dataset['itemid'];

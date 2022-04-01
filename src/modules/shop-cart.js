@@ -1,3 +1,4 @@
+const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
 //Локальная корзина товаров
 let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
@@ -28,26 +29,33 @@ burgerProfileBtn.addEventListener('click', () => {
     modalBurger.classList.remove('active-menu-burger');
 })
 
-contWithCards.addEventListener('click',(e)=>{
+contWithCards.addEventListener('click', (e) => {
     btnClick(e);
 })
 
 function btnClick(e) {
     const countBtnName = e.target.getAttribute('id');
-    if(countBtnName === 'count-btn-minus') {
+    if (countBtnName === 'count-btn-minus') {
         minusCount(e);
-    } else if(countBtnName === 'count-btn-plus') {
+    } else if (countBtnName === 'count-btn-plus') {
         plusCount(e);
+    } else if (countBtnName === 'del-btn') {
+        deleteCard(e.target);
+    } else if (e.target.parentElement.getAttribute('id') === 'del-btn') {
+        deleteCard(e.target.parentElement);
     }
 }
 
 
 function setPageShopCart() {
-    if (shopCart) {
-        shopCart.forEach(item=>{
+    if (shopCart.length >= 1) {
+        nullCont.style.display = 'none';
+        shopCart.forEach(item => {
             const card = document.createElement('div');
             card.classList.add('main__card');
-    
+            card.setAttribute('data-itemId', item['itemId']);
+            card.setAttribute('data-collectionName', item['collectionName']);
+
             const itemShopCart = `
             <div class="main__card-photo-block">
                 <img src="${item['itemPhoto']}" alt="shop-cart__product" class="main__card-photo">
@@ -55,7 +63,7 @@ function setPageShopCart() {
             <div class="main__card-content-wrapper">
                 <div class="main__card-header">
                     <h2 class="main__card-title">${item['itemName']}</h2>
-                    <div class="main__delete-btn">
+                    <div class="main__delete-btn" id="del-btn">
                         <div class="main__delete-btn-line"></div>
                         <div class="main__delete-btn-line"></div>
                     </div>
@@ -92,6 +100,8 @@ function setPageShopCart() {
             card.innerHTML = itemShopCart;
             cardsCont.appendChild(card);
         })
+    } else {
+        nullCont.style.display = 'flex';
     }
 }
 
@@ -110,6 +120,28 @@ function setTextPrice(price) {
     let rangeInputVal1 = price.slice(0, price.length - 3);
     let rangeInputVal2 = price.slice(price.length - 3);
     return `${rangeInputVal1}.${rangeInputVal2} ₽`;
+}
+
+function deleteCard(item) {
+    const card = item.parentElement.parentElement.parentElement;
+    card.classList.add('main__card-del');
+
+    const idItem = card.dataset['itemid'];
+    const nameCollection = card.dataset['collectionname'];
+    shopCart.forEach((item, i) => {
+        if (item['itemId'] === idItem && item['collectionName'] === nameCollection) {
+            shopCart.splice(i, 1);
+            localStorage.setItem('shopCart', JSON.stringify(shopCart));
+            if(JSON.parse(localStorage.getItem('shopCart')).length < 1) {
+                nullCont.style.display = 'flex';
+            } else {
+                nullCont.style.display = 'none';
+            }
+        }
+    })
+    setTimeout(() => {
+        card.remove();
+    }, 300);
 }
 
 function plusCount(e) {
@@ -135,6 +167,7 @@ function plusCount(e) {
         return;
     }
 }
+
 function minusCount(e) {
     const countBtnName = e.target.getAttribute('id');
     const itemPrice = e.target.parentElement.parentElement.parentElement.parentElement.querySelector('.main__info-price');

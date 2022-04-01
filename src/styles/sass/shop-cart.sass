@@ -47,6 +47,12 @@
             z-index: -1
         &:hover::before 
             height: 100%
+    &__null-cont
+        +flex(center,center,row)
+        width: 100%
+        min-height: 50vh
+    &__null-text
+        +text($ff-inter,$fw-light, $fs-64, #E0E0E0)
     &__header
         margin-top: 130px
         margin-bottom: 50px
@@ -68,10 +74,12 @@
         width: 100%
         &::after 
             display: none
+    
     &__card
         +flex(normal,flex-start,row)
         margin: 120px 0
         position: relative
+        transition: transform .3s ease
         &::after
             content: ''
             position: absolute
@@ -82,6 +90,9 @@
             width: 100%
         &:first-child
             margin: 60px 0
+    &__card-del
+        transform: translateX(-110%)
+        // display: none 
     &__card-info-item
         +flex(space-between,center,row)
         &:not(:last-child) 
@@ -148,7 +159,17 @@
     .main__card
         margin: 60px 0
         &::after
-                bottom: -30px
+            bottom: -30px
+        &:first-child
+            margin-top: 20px
+    .main__title
+        font-size: $fs-48 
+    .main__header
+        margin-bottom: 15px
+        margin-top: 90px
+    .main__header::before
+        bottom: -15px
+        
 @media (max-width: 390px)
     .main__card
         flex-direction: column

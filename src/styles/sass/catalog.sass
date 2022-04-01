@@ -7,6 +7,27 @@
 .main 
     +flex(flex-start,flex-start, column)
     margin-top: 60px
+    &__warning-add
+        padding: 20px
+        display: block
+        justify-content: center
+        align-items: center
+        position: fixed
+        z-index: 555
+        top: 25%
+        left: 0
+        transform: translateX(-471.55px)
+        width: fit-content
+        height: fit-content
+        background-color: rgba(38, 38, 38, 0.7)
+        backdrop-filter: blur(5px) 
+        transition: transform 0.3s ease
+        &-text 
+            +text($ff-phil, $fw-regular, $fs-36, $c-white)
+            text-align: center
+        &_active
+            display: block
+            transform: translateX(0)
     &__title
         +text($ff-phil, $fw-regular, $fs-64, $c-black)
         margin-bottom: 55px
