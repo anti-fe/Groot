@@ -1,4 +1,5 @@
 const mainCont = document.querySelector('.main');
+//Локальная корзина товаров
 let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
 const cardsCont = document.querySelector('.main__body');
 setPageShopCart();
@@ -8,9 +9,6 @@ const burgerMenu = document.querySelector('.nav__burger'),
     burgerProfileBtn = document.querySelector('.header__burger-profile');
 const footerSection = document.querySelectorAll('.footer__section');
 const contWithCards = document.querySelector('.main__body');
-
-//Локальная корзина товаров
-
 
 footerSection.forEach(item => {
     item.addEventListener('click', () => {
@@ -31,8 +29,17 @@ burgerProfileBtn.addEventListener('click', () => {
 })
 
 contWithCards.addEventListener('click',(e)=>{
-    setCountItem(e);
+    btnClick(e);
 })
+
+function btnClick(e) {
+    const countBtnName = e.target.getAttribute('id');
+    if(countBtnName === 'count-btn-minus') {
+        minusCount(e);
+    } else if(countBtnName === 'count-btn-plus') {
+        plusCount(e);
+    }
+}
 
 
 function setPageShopCart() {
@@ -105,27 +112,15 @@ function setTextPrice(price) {
     return `${rangeInputVal1}.${rangeInputVal2} ₽`;
 }
 
-function setCountItem(e) {
-    const startPrice = document.querySelector('.main__info-price').dataset['ownitemprice'];
+function plusCount(e) {
     const countBtnName = e.target.getAttribute('id');
     const itemPrice = e.target.parentElement.parentElement.parentElement.parentElement.querySelector('.main__info-price');
+    const startPrice = itemPrice.dataset['ownitemprice'];
+
     let itemPriceValue = itemPrice.dataset['itemprice'];
     let countBtn = e.target.parentElement.querySelector('.main__count-value');
     let countValue = +e.target.parentElement.querySelector('.main__count-value').textContent;
-
-    if (countBtnName === 'count-btn-minus') {
-        if (countValue < 2) return;
-        //Меняем значение счетчика
-        countValue--;
-        countBtn.textContent = countValue;
-        //Меняем значение цены товара
-        let resPrice = +itemPriceValue - +startPrice;
-        //Меняем дата атрибут цены
-        itemPrice.dataset.itemprice = `${resPrice}`;
-        //Меняем текстовое значение цены
-        itemPrice.textContent = setTextPrice(`${resPrice}`);
-        return;
-    } else if (countBtnName === 'count-btn-plus') {
+    if (countBtnName === 'count-btn-plus') {
         //Ограничение на заказ максимум 100 товаров
         if (countValue >= 100) return;
         //Меняем значение счетчика
@@ -133,6 +128,28 @@ function setCountItem(e) {
         countBtn.textContent = countValue;
         //Меняем значение цены товара
         let resPrice = +itemPriceValue + +startPrice;
+        //Меняем дата атрибут цены
+        itemPrice.dataset.itemprice = `${resPrice}`;
+        //Меняем текстовое значение цены
+        itemPrice.textContent = setTextPrice(`${resPrice}`);
+        return;
+    }
+}
+function minusCount(e) {
+    const countBtnName = e.target.getAttribute('id');
+    const itemPrice = e.target.parentElement.parentElement.parentElement.parentElement.querySelector('.main__info-price');
+    const startPrice = itemPrice.dataset['ownitemprice'];
+
+    let itemPriceValue = itemPrice.dataset['itemprice'];
+    let countBtn = e.target.parentElement.querySelector('.main__count-value');
+    let countValue = +e.target.parentElement.querySelector('.main__count-value').textContent;
+    if (countBtnName === 'count-btn-minus') {
+        if (countValue < 2) return;
+        //Меняем значение счетчика
+        countValue--;
+        countBtn.textContent = countValue;
+        //Меняем значение цены товара
+        let resPrice = +itemPriceValue - +startPrice;
         //Меняем дата атрибут цены
         itemPrice.dataset.itemprice = `${resPrice}`;
         //Меняем текстовое значение цены

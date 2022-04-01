@@ -154,3 +154,16 @@
         flex-direction: column
     .main__card-photo-block
         width: auto
+@media (max-width: 330px)
+    .main__card-info-item
+        flex-direction: column
+        align-items: flex-start
+    .main__card-info-item >*:first-child
+        margin-bottom: 5px
+    .main__card-price
+        margin-top: 25px
+        flex-direction: column
+        align-items: flex-start
+        &>*:first-child
+            margin-bottom: 5px
+        
