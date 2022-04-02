@@ -75,7 +75,6 @@ function setPageShopCart() {
             card.classList.add('main__card');
             card.setAttribute('data-itemId', item['itemId']);
             card.setAttribute('data-collectionName', item['collectionName']);
-
             const itemShopCart = `
             <div class="main__card-photo-block">
                 <img src="${item['itemPhoto']}" alt="shop-cart__product" class="main__card-photo">
@@ -113,7 +112,7 @@ function setPageShopCart() {
                     </div>
                     <div class="main__card-price">
                         <span class="main__info-title">Цена:</span>
-                        <span class="main__info-value main__info-price" data-ownitemprice="${item['itemPrice']}" data-itemprice="${+item['itemPrice'] * +item['itemCount']}">${setTextPrice((item['itemPrice']*+item['itemCount']).toString())}</span>
+                        <span class="main__info-value main__info-price" data-ownitemprice="${item['itemPrice']}" data-itemprice="${+item['itemPrice'] * +item['itemCount']}">${setTextPrice((item['itemPrice'] * +item['itemCount']).toString())}</span>
                     </div>
                 </div>
             </div>`;

@@ -70,6 +70,7 @@ setTimeout(() => {
 
 //Берем всю информацию хранящуюся в дата атрибутах карточки
 function getInfoCard(item) {
+    const itemCount = item.dataset['itemcount'];
     const itemId = item.dataset['itemid'];
     const collectionName = item.dataset['collectionname'];
     const itemName = item.dataset['itemname'];
@@ -80,6 +81,7 @@ function getInfoCard(item) {
     const itemPhoto = item.dataset['itemimg'];
 
     const cardInfo = {
+        "itemCount":itemCount,
         "itemId":itemId,
         "collectionName":collectionName,
         "itemName":itemName,
@@ -93,8 +95,9 @@ function getInfoCard(item) {
 }
 
 function addToShopCart(item) {
-    const cardInfo = getInfoCard(item);
+    const cardInfo = getInfoCard(item);;
     const product = {
+        "itemCount": cardInfo["itemCount"],
         "itemId": cardInfo["itemId"],
         "collectionName": cardInfo["collectionName"],
         "itemName": cardInfo["itemName"],
@@ -113,6 +116,7 @@ function addToShopCart(item) {
 function createProductPage(item) {
     const cardInfo = getInfoCard(item);
     const product = {
+        "itemCount": cardInfo["itemCount"],
         "itemId": cardInfo["itemId"],
         "collectionName": cardInfo["collectionName"],
         "itemName": cardInfo["itemName"],
@@ -271,6 +275,7 @@ function createCard() {
 
             const cardCont = document.createElement('div');
             cardCont.classList.add('main__card', 'card', 'card_visible');
+            cardCont.setAttribute('data-itemCount', 1);
             cardCont.setAttribute('data-itemId', elem['idItem']);
             cardCont.setAttribute('data-itemName', elem['nameItem']);
             cardCont.setAttribute('data-collectionName', item['nameCollection']);
@@ -300,9 +305,10 @@ function createCard() {
 }
 createCard();
 
-function createOneCard(itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
+function createOneCard(itemCount, itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
     const cardCont = document.createElement('div');
     cardCont.classList.add('main__card', 'card', 'card_visible');
+    cardCont.setAttribute('data-itemCount', itemCount);
     cardCont.setAttribute('data-itemId', itemId);
     cardCont.setAttribute('data-itemName', nameItem);
     cardCont.setAttribute('data-collectionName', nameCollection);
@@ -372,7 +378,7 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item => {
-            createOneCard(item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
+            createOneCard(item['itemCount'], item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
         })
     }
 
