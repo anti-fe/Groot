@@ -1454,6 +1454,18 @@ input:focus {
           transform-origin: top right;
 }
 
+.log-out-btn:hover svg path {
+  fill: #d5d5d5;
+}
+
+.shop-cart-btn:hover svg path:not(:last-child) {
+  fill: #d5d5d5;
+}
+
+.shop-cart-btn:hover svg path:last-child {
+  stroke: #d5d5d5;
+}
+
 .footer {
   background-color: #fff;
   padding-top: 64px;

@@ -308,7 +308,7 @@ createCard();
 function createOneCard(itemCount, itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
     const cardCont = document.createElement('div');
     cardCont.classList.add('main__card', 'card', 'card_visible');
-    cardCont.setAttribute('data-itemCount', itemCount);
+    cardCont.setAttribute('data-itemCount', 1);
     cardCont.setAttribute('data-itemId', itemId);
     cardCont.setAttribute('data-itemName', nameItem);
     cardCont.setAttribute('data-collectionName', nameCollection);
@@ -378,6 +378,7 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item => {
+            console.log(item);
             createOneCard(item['itemCount'], item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
         })
     }

@@ -1,3 +1,4 @@
+const orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
 const orderBtn = document.querySelector('.main__btn-order');
 const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
@@ -33,10 +34,12 @@ burgerProfileBtn.addEventListener('click', () => {
 contWithCards.addEventListener('click', (e) => {
     btnClick(e);
 })
-
+console.log(shopCart);
 orderBtn.addEventListener('click', (e)=>{
     e.preventDefault();
-
+    if(shopCart.length < 1) {
+        return;
+    }
     //Создание уведомления
     const compliteOrder = document.createElement('div');
     compliteOrder.classList.add('main__order-complite');
@@ -50,7 +53,12 @@ orderBtn.addEventListener('click', (e)=>{
         compliteOrder.classList.remove('main__order-complite_active');
     },1000)
     //Отправка заказа в LS
-    localStorage.setItem('order', JSON.stringify(shopCart));
+    console.log(shopCart);
+    orders.push(shopCart);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    console.log(orders);
+    localStorage.removeItem('shopCart');
+    location.reload();
 })
 
 function btnClick(e) {
@@ -73,8 +81,14 @@ function setPageShopCart() {
         shopCart.forEach(item => {
             const card = document.createElement('div');
             card.classList.add('main__card');
+            card.setAttribute('data-itemCount', item['itemCount']);
             card.setAttribute('data-itemId', item['itemId']);
             card.setAttribute('data-collectionName', item['collectionName']);
+            card.setAttribute('data-itemMaterial', item['itemMaterial']);
+            card.setAttribute('data-itemName', item['itemName']);
+            card.setAttribute('data-itemPrice', item['itemPrice']);
+            card.setAttribute('data-itemSize', item['itemSize']);
+            card.setAttribute('data-itemType', item['itemType']);
             const itemShopCart = `
             <div class="main__card-photo-block">
                 <img src="${item['itemPhoto']}" alt="shop-cart__product" class="main__card-photo">
@@ -171,12 +185,14 @@ function plusCount(e) {
     let itemPriceValue = itemPrice.dataset['itemprice'];
     let countBtn = e.target.parentElement.querySelector('.main__count-value');
     let countValue = +e.target.parentElement.querySelector('.main__count-value').textContent;
+    let countItem = e.target.closest('.main__card');
     if (countBtnName === 'count-btn-plus') {
         //Ограничение на заказ максимум 100 товаров
         if (countValue >= 100) return;
         //Меняем значение счетчика
         countValue++;
         countBtn.textContent = countValue;
+        countItem.setAttribute('data-itemcount', countValue);
         //Меняем значение цены товара
         let resPrice = +itemPriceValue + +startPrice;
         //Меняем дата атрибут цены
@@ -195,11 +211,13 @@ function minusCount(e) {
     let itemPriceValue = itemPrice.dataset['itemprice'];
     let countBtn = e.target.parentElement.querySelector('.main__count-value');
     let countValue = +e.target.parentElement.querySelector('.main__count-value').textContent;
+    let countItem = e.target.closest('.main__card');
     if (countBtnName === 'count-btn-minus') {
         if (countValue < 2) return;
         //Меняем значение счетчика
         countValue--;
         countBtn.textContent = countValue;
+        countItem.setAttribute('data-itemcount', countValue);
         //Меняем значение цены товара
         let resPrice = +itemPriceValue - +startPrice;
         //Меняем дата атрибут цены

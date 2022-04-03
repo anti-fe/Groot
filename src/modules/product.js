@@ -107,7 +107,6 @@ function addToShopCart(item) {
     localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
 }
 
-
 function setPageProduct() {
     if (product) {
         const mainWrapper = document.createElement('div');
