@@ -34,7 +34,7 @@ burgerProfileBtn.addEventListener('click', () => {
 contWithCards.addEventListener('click', (e) => {
     btnClick(e);
 })
-console.log(shopCart);
+
 orderBtn.addEventListener('click', (e)=>{
     e.preventDefault();
     if(shopCart.length < 1) {
@@ -53,7 +53,7 @@ orderBtn.addEventListener('click', (e)=>{
         compliteOrder.classList.remove('main__order-complite_active');
     },1000)
     //Отправка заказа в LS
-    console.log(shopCart);
+
     orders.push(shopCart);
     localStorage.setItem('orders', JSON.stringify(orders));
     console.log(orders);

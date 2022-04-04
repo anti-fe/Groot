@@ -1,5 +1,5 @@
 //Создание заказов в ЛК пользователя
-let orders = JSON.parse(localStorage.getItem('orders')) ? [JSON.parse(localStorage.getItem('orders'))] : [];
+let orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
 const ordersList = document.querySelector('.main__orders');
 setOrders();
 
@@ -12,18 +12,27 @@ const mainWrapper = document.querySelector('.main__wrapper'),
         mainCont = document.querySelectorAll('.main__cont');
 const footerSection = document.querySelectorAll('.footer__section');
 const userInfoConts = document.querySelectorAll('.info-cont__text');
-const ordersBtn = document.querySelector('.main__orders-btn');
+const ordersBtn = document.querySelector('.main__orders-none-btn');
 const viewPassword = document.querySelector('.main__password-view');
+const ordersNoneCont = document.querySelector('.main__orders-none');
+
+if(!localStorage.getItem('orders')) {
+    ordersNoneCont.style.display = 'flex';
+} else {
+    ordersNoneCont.style.display = 'none';
+}
 
 function setOrders(){
     let count = 0;
     if(orders) {
         orders.forEach(a=>{
-            a.forEach(b=>{
-                count++;
-                createOrder(b, count);
-                createOrderItem(b);
+            count++;
+            createOrder(a, count);
 
+            const orderItemsList = document.createElement('ul');
+            orderItemsList.classList.add('main__order-items');
+            a.forEach(b=>{
+                createOrderItem(b, orderItemsList);
             })
         })
     }
@@ -75,34 +84,30 @@ function createOrder(a, count){
         orderCont.appendChild(orderContent);
         ordersList.appendChild(orderCont);
 }
-function createOrderItem(b) {
-    const orderItemsList = document.createElement('ul');
-    orderItemsList.classList.add('main__order-items');
+function createOrderItem(b, orderItemsList) {
     
-    b.forEach(item=>{
-        const orderItemContent = document.createElement('li');
-        orderItemContent.classList.add('main__order-item');
-    
-        const orderItem = 
-        `
-        <div class="main__order-item-info">
-            <span class="main__order-info-name">Название товара:</span>
-            <span class="main__order-info-value">${item['itemName']}</span>
-        </div>
-        <div class="main__order-item-info">
-            <span class="main__order-info-name">Кол-во товара:</span>
-            <span class="main__order-info-value">${item['itemCount']} шт</span>
-        </div>
-        <div class="main__order-item-info">
-            <span class="main__order-info-name">Цена товара:</span>
-            <span class="main__order-info-value">${setTextPrice((+item['itemPrice'] * +item['itemCount']).toString())}</span>
-        </div>
-        `;
-        orderItemContent.innerHTML = orderItem;
-        orderItemsList.appendChild(orderItemContent);
-        const allOrders = document.querySelectorAll('.main__order');
-        allOrders[allOrders.length - 1].appendChild(orderItemsList);
-    })
+    const orderItemContent = document.createElement('li');
+    orderItemContent.classList.add('main__order-item');
+
+    const orderItem = 
+    `
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Название товара:</span>
+        <span class="main__order-info-value">${b['itemName']}</span>
+    </div>
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Кол-во товара:</span>
+        <span class="main__order-info-value">${b['itemCount']} шт</span>
+    </div>
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Цена товара:</span>
+        <span class="main__order-info-value">${setTextPrice((+b['itemPrice'] * +b['itemCount']).toString())}</span>
+    </div>
+    `;
+    orderItemContent.innerHTML = orderItem;
+    orderItemsList.appendChild(orderItemContent);
+    const allOrders = document.querySelectorAll('.main__order');
+    allOrders[allOrders.length - 1].appendChild(orderItemsList);
 
 }
 
@@ -141,19 +146,16 @@ ordersList.addEventListener('click', (e)=>{
     const item = e.target;
     if(item.closest('.main__order-delete')) {
         //Удаляем заказ
-        allOrders = [];
-        orders.forEach((elem,i)=>{
-            elem.forEach(a=>{
-                allOrders.push(a);
-            })
-        })
-        console.log(allOrders[+item.closest('.main__order').dataset['idorder'] - 1]), +item.closest('.main__order').dataset['idorder'] - 1;
-        allOrders.splice(+item.closest('.main__order').dataset['idorder'] - 1, 1);
-        localStorage.setItem('orders', JSON.stringify([allOrders]));
         item.closest('.main__order').classList.add('main__order_hidden');
         setTimeout(()=>{
             item.closest('.main__order').remove();
-        },300)
+        },300);
+
+        orders.splice(+item.closest('.main__order').dataset['idorder'] - 1, 1);
+        localStorage.setItem('orders', JSON.stringify(orders));
+        if(!JSON.parse(localStorage.getItem('orders'))[0]) {
+            localStorage.removeItem('orders');
+        }
     } else if(item.closest('.main__order')) {
         const orderItemsList = item.closest('.main__order').querySelector('.main__order-items');
         const orderItemArrow = item.closest('.main__order').querySelector('.arrow');
