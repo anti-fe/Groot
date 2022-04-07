@@ -11,6 +11,11 @@ const footerSection = document.querySelectorAll('.footer__section');
 const countCont = document.querySelector('.main__product-count-cont');
 const addInShopCart = document.querySelector('.main__add-product');
 
+//Модальное окно
+page = document.querySelector('body');
+modalWindow = document.querySelector('.modal-window');
+headerNav = document.querySelector('.header__nav');
+
 const collectionList = JSON.parse(localStorage.getItem('collections'));
 //Локальная корзина товаров
 let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
@@ -25,22 +30,29 @@ addInShopCart.addEventListener('click',(e)=>{
     if(addInShopCart.classList.contains('main__add-product_active')) {
         window.location.href = "shop-cart.html";
     } else if (addInShopCart.classList.contains('main__add-product')) {
-        addToShopCart(parentItem);
-        addInShopCart.classList.add('main__add-product_active');
-
-        //Предупреждение о добавлении товара в корзину
-        const warningAdd = document.createElement('div');
-        warningAdd.classList.add('main__warning-add');
-        const warningAddText = document.createElement('h3');
-        warningAddText.textContent = 'Товар добавлен в корзину';
-        warningAddText.classList.add('main__warning-add-text');
-        warningAdd.appendChild(warningAddText);
-        mainCont.appendChild(warningAdd);
-
-        warningAdd.classList.add('main__warning-add_active');
-        setTimeout(()=>{
-            warningAdd.classList.remove('main__warning-add_active');
-        }, 1000);
+        if(!localStorage.getItem('loggedUser')) {
+            modalWindow.style.visibility = 'visible';
+            modalWindow.style.transform = 'translateY(1080px)';
+            headerNav.style.display = 'none';
+            page.style.overflowY = 'hidden';
+        } else {
+            addToShopCart(parentItem);
+            addInShopCart.classList.add('main__add-product_active');
+    
+            //Предупреждение о добавлении товара в корзину
+            const warningAdd = document.createElement('div');
+            warningAdd.classList.add('main__warning-add');
+            const warningAddText = document.createElement('h3');
+            warningAddText.textContent = 'Товар добавлен в корзину';
+            warningAddText.classList.add('main__warning-add-text');
+            warningAdd.appendChild(warningAddText);
+            mainCont.appendChild(warningAdd);
+    
+            warningAdd.classList.add('main__warning-add_active');
+            setTimeout(()=>{
+                warningAdd.classList.remove('main__warning-add_active');
+            }, 1000);
+        }
     }
 })
 

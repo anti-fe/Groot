@@ -21,6 +21,12 @@ const minPrice = document.querySelectorAll('.main__filter-range-price')[0],
     maxPrice = document.querySelectorAll('.main__filter-range-price')[1];
 const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
+
+//Модальное окно
+page = document.querySelector('body');
+modalWindow = document.querySelector('.modal-window');
+headerNav = document.querySelector('.header__nav');
+
 let inputVal;
 
 //Локальная корзина товаров
@@ -44,22 +50,30 @@ setTimeout(() => {
         if(item.classList.contains('card__btn_active')) {
             window.location.href = "shop-cart.html";
         } else if (item.classList.contains('card__btn')) {
-            addToShopCart(secondParentItem);
-            item.classList.add('card__btn_active')
+            //Проверяем зашел ли пользователь в аккаунт
+            if(!localStorage.getItem('loggedUser')) {
+                modalWindow.style.visibility = 'visible';
+                modalWindow.style.transform = 'translateY(1080px)';
+                headerNav.style.display = 'none';
+                page.style.overflowY = 'hidden';
+            } else {
+                addToShopCart(secondParentItem);
+                item.classList.add('card__btn_active');
 
-            //Предупреждение о добавлении товара в корзину
-            const warningAdd = document.createElement('div');
-            warningAdd.classList.add('main__warning-add');
-            const warningAddText = document.createElement('h3');
-            warningAddText.textContent = 'Товар добавлен в корзину';
-            warningAddText.classList.add('main__warning-add-text');
-            warningAdd.appendChild(warningAddText);
-            mainCont.appendChild(warningAdd);
+                //Предупреждение о добавлении товара в корзину
+                const warningAdd = document.createElement('div');
+                warningAdd.classList.add('main__warning-add');
+                const warningAddText = document.createElement('h3');
+                warningAddText.textContent = 'Товар добавлен в корзину';
+                warningAddText.classList.add('main__warning-add-text');
+                warningAdd.appendChild(warningAddText);
+                mainCont.appendChild(warningAdd);
 
-            warningAdd.classList.add('main__warning-add_active');
-            setTimeout(()=>{
-                warningAdd.classList.remove('main__warning-add_active');
-            }, 1000);
+                warningAdd.classList.add('main__warning-add_active');
+                setTimeout(()=>{
+                    warningAdd.classList.remove('main__warning-add_active');
+                }, 1000);
+            }
         } else if (secondParentItem.classList.contains('main__card')) {
             createProductPage(secondParentItem);
         } else if (item.classList.contains('main__card')) {
@@ -305,7 +319,7 @@ function createCard() {
 }
 createCard();
 
-function createOneCard(itemCount, itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
+function createOneCard(itemId ,nameItem, nameCollection, typeItem, priceItem, materialItem, sizeItem, itemImg) {
     const cardCont = document.createElement('div');
     cardCont.classList.add('main__card', 'card', 'card_visible');
     cardCont.setAttribute('data-itemCount', 1);
@@ -379,7 +393,7 @@ function getFilter(e) {
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item => {
             console.log(item);
-            createOneCard(item['itemCount'], item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
+            createOneCard(item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
         })
     }
 

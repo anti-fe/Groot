@@ -4,11 +4,11 @@ const modalClose = document.querySelector('.modal-window__close');
 const toRegistr = document.querySelector('.modal-window__reg-btn');
 const toAuth = document.querySelector('.modal-window__auth-btn');
 
-const page = document.querySelector('body');
-const modalWindow = document.querySelector('.modal-window');
-const headerNav = document.querySelector('.header__nav');
 const modalAuth = document.querySelector('.modal-window__auth');
 const modalReg = document.querySelector('.modal-window__reg');
+let page = document.querySelector('body');
+let modalWindow = document.querySelector('.modal-window');
+let headerNav = document.querySelector('.header__nav');
 
 profileBtn.forEach(btn=>{
     btn.addEventListener('click', openModalWindow);
