@@ -32,14 +32,6 @@ let inputVal;
 //Локальная корзина товаров
 let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
 
-if (localStorage.getItem('loggedUser')) {
-    if (JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] == 'admin') {
-        btnsProfile.forEach(item => {
-            item.addEventListener('click', locateToAdminAccount);
-        })
-    }
-}
-
 //Переход на страницу с товаром 
 setTimeout(() => {
     const cardsListWithCards = document.querySelector('.main__cards-list');
@@ -503,17 +495,5 @@ function getFilter(e) {
 
         filterType()
         filterPrice()
-    }
-}
-
-function locateToAdminAccount() {
-    if (document.querySelector('.page-name')) {
-        window.location.href = 'admin-profile.html';
-    }
-}
-
-function locateToAccount() {
-    if (document.querySelector('.page-name')) {
-        window.location.href = 'user-profile.html';
     }
 }
