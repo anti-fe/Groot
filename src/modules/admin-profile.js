@@ -11,6 +11,7 @@ const footerSection = document.querySelectorAll('.footer__section');
 const addItemBtn = document.querySelector('.main__add-item-btn');
 const errorMessage = document.querySelector('.main__error-message');
 const fileInput = document.querySelector('.main__file-input');
+const restoreCollections = document.querySelector('.main__restore');
 let uploadedFile = document.querySelector('.main__label-file');
 let inputFilePath;
 
@@ -54,6 +55,14 @@ localStorage.setItem('loggedUser', JSON.stringify([{
 }]))
 
 
+restoreCollections.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    fetch("../collections.json")
+        .then(res => res.json())
+        .then(str => localStorage.setItem('collections', JSON.stringify(str)));
+    document.location.reload();
+})
 collectionListCont.addEventListener('click', (e) => {
     deleteCollection(e);
 })
@@ -213,7 +222,7 @@ addItemBtn.addEventListener('click', (e) => {
         inputMaterialItem = document.querySelector('#materialItem'),
         inputSizeItem = document.querySelector('#sizeItem'),
         inputPriceItem = document.querySelector('#priceItem'),
-        inputPhotoItem = document.querySelector('#photoItem'),
+        inputPhotoItem = "../images/new-item.png",
         selectTypeItem = document.querySelector('.main__select-type');
 
     createNewCollection(selectCollection, inputNameCollection, inputNameItem, inputMaterialItem, inputSizeItem, inputPhotoItem, inputPriceItem, selectTypeItem);
@@ -247,7 +256,7 @@ function createNewCollection(selectCollection, inputNameCollection, inputNameIte
                 "typeItem": selectTypeItem.value,
                 "priceItem": +(inputPriceItem.value),
                 "nameCollection": selectCollection.value,
-                "photoItem": inputPhotoItem.value,
+                "photoItem": inputPhotoItem,
             }
             //Добавляем созданную мебель в коллекцию
             collectionList.forEach(item=>{
@@ -318,5 +327,4 @@ function customInputFile() {
     const inputFileValue = fileInput.files[0]['name'];
     const inputText = uploadedFile.querySelector('.main__add-input-text');
     inputText.textContent = inputFileValue;
-    console.log(fileInput.files)
 }

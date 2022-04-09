@@ -63,6 +63,13 @@
 .main__title::after {
   display: none;
 }
+.main__restore {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+  text-decoration: underline;
+}
 .main__section-title {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -505,6 +512,20 @@
   }
 }
 @media (max-width: 805px) {
+  .main__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  .main__restore {
+    margin-top: 10px;
+  }
+
   .main__collection-item:not(:last-child) {
     border-bottom: 1px solid #E0E0E0;
   }

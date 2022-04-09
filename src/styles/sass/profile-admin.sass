@@ -27,6 +27,9 @@
         margin-bottom: 0
     &__title::after 
         display: none
+    &__restore
+        +text($ff-inter, $fw-regular, $fs-16, $c-black)
+        text-decoration: underline
     &__section-title 
         +text($ff-inter, $fw-regular, $fs-36, $c-black)
         line-height: 80%
@@ -215,6 +218,11 @@
         row-gap: 100px
         column-gap: 0
 @media (max-width: 805px)
+    .main__header 
+        flex-direction: column 
+        align-items: flex-start
+    .main__restore
+        margin-top: 10px
     .main__collection-item:not(:last-child)
         border-bottom: 1px solid #E0E0E0
     .main__item-title 
