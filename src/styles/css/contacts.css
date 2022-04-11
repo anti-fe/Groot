@@ -1,0 +1,75 @@
+.main__btn {
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  background-color: #262626;
+  border: none;
+  position: relative;
+  z-index: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.main__btn:hover {
+  color: #262626;
+  border: 2px solid #262626;
+}
+.main__btn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 0;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  z-index: -1;
+}
+.main__btn:hover::before {
+  height: 100%;
+}
+.main__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 130px;
+  margin-bottom: 50px;
+  width: 100%;
+  position: relative;
+}
+.main__header::before {
+  content: "";
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #E0E0E0;
+}
+.main__title {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 300;
+  font-size: 64px;
+  color: #262626;
+  text-align: start;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+.main__title::after {
+  display: none;
+}

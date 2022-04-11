@@ -7,11 +7,11 @@ let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getIte
 const cardsCont = document.querySelector('.main__body');
 setPageShopCart();
 
+const contWithCards = document.querySelector('.main__body');
 const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
     burgerProfileBtn = document.querySelector('.header__burger-profile');
 const footerSection = document.querySelectorAll('.footer__section');
-const contWithCards = document.querySelector('.main__body');
 
 footerSection.forEach(item => {
     item.addEventListener('click', () => {

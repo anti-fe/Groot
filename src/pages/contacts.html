@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groot - Личный кабинет пользователя</title>
+    <title>Groot - Корзина товаров</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./../styles/css/style.css">
-    <link rel="stylesheet" href="./../styles/css/profile-user.css">
-
+    <link rel="stylesheet" href="../styles/css/style.css">
+    <link rel="stylesheet" href="../styles/css/contacts.css">
 </head>
 <body>
-    <input type="hidden" name="userProfile" class="page-name">
+    <input type="hidden" name="shop-cart" class="page-name">
     <header class="header">
         <div class="success-login">
             <p class="success-login__text">Вы успешно вошли в аккаунт!</p>
@@ -176,42 +175,16 @@
             </div>
         </nav>
     </header>
-    <main class="main cont">
-        <div class="main__header">  
-            <h1 class="main__title">Личный кабинет</h1>
-            <h2 class="main__section-title">Данные пользователя</h2>
-        </div>
-        <div class="decor-line"></div>
-        <div class="main__wrapper"> 
-            <div class="main__info main__cont">
-                <img class="decor-line__photo" src="./../images/profile-decor.webp" alt="decor-profile">
-                <div class="main__fio-cont main__info-cont">
-                    <h3 class="main__fio-title info-cont__title">ФИО</h3>
-                    <p class="main__fio-text info-cont__text"></p>
-                </div>
-                <div class="main__phone-cont main__info-cont">
-                    <h3 class="main__phone-title info-cont__title">Номер телефона</h3>
-                    <p class="main__phone-text info-cont__text"></p>
-                </div>
-                <div class="main__password-cont main__info-cont">
-                    <h3 class="main__password-title info-cont__title">Пароль</h3>
-                    <p class="main__password-text info-cont__text"></p>
-                    <span class="main__password-view main__password-unview">Показать пароль</span>
-                </div>
-            </div>
-        </div>
 
-        <div class="decor-line decor-line-orders"></div>
-        <div class="main__header main__orders-header">  
-            <h2 class="main__section-title">Заказы</h2>
+    <main class="main cont">
+        <div class="main__header">
+            <h1 class="main__title">Контакты</h1>
         </div>
-        <div class="main__orders main__cont">
-            <div class="main__orders-none">
-                <h2 class="main__orders-none-text">Заказов нет</h2>
-                <button class="main__btn main__orders-none-btn">Перейти в корзину</button>
-            </div>
+        <div class="main__body">
+            
         </div>
     </main>
+    
     <footer class="footer">
         <div class="footer__content cont">
             <div class="footer__main">
@@ -343,7 +316,7 @@
         </div>
     </footer>
 
-    <script src="../modules/user-profile.js"></script>
+    <script src="../modules/contacts.js"></script>
     <script src="../modules/modal-window.js"></script>
     <script src="../modules/validation.js"></script>
 </body>
