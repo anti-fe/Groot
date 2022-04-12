@@ -49,4 +49,36 @@
         width: 100%
         &::after 
             display: none
-            
+    &__body 
+        +flex(space-between, normal, row)
+        margin-top: 50px
+        display: grid 
+        grid-template-columns: repeat(2, 1fr)
+        width: 100%
+        grid-gap: 200px
+    &__contacts-sect
+        background-color: $c-white
+        padding: 30px
+        position: relative
+        &::after
+            content: ''
+            height: 100%
+            width: 1px
+            background-color: $c-black
+            position: absolute
+            top: 0
+            right: 0
+    &__contacts-row
+        +flex(space-between, center, row)
+        width: 100%
+        &:not(:last-child) 
+            margin-bottom: 15px
+    &__contacts-text
+        +text($ff-inter, $fw-regular, $fs-22, $c-black)
+    #modal-window__textarea
+        resize: none
+        width: 100%
+        height: 160px
+@media (max-width: 1420px) 
+    .main__body
+        grid-gap: 60px
