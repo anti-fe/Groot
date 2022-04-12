@@ -1,6 +1,23 @@
 @import "mixins.sass"
 @import "vars.sass"
 
+//FORM
+.modal-window__form
+    max-width: 100%
+#modal-window__textarea
+    resize: none
+    width: 100%
+    height: 160px
+.modal-window__inputs-list
+    margin-bottom: 25px
+.modal-window__input-cont
+    &:not(:last-child)
+        margin-bottom: 20px
+.modal-window__input
+    padding: 12px 15px 15px 15px
+    &::placeholder 
+        font-size: 16px
+//CONTACTS
 .main
     &__btn 
         cursor: pointer
@@ -51,6 +68,7 @@
             display: none
     &__body 
         +flex(space-between, normal, row)
+        margin-bottom: 100px
         margin-top: 50px
         display: grid 
         grid-template-columns: repeat(2, 1fr)
@@ -60,6 +78,8 @@
         background-color: $c-white
         padding: 30px
         position: relative
+        &:not(:last-child)
+            margin-bottom: 10px
         &::after
             content: ''
             height: 100%
@@ -75,10 +95,14 @@
             margin-bottom: 15px
     &__contacts-text
         +text($ff-inter, $fw-regular, $fs-22, $c-black)
-    #modal-window__textarea
-        resize: none
-        width: 100%
-        height: 160px
+    &__form-succes
+        +text($ff-inter, $fw-regular, $fs-16, green)
+        display: none
+        text-align: center
+        margin-bottom: 20px
 @media (max-width: 1420px) 
     .main__body
         grid-gap: 60px
+@media (max-width: 920px) 
+    .main__body
+        grid-template-columns: 1fr

@@ -95,7 +95,7 @@ function getAuthForm(e) {
 
 
     usersArray.forEach(user => {
-        if(('admin' == formDataAuth.phone) && ('admin' == formDataAuth.password)) { 
+        if(('admin' == formDataAuth.phone.trim()) && ('admin' == formDataAuth.password.trim())) { 
             localStorage.setItem('loggedUser', JSON.stringify([admin]));  
 
             authInps.forEach(input => {

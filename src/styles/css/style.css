@@ -1376,6 +1376,16 @@
           box-sizing: border-box;
 }
 
+*::-moz-selection {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+*::selection {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
 body {
   background-color: #FAFAFA !important;
   overflow-x: hidden;
