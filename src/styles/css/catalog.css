@@ -1,3 +1,7 @@
+.catalog__loading {
+  display: none;
+}
+
 .footer {
   margin-top: 120px;
 }
