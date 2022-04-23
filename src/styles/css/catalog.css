@@ -189,23 +189,43 @@
   opacity: 0;
   cursor: pointer;
 }
-.main__filter-cust-radio, .main__filter-cust-checkbox {
+.main__filter-cust-radio {
   position: relative;
   display: inline-block;
   width: 24px;
   height: 24px;
   background: #fff;
-  border: 2px solid #262626;
+  border: 2px solid #d4d4d478;
   border-radius: 50%;
 }
-.main__filter-cust-radio::before, .main__filter-cust-checkbox::before {
+.main__filter-cust-radio::before {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #262626;
+}
+.main__filter-cust-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 2px solid #d4d4d478;
+  border-radius: 50%;
+}
+.main__filter-cust-checkbox::before {
   content: "";
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   background-color: #262626;
   background: url("../../images/filter-arrow.svg") 50%;
@@ -216,6 +236,14 @@
 }
 .main__filter-cust-checkbox {
   border-radius: 0;
+  border: 0.5px solid #d4d4d478;
+}
+.main__filter-checkbox-btn:checked + .main__filter-cust-checkbox::before {
+  border: 2px solid #262626;
+  border-radius: 0;
+}
+.main__filter-radio-btn:checked + .main__filter-cust-radio {
+  border: 2px solid #262626;
 }
 .main__filter-range {
   -webkit-appearance: none;
