@@ -97,6 +97,7 @@ function createCollectionCont(item) {
     const collectionCont = document.createElement('div');
     collectionCont.classList.add('main__collection');
     collectionCont.setAttribute('data-namecollection', item['nameCollection']);
+    collectionCont.setAttribute('data-idcollection', item['idCollection']);
 
     collectionCont.innerHTML =
         `   <div class="main__collection-info">
@@ -171,16 +172,15 @@ function deleteCollection(e) {
 
 function deleteCollectionContent(item) {
     let nameCollection = item.dataset['namecollection'];
+    let idCollection = +item.dataset['idcollection'];
     collectionList.forEach((elem, i) => {
-        if (elem['nameCollection'] === nameCollection) {
-            if (elem['idCollection'] === i + 1) {
-                collectionList.splice(i, 1);
-
-            }
+        console.log(idCollection, elem['idCollection']);
+        if (elem['nameCollection'] === nameCollection && elem['idCollection'] === idCollection) {
+            collectionList.splice(i, 1);
+            //Удаляем коллекцию из LS
+            localStorage.setItem('collections', JSON.stringify(collectionList));
         }
     })
-    //Удаляем коллекцию из LS
-    localStorage.setItem('collections', JSON.stringify(collectionList));
     item.classList.add('main__collection_hidden');
     setTimeout(() => {
         item.remove();
