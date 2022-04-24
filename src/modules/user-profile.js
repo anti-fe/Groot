@@ -1,6 +1,7 @@
 //Создание заказов в ЛК пользователя
 let orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
 const ordersList = document.querySelector('.main__orders');
+console.log(orders);
 setOrders();
 
 const burgerMenu = document.querySelector('.nav__burger'),
@@ -31,7 +32,7 @@ function setOrders(){
 
             const orderItemsList = document.createElement('ul');
             orderItemsList.classList.add('main__order-items');
-            a.forEach(b=>{
+            a['orderItems'].forEach(b=>{
                 createOrderItem(b, orderItemsList);
             })
         })
@@ -39,14 +40,17 @@ function setOrders(){
 }
 
 function createOrder(a, count){
+    console.log(a);
     let countOrderItems = 0;
     let priceOrderItems = 0;
-    a.forEach(elem=>{
+    a['orderItems'].forEach(elem=>{
         countOrderItems += +elem['itemCount'];
         priceOrderItems += +elem['itemPrice'];
+        
     })
     const orderCont = document.createElement('div');
-    orderCont.setAttribute('data-idOrder', count);
+    const idOrder = a['idOrder'];
+    orderCont.setAttribute('data-idOrder', idOrder);
     orderCont.classList.add('main__order');
     const orderContent = document.createElement('div');
     orderContent.classList.add('main__order-content');
@@ -146,13 +150,20 @@ ordersList.addEventListener('click', (e)=>{
     const item = e.target;
     if(item.closest('.main__order-delete')) {
         //Удаляем заказ
-        item.closest('.main__order').classList.add('main__order_hidden');
+        const mainOrder = item.closest('.main__order');
+        mainOrder.classList.add('main__order_hidden');
         setTimeout(()=>{
             item.closest('.main__order').remove();
         },300);
 
-        orders.splice(+item.closest('.main__order').dataset['idorder'] - 1, 1);
-        localStorage.setItem('orders', JSON.stringify(orders));
+        const orderId = +mainOrder.dataset['idorder'];
+        orders.forEach((item,i)=>{;
+            if(item['idOrder'] === orderId) {
+                orders.splice(i, 1);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                console.log(orders);
+            }
+        })
         if(!JSON.parse(localStorage.getItem('orders'))[0]) {
             localStorage.removeItem('orders');
         }

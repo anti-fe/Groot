@@ -53,8 +53,16 @@ orderBtn.addEventListener('click', (e)=>{
         compliteOrder.classList.remove('main__order-complite_active');
     },1000)
     //Отправка заказа в LS
-
-    orders.push(shopCart);
+    let ordersLen;
+    if(localStorage.getItem('orders')) {
+        ordersLen = JSON.parse(localStorage.getItem('orders')).length + 1;
+    } else {
+        ordersLen = 1;
+    }
+    orders.push({
+        "idOrder": ordersLen,
+        "orderItems": shopCart
+    });
     localStorage.setItem('orders', JSON.stringify(orders));
     console.log(orders);
     localStorage.removeItem('shopCart');
