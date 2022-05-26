@@ -1,7 +1,7 @@
 //Создание заказов в ЛК пользователя
 let orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
 const ordersList = document.querySelector('.main__orders');
-console.log(orders);
+
 setOrders();
 
 const burgerMenu = document.querySelector('.nav__burger'),
@@ -40,7 +40,6 @@ function setOrders(){
 }
 
 function createOrder(a, count){
-    console.log(a);
     let countOrderItems = 0;
     let priceOrderItems = 0;
     a['orderItems'].forEach(elem=>{
@@ -67,10 +66,6 @@ function createOrder(a, count){
                     <span class="main__order-info-name">Сумма заказа:</span>
                     <span class="main__order-info-value">${setTextPrice(priceOrderItems.toString())}</span>
                 </div>
-                <div class="main__order-info-item">
-                    <span class="main__order-info-name">Дата и время заказа:</span>
-                    <span class="main__order-info-value">07.04.2022, 19:30</span>
-                </div>
             </div>
         </div>
         <div class="main__order-btns">
@@ -96,12 +91,15 @@ function createOrderItem(b, orderItemsList) {
     const orderItem = 
     `
     <div class="main__order-item-info">
+        <img class="main__order-item-photo" src=${b['itemPhoto']} />
+    </div>
+    <div class="main__order-item-info">
         <span class="main__order-info-name">Название товара:</span>
         <span class="main__order-info-value">${b['itemName']}</span>
     </div>
     <div class="main__order-item-info">
-        <span class="main__order-info-name">Кол-во товара:</span>
-        <span class="main__order-info-value">${b['itemCount']} шт</span>
+        <span class="main__order-info-name">Номер заказа:</span>
+        <span class="main__order-info-value">${b['itemId']}</span>
     </div>
     <div class="main__order-item-info">
         <span class="main__order-info-name">Цена товара:</span>
@@ -161,7 +159,6 @@ ordersList.addEventListener('click', (e)=>{
             if(item['idOrder'] === orderId) {
                 orders.splice(i, 1);
                 localStorage.setItem('orders', JSON.stringify(orders));
-                console.log(orders);
             }
         })
         if(!JSON.parse(localStorage.getItem('orders'))[0]) {

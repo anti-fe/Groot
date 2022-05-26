@@ -3,7 +3,6 @@ const sliderContent = document.querySelector('.slider__content'),
 let sliderMove = 0;
 let countSlides = 0;
 const header = document.querySelector('.header');
-const sliderDots = Array.from(document.querySelectorAll('.header__dots-item'));
 const dataImgs = [
     './src/images/first-screen1.webp',
     './src/images/first-screen2.webp',
@@ -15,16 +14,11 @@ const dataCollections = JSON.parse(localStorage.getItem('collections'));
 let countImg = 1;
 //Атоматический слайдер на главном экране
 function autoSliderBg() {
-    sliderDots.forEach(dote=>{
-        dote.classList.remove('item-active');
-    })
     if(countImg > dataImgs.length-1) {
         countImg = 0;
         header.style.backgroundImage = `url('${dataImgs[countImg]}')`;
-        sliderDots[countImg].classList.add('item-active');
     } else {
         header.style.backgroundImage = `url('${dataImgs[countImg]}')`;
-        sliderDots[countImg].classList.add('item-active');
         countImg++;
     }
 }
@@ -43,11 +37,11 @@ sliderContent.addEventListener('click',(e)=>{
     secondParent.classList.contains('slider__btn-prev')) {
         if(countSlides <= 0) {
             countSlides = slides.length-1;
-            sliderMove = 300
+            sliderMove = 300;
             sliderTrack.style.transform = `translateX(-${sliderMove}%)`;
         } else {
             countSlides--;
-            sliderMove -= 100
+            sliderMove -= 100;
             sliderTrack.style.transform = `translateX(-${sliderMove}%)`;
         }
     } else if(item.classList.contains('slider__btn-next') ||

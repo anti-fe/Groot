@@ -10,7 +10,9 @@ const burgerMenu = document.querySelector('.nav__burger'),
 const footerSection = document.querySelectorAll('.footer__section');
 const countCont = document.querySelector('.main__product-count-cont');
 const addInShopCart = document.querySelector('.main__add-product');
-
+const loggUser = JSON.parse(localStorage.getItem('loggedUser'));
+const users = JSON.parse(localStorage.getItem('users'));
+let shopCart;
 //Модальное окно
 page = document.querySelector('body');
 modalWindow = document.querySelector('.modal-window');
@@ -18,7 +20,12 @@ headerNav = document.querySelector('.header__nav');
 
 const collectionList = JSON.parse(localStorage.getItem('collections'));
 //Локальная корзина товаров
-let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
+users.forEach(user=>{
+    if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
+        shopCart = user['shopCart'];
+    }
+})
+
 
 countCont.addEventListener('click',(e)=>{
     setCountItem(e);
@@ -113,10 +120,18 @@ function addToShopCart(item) {
         "itemPhoto": cardInfo["itemPhoto"],
         "itemCount": cardInfo["itemCount"]
     }
+    loggUser[0]['shopCart'] = shopCart;
+    users.forEach(user=>{
+        if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
+            user['shopCart'] = shopCart;
+        }
+    })
     //Добавляем товар в локальную корзину товаров
     shopCart.push(product);
     //Добавляем локальную корзину товаров в LS
-    localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+    // localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+    localStorage.setItem('users', JSON.stringify(users))
+    localStorage.setItem('loggedUser', JSON.stringify(loggUser))
 }
 
 function setPageProduct() {

@@ -2,6 +2,8 @@
     margin-bottom: 90px !important
     .time-is-over_visible
         display: flex !important
+    &__bg 
+        width: 100%
     &__time-is-over
         display: none
         align-items: center
@@ -26,7 +28,17 @@
     &__img 
         width: 100%
         margin-top: 90px
-
+        position: relative
+    &__mask-title
+        +text($ff-phil, $fw-light, $fs-64, $c-white)
+    &__mask 
+        position: absolute
+        top: 0
+        right: 0
+        width: 100%
+        height: 33.3%
+        background: linear-gradient(179.5deg, rgba(0, 0, 0, 0.8) 0.43%, rgba(0, 0, 0, 0) 91.24%)
+        +flex(center, center, row)
 .timer
     &_hidden
         display: none !important
@@ -50,6 +62,7 @@
         margin-right: 75px
 
 .slider
+    margin-bottom: 100px
     &__header
         +flex(space-between,center,row)
         margin-bottom: 50px
@@ -58,6 +71,8 @@
     &__content
         +flex(space-between,center,row)
         overflow-x: hidden
+        overflow-y: hidden
+        margin-bottom: 100px
     &__track
         display: flex
         transition: transform .3s ease
@@ -148,6 +163,9 @@
         padding: 14px 51px
     .slider__more-btn
         font-size: $fs-18
+@media (max-width: 1080px)
+    .new-collection__mask-title 
+        font-size: 48px
 @media (max-width: 910px)
     .slider__name-item
         font-size: $fs-26
@@ -170,6 +188,8 @@
         min-height: 250px
         border: 2px solid $c-black
 @media (max-width: 750px) 
+    .new-collection__mask-title 
+        font-size: 36px
     .new-collection__header 
         margin-top: 50px
     .new-collection__title
@@ -189,7 +209,6 @@
         margin-right: 20px
     .timer__item>:nth-child(2)
         bottom: -35px !important
-    
     .slider__name-item
         font-size: $fs-36
         margin-bottom: 10px
@@ -198,11 +217,11 @@
         padding: 14px 51px
     .slider__more-btn
         font-size: $fs-18
-    
-
-    @media (max-width: 440px) 
+@media (max-width: 440px) 
     .slider__name-item
         font-size: $fs-26
+    .new-collection__mask-title 
+        font-size: 28px
     .slider__name-collection
         font-size: $fs-18
         padding: 12px 40px

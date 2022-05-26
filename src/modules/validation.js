@@ -180,7 +180,9 @@ function getRegForm(e) {
         //Добавляем id пользователю
         const countUsers = JSON.parse(localStorage.getItem('users')).length; 
         formDataReg.append('id', countUsers);
-        
+        formDataReg.append('orders', '');
+        formDataReg.append('shopCart', '');
+    
         formDataReg = Object.fromEntries(formDataReg.entries());
 
         usersData.push(formDataReg);
@@ -306,8 +308,6 @@ function setSuccess(elem) {
 }
 //Выход из аккаунта
 function logOut() {
-    //Очищаем ошибки
-    
     //Убираем кнопки выхода из аккаунта
     logOutBtns.forEach(btn => {
         btn.style.display = 'none';
@@ -321,4 +321,5 @@ function logOut() {
     })
     //Удаляем из localStorage объект с данными авторизованного пользователя
     localStorage.removeItem('loggedUser');
+    // window.location.reload();
 }

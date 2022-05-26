@@ -240,12 +240,16 @@
                 </div>
             </div>
         </div>
-        <img src="./src/images/new-collection-img.webp" alt="new collection" class="new-collection__img">
+        <div class="new-collection__img">
+            <div class="new-collection__mask">
+                <h3 class="new-collection__mask-title">Новая коллекция</h3>
+            </div>
+            <img src="./src/images/new-collection-img.webp" alt="new collection" class="new-collection__bg">
+        </div>
     </section>
     <section class="slider cont">
         <div class="slider__header">
             <h3 class="slider__title">Другие товары</h3>
-            <div class="slider__dots"></div>
         </div>
         <div class="slider__content">
             <div class="slider__btn slider__btn-prev">
@@ -270,7 +274,6 @@
                     <div class="slider__photo">
                         <img src="src/images/collections/Arden/table/1.png" alt="photo-furniture" class="slider__photo-item">
                     </div>
-                    
                 </div>
                 <div class="slider__card" data-itemname="Обеденный стул" data-collectionname="Arden" data-itemtype="chair" data-itemmaterial="Ткань" data-itemprice="17820" data-itemsize="53 x 62 x 90 см
                 " data-itemimg="../images/collections/Arden/chair/1.webp">
@@ -468,6 +471,7 @@
     <script src="src/modules/sliders.js"></script>
     <script src="src/modules/modal-window.js"></script>
     <script src="src/modules/validation.js"></script>
+    <script src="src/modules/gallery.js"></script>
     <script src="src/index.js"></script>
 </body>
 

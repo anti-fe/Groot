@@ -14,6 +14,17 @@ const minPrice = document.querySelectorAll('.main__filter-range-price')[0],
 const searchInput = document.querySelector('.main__search-input'),
     searchBtn = document.querySelector('.main__search-btn');
 
+const allUsers = JSON.parse(localStorage.getItem('users'));
+const loggUser = JSON.parse(localStorage.getItem('loggedUser'));
+let shopCartLS = [];
+if(localStorage.getItem('loggedUser')) {
+    allUsers.forEach(user=>{
+        if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
+            user['shopCart'] ? shopCartLS = user['shopCart'] : false
+        }
+    })
+}
+
 //Модальное окно
 page = document.querySelector('body');
 modalWindow = document.querySelector('.modal-window');
@@ -106,9 +117,18 @@ function addToShopCart(item) {
         "itemPhoto": cardInfo["itemPhoto"]
     }
     //Добавляем товар в локальную корзину товаров
-    shopCart.push(product);
+    shopCartLS.push(product);
     //Добавляем локальную корзину товаров в LS
-    localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+    loggUser[0]['shopCart'] = shopCartLS;
+    allUsers.forEach(user=>{
+        if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
+            user['shopCart'] = shopCartLS;
+        }
+    })
+    // localStorage.setItem('shopCart', JSON.stringify([...new Set(shopCart)]));
+    localStorage.setItem('users', JSON.stringify(allUsers))
+    localStorage.setItem('loggedUser', JSON.stringify(loggUser))
+    
 }
 
 function createProductPage(item) {
@@ -263,13 +283,6 @@ filterIcon.addEventListener('click', () => {
 function createCard() {
     collectionList.forEach(item => {
         item['collectionItems'].forEach((elem,i) => {
-            // console.log(elem['idItem'], Number(shopCart[i]['itemId']));
-            // console.log(elem['nameCollection'], shopCart[i]['collectionName']);
-            // if(i <= shopCart.length-1) {
-            //     if(elem['idItem'] === Number(shopCart[i]['itemId']) && elem['nameCollection'] === shopCart[i]['collectionName']){
-            //         console.log(`${elem['idItem']} - содержится в корзине!`);
-            //     }
-            // }
 
             const cardCont = document.createElement('div');
             cardCont.classList.add('main__card', 'card', 'card_visible');
@@ -376,7 +389,6 @@ function getFilter(e) {
         });
         cardsList.innerHTML = null;
         sortedItemPrice.forEach(item => {
-            console.log(item);
             createOneCard(item['idItem'], item['nameItem'], item['nameCollection'], item['typeItem'], item['priceItem'], item['materialItem'], item['sizeItem'], item['photoItem']);
         })
     }

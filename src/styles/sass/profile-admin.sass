@@ -30,6 +30,7 @@
     &__restore
         +text($ff-inter, $fw-regular, $fs-16, $c-black)
         text-decoration: underline
+        margin-top: 20px
     &__section-title 
         +text($ff-inter, $fw-regular, $fs-36, $c-black)
         line-height: 80%
@@ -95,6 +96,23 @@
     &__collection-item-list
         width: 100%
         display: none
+    &__actions 
+        +flex(space-between, center, row)
+        width: 100%
+    &__change-btn 
+        +flex(center, center, row)
+        height: 50px
+        width: 50px
+        background-color: #F4F4F4
+        cursor: pointer
+        &:hover 
+            background-color: #ebebeb
+    &__change-btn.success
+        background-color: #45D776
+        &:hover 
+            background-color: #3dba67
+    &__change-btn.success path
+        fill: white
     &__collection-item-list_active
         +flex(space-between,center,column)
     &__collection-item_hidden
@@ -102,17 +120,34 @@
         display: none
     &__collection-item
         display: none
-        +flex(space-between,center,row)
+        +flex(auto,center,row)
         width: 100%
         margin-left: 25px
-        margin-bottom: 10px
+        margin-bottom: 25px
         transition: transform .3s ease
     &__delete-btn-item
         margin-right: 0
+    &__item-inpt 
+        max-width: 170px
+        width: 100%
+        +text($ff-inter, $fw-regular, $fs-16, $c-black)
+        padding: 5px 8px
+        outline: none
+        &:not(:last-child)
+            margin-bottom: 10px
+            +text($ff-inter, $fw-regular, $fs-16, $c-black)
+    &__item-article
+        margin-bottom: 10px
+    &__item-info 
+        +flex(flex-start, flex-start, column)
     &__item-title
         width: 230px
     &__item-title, &__item-price
         +text($ff-inter, $fw-regular, $fs-18, $c-black)
+    &__item-photo 
+        height: 254px
+        width: 254px
+        margin-right: 25px
     &__btn
         cursor: pointer
         width: 260px
@@ -206,27 +241,35 @@
         margin-top: 15px 
     &__new-collection
         display: none
+@media (max-width: 1260px)
+    .main__collection-item 
+        padding-bottom: 25px
+    .main__collection-item:not(:last-child)
+        border-bottom: 1px solid #E0E0E0
+    .main__wrapper 
+        grid-template-columns: 1fr
+        row-gap: 100px
+        column-gap: 0
 @media (max-width: 1161px)
     .main__section-title 
         font-size: $fs-22
 @media (max-width: 935px)
     .main__section-title 
         font-size: $fs-18
-@media (max-width: 1080px)
-    .main__wrapper 
-        grid-template-columns: 1fr
-        row-gap: 100px
-        column-gap: 0
 @media (max-width: 805px)
     .main__header 
         flex-direction: column 
         align-items: flex-start
     .main__restore
         margin-top: 10px
-    .main__collection-item:not(:last-child)
-        border-bottom: 1px solid #E0E0E0
-    .main__item-title 
-        width: 125px
 @media (max-width: 555px)
     .main__add-items-content
         grid-template-columns: 1fr
+@media (max-width: 522px)
+    .main__restore
+        margin: 20px auto
+@media (max-width: 500px)
+    .main__item-photo
+        margin-bottom: 30px
+    .main__collection-item 
+        flex-direction: column

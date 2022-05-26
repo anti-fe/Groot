@@ -71,6 +71,9 @@
   margin-bottom: 55px;
   width: auto;
 }
+.main__actions {
+  display: flex;
+}
 .main__title::after {
   display: none;
 }

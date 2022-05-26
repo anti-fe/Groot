@@ -36,8 +36,7 @@
         margin-right: 0
         margin-left: 0
     &__title 
-        +text($ff-phil, $fw-bold, $fs-100, $c-white)
-        font-style: italic
+        +text($ff-phil, $fw-regular, $fs-100, $c-white)
         padding-top: 175px
     &__next 
         +flex(center,center,row)
@@ -62,21 +61,7 @@
         transition: all .1s ease
         animation: indicator 1.5s cubic-bezier(0.29, 0.14, 0.1, 0.68) .2s infinite
     &__next-text 
-        +text($ff-mon, $fw-light, $fs-36, $c-white)
-    &__dots 
-        display: flex
-        position: absolute
-        bottom: 26px
-        right: 160px
-    &__dots-item
-        height: 15px
-        width: 15px
-        background-color: rgba(255, 255, 255, 0.15)
-        border-radius: 50%
-        &:not(:last-child)
-            margin-right: 33px
-    &__dots-item.item-active
-        background-color: $c-white    
+        +text($ff-mon, $fw-light, $fs-36, $c-white)   
 .profile-btn, .shop-cart-btn, .log-out-btn  
     cursor: pointer
     background-color: transparent  

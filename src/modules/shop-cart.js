@@ -3,10 +3,10 @@ const orderBtn = document.querySelector('.main__btn-order');
 const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
 //Локальная корзина товаров
-let shopCart = localStorage.getItem("shopCart") ? JSON.parse(localStorage.getItem("shopCart")) : [];
+let shopCart = JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] : [];
 const cardsCont = document.querySelector('.main__body');
 setPageShopCart();
-
+console.log(JSON.parse(localStorage.getItem("loggedUser"))['shopCart']);
 const contWithCards = document.querySelector('.main__body');
 const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
@@ -51,7 +51,7 @@ orderBtn.addEventListener('click', (e)=>{
     mainCont.appendChild(compliteOrder);
     setTimeout(()=>{
         compliteOrder.classList.remove('main__order-complite_active');
-    },1000)
+    }, 1000)
     //Отправка заказа в LS
     let ordersLen;
     if(localStorage.getItem('orders')) {
@@ -64,7 +64,6 @@ orderBtn.addEventListener('click', (e)=>{
         "orderItems": shopCart
     });
     localStorage.setItem('orders', JSON.stringify(orders));
-    console.log(orders);
     localStorage.removeItem('shopCart');
     location.reload();
 })

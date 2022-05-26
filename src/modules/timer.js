@@ -9,7 +9,7 @@ const timerDays = document.querySelector('.new-collection__days'),
 const timerCont = document.querySelector('.new-collection__timer'),
     timeIsOver = document.querySelector('.new-collection__time-is-over');
 
-const deadLine = new Date(2022, 3, 27, 36, 0, 0);
+const deadLine = new Date(2022, 5, 27, 36, 0, 0);
 
 let date,
     ourMls,
