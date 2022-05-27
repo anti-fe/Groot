@@ -24,7 +24,9 @@
     &__wrapper 
         width: 100%
         display: flex
-    
+        margin-top: 40px
+        min-height: 350px
+        align-items: flex-start 
     &__header
         +flex(space-between,flex-end, row)
         margin-bottom: 50px
@@ -57,6 +59,7 @@
         margin-bottom: 50px
     &__orders-none-btn
         padding: 15px 30px
+        min-width: 260px
     &__cont 
         width: 100%
     &__info-cont
@@ -212,6 +215,8 @@
         display: none
 @media (max-width: 850px) 
     .main__title
+        font-size: $fs-36
+    .main__orders-none-text
         font-size: $fs-36
     .main__section-title
         font-size: $fs-26

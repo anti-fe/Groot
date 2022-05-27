@@ -1,0 +1,26 @@
+@import "mixins.sass"
+@import "vars.sass"
+
+.main 
+    margin-top: 120px
+    margin-bottom: 150px
+    &__title 
+        +text($ff-phil,$fw-light, $fs-64, $c-black)
+        text-align: start
+        margin-top: 0
+        margin-bottom: 0
+        width: 100%
+        &::after 
+            display: none
+    &__section
+        margin-top: 80px
+        &-title 
+            +text($ff-inter,$fw-light, $fs-28, $c-black)
+            margin-bottom: 20px
+        &-list
+            list-style-type: disc
+            list-style-position: inside
+        &-list > &-item:not(:last-child)
+            margin-bottom: 10px
+        &-item 
+            +text($ff-inter,$fw-light, $fs-18, $c-black)

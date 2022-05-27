@@ -1,7 +1,19 @@
 //Создание заказов в ЛК пользователя
-let orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
-const ordersList = document.querySelector('.main__orders');
+const ordersNoneCont = document.querySelector('.main__orders-none');
+let orders;
+if(localStorage.getItem('loggedUser')){
+    orders = JSON.parse(localStorage.getItem('loggedUser'))[0]['orders'] ? JSON.parse(localStorage.getItem('loggedUser'))[0]['orders'] : [];
+    //Если у пользователя нет/есть заказов/зы
+    if(JSON.parse(localStorage.getItem('loggedUser'))[0]['orders'].length >= 1) {
+        ordersNoneCont.style.display = 'none';
+    } else {
+        ordersNoneCont.style.display = 'flex';
+    }
+}
+const loggedUser2 = JSON.parse(localStorage.getItem('loggedUser'));
+const users = JSON.parse(localStorage.getItem('users'));
 
+const ordersList = document.querySelector('.main__orders');
 setOrders();
 
 const burgerMenu = document.querySelector('.nav__burger'),
@@ -15,13 +27,6 @@ const footerSection = document.querySelectorAll('.footer__section');
 const userInfoConts = document.querySelectorAll('.info-cont__text');
 const ordersBtn = document.querySelector('.main__orders-none-btn');
 const viewPassword = document.querySelector('.main__password-view');
-const ordersNoneCont = document.querySelector('.main__orders-none');
-
-if(!localStorage.getItem('orders')) {
-    ordersNoneCont.style.display = 'flex';
-} else {
-    ordersNoneCont.style.display = 'none';
-}
 
 function setOrders(){
     let count = 0;
@@ -158,11 +163,19 @@ ordersList.addEventListener('click', (e)=>{
         orders.forEach((item,i)=>{;
             if(item['idOrder'] === orderId) {
                 orders.splice(i, 1);
-                localStorage.setItem('orders', JSON.stringify(orders));
+                loggedUser2[0]['orders'] = orders;
+                localStorage.setItem('loggedUser', JSON.stringify(loggedUser2));
+                users.forEach((user,i)=>{
+                    if(user.phone === loggedUser2[0].phone & user.password === loggedUser2[0].password) {
+                        users.splice(i, 1, loggedUser2[0]);
+                        localStorage.setItem('users', JSON.stringify(users));
+                    }
+                })
             }
         })
-        if(!JSON.parse(localStorage.getItem('orders'))[0]) {
-            localStorage.removeItem('orders');
+        if(JSON.parse(localStorage.getItem('loggedUser'))[0]['orders'].length < 1) {
+            window.location.reload();
+
         }
     } else if(item.closest('.main__order')) {
         const orderItemsList = item.closest('.main__order').querySelector('.main__order-items');

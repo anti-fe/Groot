@@ -1462,6 +1462,34 @@ input:focus {
   border-radius: 100px;
 }
 
+#to-up {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  min-height: 70px;
+  min-width: 70px;
+  background-color: rgba(43, 43, 43, 0.7);
+  position: fixed;
+  right: 10px;
+  top: 90vh;
+  z-index: 500;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#to-up:hover {
+  background-color: #313131;
+}
+
+.page-name {
+  max-width: 1px;
+  max-height: 1px;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .cont {
   max-width: 1600px;
   margin: 0 auto;
@@ -1696,6 +1724,11 @@ input:focus {
   }
 }
 @media (max-width: 920px) {
+  #to-up {
+    min-width: 50px;
+    min-height: 50px;
+  }
+
   .cont {
     max-width: 95%;
   }

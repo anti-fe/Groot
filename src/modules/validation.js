@@ -44,6 +44,7 @@ if (localStorage.getItem('loggedUser')) {
             btn.removeEventListener('click', openModalWindow);
             //Перенаправление на страницу Личный кабинет
             btn.addEventListener('click', locateToAdminAccount);
+            
         })
     } else {
         profileBtns.forEach(btn => {
@@ -59,16 +60,17 @@ if (localStorage.getItem('loggedUser')) {
 }
 
 function locateToAccount() {
-    if(!document.querySelector('.page-name')) {
-        window.location.href = './src/pages/user-profile.html';
-    } else if(document.querySelector('.page-name')) {
+    if(window.location.pathname === '/Groot/' || window.location.pathname === '/index.html') {
+        window.location.href = '/src/pages/user-profile.html';
+    } else {
         window.location.href = '../pages/user-profile.html';
     }
 }
 function locateToAdminAccount() {
-    if(!document.querySelector('.page-name')){
-        window.location.href = './src/pages/admin-profile.html';
-    } else if(document.querySelector('.page-name')) {
+    if(window.location.pathname === '/Groot/' || window.location.pathname === '/index.html') {
+        console.log('dwadadwadawdawdawdawdwadawdwa');
+        window.location.href = '/src/pages/admin-profile.html';
+    } else {
         window.location.href = '../pages/admin-profile.html';
     }
 }
@@ -321,5 +323,5 @@ function logOut() {
     })
     //Удаляем из localStorage объект с данными авторизованного пользователя
     localStorage.removeItem('loggedUser');
-    // window.location.reload();
+    window.location.reload();
 }

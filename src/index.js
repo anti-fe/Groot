@@ -50,17 +50,17 @@ burgerProfileBtn.addEventListener('click', ()=>{
 })
 
 function locateToAdminAccount() {
-    if(!document.querySelector('.page-name')){
-        window.location.href = './src/pages/admin-profile.html';
-    } else if(document.querySelector('.page-name')) {
+    if(JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin"){
+        window.location.href = '/src/pages/admin-profile.html';
+    } else {
         window.location.href = '../pages/admin-profile.html';
     }
 }
 
 function locateToAccount() {
-    if(!document.querySelector('.page-name')) {
+    if(JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin") {
         window.location.href = './src/pages/user-profile.html';
-    } else if(document.querySelector('.page-name')) {
+    } else {
         window.location.href = '../pages/user-profile.html';
     }
 }

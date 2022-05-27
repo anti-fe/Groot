@@ -45,6 +45,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 40px;
+  min-height: 350px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .main__header {
   display: -webkit-box;
@@ -134,6 +139,7 @@
 }
 .main__orders-none-btn {
   padding: 15px 30px;
+  min-width: 260px;
 }
 .main__cont {
   width: 100%;
@@ -504,6 +510,10 @@
 }
 @media (max-width: 850px) {
   .main__title {
+    font-size: 36px;
+  }
+
+  .main__orders-none-text {
     font-size: 36px;
   }
 
