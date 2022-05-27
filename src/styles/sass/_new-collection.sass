@@ -20,9 +20,13 @@
         flex-basis: 50%
     &__title
         +text($ff-mon, $fw-bold, $fs-64, $c-black)
-        margin-bottom: 15px
+        margin-bottom: 10px
     &__descr
         +text($ff-mon, $fw-light, $fs-26, $c-black)
+        margin-bottom: 20px
+    &__corr
+        +text($ff-mon, $fw-bold, $fs-36, $c-black)
+    &___corr
     &__timer
         +flex(none, center, row)
     &__img 
@@ -145,6 +149,7 @@
         +flex(space-between, flex-start, column)
     .new-collection__info
         order: 1
+        margin-bottom: 50px
     .new-collection__descr
         margin-bottom: 25px
     .new-collection__timer
