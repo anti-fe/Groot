@@ -1,17 +1,30 @@
-const orders = JSON.parse(localStorage.getItem('orders')) ? JSON.parse(localStorage.getItem('orders')) : [];
 const orderBtn = document.querySelector('.main__btn-order');
 const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
-//Локальная корзина товаров
-let shopCart = JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] : [];
 const cardsCont = document.querySelector('.main__body');
-setPageShopCart();
-console.log(JSON.parse(localStorage.getItem("loggedUser"))['shopCart']);
+let orders;
+let shopCart;
+if(localStorage.getItem('loggedUser')) {
+    //Локальный список заказов
+    orders = JSON.parse(localStorage.getItem("loggedUser"))[0]['orders'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['orders'] : [];
+    console.log(orders);
+    //Локальная корзина товаров
+    shopCart = JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] : [];
+    setPageShopCart();
+}
+
 const contWithCards = document.querySelector('.main__body');
 const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
     burgerProfileBtn = document.querySelector('.header__burger-profile');
 const footerSection = document.querySelectorAll('.footer__section');
+
+let loggedUser1;
+if(localStorage.getItem('loggedUser')) {
+    loggedUser1 = JSON.parse(localStorage.getItem('loggedUser'));
+}
+let usersList = JSON.parse(localStorage.getItem('users'));
+
 
 footerSection.forEach(item => {
     item.addEventListener('click', () => {
@@ -54,8 +67,8 @@ orderBtn.addEventListener('click', (e)=>{
     }, 1000)
     //Отправка заказа в LS
     let ordersLen;
-    if(localStorage.getItem('orders')) {
-        ordersLen = JSON.parse(localStorage.getItem('orders')).length + 1;
+    if(JSON.parse(localStorage.getItem("loggedUser"))[0]['orders']) {
+        ordersLen = JSON.parse(localStorage.getItem("loggedUser"))[0]['orders'].length + 1;
     } else {
         ordersLen = 1;
     }
@@ -63,9 +76,18 @@ orderBtn.addEventListener('click', (e)=>{
         "idOrder": ordersLen,
         "orderItems": shopCart
     });
-    localStorage.setItem('orders', JSON.stringify(orders));
+    loggedUser1[0]['orders'] = orders;
+    loggedUser1[0]['shopCart'] = '';
+    localStorage.setItem('loggedUser', JSON.stringify(loggedUser1));
+    usersList.forEach((user,i)=>{
+        if(user.phone === loggedUser1[0].phone && user.password === loggedUser1[0].password) {
+            usersList.splice(i, 1, loggedUser1[0]);
+            return;
+        }
+    })
+    localStorage.setItem('users', JSON.stringify(usersList));
     localStorage.removeItem('shopCart');
-    location.reload();
+    setTimeout(()=>{location.reload()}, 1000);
 })
 
 function btnClick(e) {
@@ -168,11 +190,20 @@ function deleteCard(item) {
 
     const idItem = card.dataset['itemid'];
     const nameCollection = card.dataset['collectionname'];
-    shopCart.forEach((item, i) => {
+    loggedUser1[0]['shopCart'].forEach((item, i) => {
         if (item['itemId'] === idItem && item['collectionName'] === nameCollection) {
-            shopCart.splice(i, 1);
-            localStorage.setItem('shopCart', JSON.stringify(shopCart));
-            if(JSON.parse(localStorage.getItem('shopCart')).length < 1) {
+            //Удаляем из локальной корзины
+            loggedUser1[0]['shopCart'].splice(i, 1);
+            //Пушим в LS
+            localStorage.setItem('loggedUser', JSON.stringify(loggedUser1));
+            usersList.forEach((user,i)=>{
+                if(user.phone === loggedUser1[0].phone && user.password === loggedUser1[0].password) {
+                    usersList.splice(i, 1, loggedUser1[0]);
+                    return;
+                }
+            })
+            localStorage.setItem('users', JSON.stringify(usersList));
+            if(JSON.parse(localStorage.getItem('loggedUser'))[0]['shopCart'].length < 1) {
                 nullCont.style.display = 'flex';
             } else {
                 nullCont.style.display = 'none';
