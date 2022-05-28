@@ -60,16 +60,19 @@ if (localStorage.getItem('loggedUser')) {
 }
 
 function locateToAccount() {
-    if(window.location.pathname === '/Groot/' || window.location.pathname === '/index.html') {
+    if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/user-profile.html';
+    } else if(window.location.pathname === '/Groot/') {
+        window.location.href = './Groot/src/pages/user-profile.html';
     } else {
         window.location.href = '../pages/user-profile.html';
     }
 }
 function locateToAdminAccount() {
-    if(window.location.pathname === '/Groot/' || window.location.pathname === '/index.html') {
-        console.log('dwadadwadawdawdawdawdwadawdwa');
+    if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/admin-profile.html';
+    } else if(window.location.pathname === '/Groot/') {
+        window.location.href = './Groot/src/pages/admin-profile.html';
     } else {
         window.location.href = '../pages/admin-profile.html';
     }

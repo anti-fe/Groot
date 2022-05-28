@@ -49,18 +49,21 @@ burgerProfileBtn.addEventListener('click', ()=>{
     modalBurger.classList.remove('active-menu-burger');
 })
 
-function locateToAdminAccount() {
-    if(JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin"){
-        window.location.href = '/src/pages/admin-profile.html';
-    } else {
-        window.location.href = '../pages/admin-profile.html';
-    }
-}
-
 function locateToAccount() {
-    if(JSON.parse(localStorage.getItem('loggedUser'))[0]['fio'] === "admin") {
-        window.location.href = './src/pages/user-profile.html';
+    if(window.location.pathname === '/index.html') {
+        window.location.href = '/src/pages/user-profile.html';
+    } else if(window.location.pathname === '/Groot/') {
+        window.location.href = './Groot/src/pages/user-profile.html';
     } else {
         window.location.href = '../pages/user-profile.html';
+    }
+}
+function locateToAdminAccount() {
+    if(window.location.pathname === '/index.html') {
+        window.location.href = '/src/pages/admin-profile.html';
+    } else if(window.location.pathname === '/Groot/') {
+        window.location.href = './Groot/src/pages/admin-profile.html';
+    } else {
+        window.location.href = '../pages/admin-profile.html';
     }
 }

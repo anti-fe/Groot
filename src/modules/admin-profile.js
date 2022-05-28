@@ -44,15 +44,17 @@ if (!JSON.parse(localStorage.getItem('loggedUser'))) {
 
 logOutBtn.forEach(item => {
     item.addEventListener("click", () => {
-        window.location.href = '../../index.html';
+        // window.location.href = '../../index.html';
+        console.log('dwa');
+        // localStorage.removeItem('loggedUser');
     })
 })
 
-localStorage.setItem('loggedUser', JSON.stringify([{
-    "fio": "admin",
-    "phone": "admin",
-    "password": "admin"
-}]))
+// localStorage.setItem('loggedUser', JSON.stringify([{
+//     "fio": "admin",
+//     "phone": "admin",
+//     "password": "admin"
+// }]))
 
 
 restoreCollections.addEventListener('click', (e) => {
