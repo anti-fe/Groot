@@ -17,26 +17,20 @@
 }
 .main__section {
   margin-top: 80px;
+  width: 100%;
 }
 .main__section-title {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 28px;
-  color: #262626;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
-.main__section-list {
-  list-style-type: disc;
-  list-style-position: inside;
+.main__section-link {
+  color: #262626;
+  border-bottom: 1px dashed #262626;
+}
+.main__section-link:hover {
+  border-bottom: 1px solid #262626;
 }
 .main__section-list > .main__section-item:not(:last-child) {
   margin-bottom: 10px;
-}
-.main__section-item {
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-  color: #262626;
 }
 
 @media (max-width: 700px) {

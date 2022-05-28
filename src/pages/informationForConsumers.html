@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groot - Главная</title>
+    <title>Document</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/styles/css/style.css">
+    <link rel="stylesheet" href="./../styles/css/style.css">
+    <link rel="stylesheet" href="./../styles/css/infForConsumers.css">
 </head>
 <body>
-    <input type="text" class="page-name" id="firstScreen">
+    <input type="text" name="infForConsumers" class="page-name" id="firstScreen">
     <div id="to-up">
         <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.5 27L10.5 28.5L13.5 28.5L13.5 27L10.5 27ZM13.0607 0.93934C12.4749 0.353553 11.5251 0.353553 10.9393 0.93934L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97918 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.93934ZM13.5 27L13.5 2L10.5 2L10.5 27L13.5 27Z" fill="white"/>
@@ -26,8 +27,8 @@
             </div>
             <div class="modal-window__auth">
                 <div class="modal-window__img-section">
-                    <img class="modal-window__img" src="./src/images/auth-img.webp" alt="registration">
-                    <img class="modal-window__logo" src="./src/images/logo.svg" alt="logo">
+                    <img class="modal-window__img" src="./../images/auth-img.webp" alt="registration">
+                    <img class="modal-window__logo" src="./../images/logo.svg" alt="logo">
                 </div>
                 <div class="modal-window__form-wrapper">
                     <form class="modal-window__form">
@@ -46,7 +47,6 @@
                                 <p class="modal-window__errorMessage"></p>
                             </div>
                         </div>
-                        
                         <button class="modal-window__form-btn" type="submit">Войти</button>
                         <label class="modal-window__label" for="to-reg">Нет аккаунта? - </label>
                         <button class="modal-window__reg-btn" id="to-reg" type="submit">Зарегистрироваться</button>
@@ -55,8 +55,8 @@
             </div>
             <div class="modal-window__reg">
                 <div class="modal-window__img-section">
-                    <img class="modal-window__img" src="./src/images/registration-img.webp" alt="registration">
-                    <img class="modal-window__logo" src="./src/images/logo.svg" alt="logo">
+                    <img class="modal-window__img" src="./../images/registration-img.webp" alt="registration">
+                    <img class="modal-window__logo" src="./../images/logo.svg" alt="logo">
                 </div>
                 <div class="modal-window__form-wrapper">
                     <form class="modal-window__form">
@@ -88,16 +88,16 @@
                 </div>
             </div>
         </div>
-        <nav class="header__nav">
+        <nav class="header__nav nav_sticky">
             <div class="header__nav-content nav cont">
                 <div class="header__burger-menu">
                     <ul class="header__burger-links">
                         <li class="header__burger-item">
-                            <a href="./src/pages/catalog.html"
+                            <a href="./catalog.html"
                                 class="header__burger-link">Каталог</a>
                             </li>
                         <li class="header__burger-item">
-                            <a href="./src/pages/contacts.html" class="header__burger-link">Контакты</a>
+                            <a href="./contacts.html" class="header__burger-link">Контакты</a>
                         </li>
                     </ul>
                     <div class="header__burger-btns">
@@ -117,7 +117,7 @@
                                 <path d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z" fill="white"/>
                             </svg>
                         </button>
-                        <a href="src/pages/shop-cart.html" class="header__burger-shop-cart shop-cart-btn">
+                        <a href="shop-cart.html" class="header__burger-shop-cart shop-cart-btn">
                             <svg width="26" height="23" viewBox="0 0 26 23" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -133,10 +133,10 @@
                         </a>
                     </div>
                 </div>
-                <a href="#"><img src="./src/images/logo.svg" alt="logo-groot" class="nav__logo"></a>
+                <a href="./../../index.html"><img src="./../images/logo.svg" alt="logo-groot" class="nav__logo"></a>
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="./src/pages/catalog.html" class="nav__link">Каталог</a></li>
-                    <li class="nav__item"><a href="./src/pages/contacts.html" class="nav__link">Контакты</a></li>
+                    <li class="nav__item"><a href="./catalog.html" class="nav__link">Каталог</a></li>
+                    <li class="nav__item"><a href="./contacts.html" class="nav__link">Контакты</a></li>
                 </ul>
                 <div class="nav__btns">
                     <div class="nav__burger">
@@ -159,7 +159,7 @@
                                 fill="white" />
                         </svg>
                     </button>
-                    <a href="src/pages/shop-cart.html" class="nav__shop-cart shop-cart-btn">
+                    <a href="shop-cart.html" class="nav__shop-cart shop-cart-btn">
                         <svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M13.798 20.4096C13.798 21.6634 12.7816 22.6798 11.5277 22.6798C10.2739 22.6798 9.25745 21.6634 9.25745 20.4096C9.25745 19.1557 10.2739 18.1393 11.5277 18.1393C12.7816 18.1393 13.798 19.1557 13.798 20.4096ZM10.6196 20.4096C10.6196 20.9111 11.0262 21.3177 11.5277 21.3177C12.0293 21.3177 12.4358 20.9111 12.4358 20.4096C12.4358 19.908 12.0293 19.5014 11.5277 19.5014C11.0262 19.5014 10.6196 19.908 10.6196 20.4096Z"
@@ -175,173 +175,69 @@
                 </div>
             </div>
         </nav>
-        <h1 class="header__title cont">Минималистичный дизайн мебели, сделанный для вашего комфорта</h1>
-        <a href="#" class="header__next cont">
-            <div class="header__next-bg">
-                <div class="header__next-line"></div>
-            </div>
-            <span class="header__next-text">Дальше</span>
-        </a>
-        <div class="header__dots">
-            <div class="header__dots-item item-active"></div>
-            <div class="header__dots-item"></div>
-            <div class="header__dots-item"></div>
-        </div>
     </header>
-    <main class="main">
-        <h2 class='main__title'>НАШИ РАБОТЫ</h2>
-        <div class="main__gallery">
-            <div class="main__img">
-                <img src="./src/images/1.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/2.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/3.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/4.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/5.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/6.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/7.webp" alt="#" class="main__img-item">
-            </div>
-            <div class="main__img">
-                <img src="./src/images/8.webp" alt="#" class="main__img-item">
-            </div>
+    <main class="main cont">
+        <div class="main__header">
+            <h1 class="main__title">Информация для потребителей</h1>
         </div>
-
+        <section class="main__section">
+            <h3 class="main__section-title">Схема сборки диванов:</h3>
+            <ul class="main__section-list">
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/07/ДИВАНЫ-MTR-ИНСТРУКЦИЯ-ПО-СБОРКЕ.pdf">Диваны MTR (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/07/%D0%94%D0%98%D0%92%D0%90%D0%9D%D0%AB-SFR-%D0%98%D0%9D%D0%A1%D0%A2%D0%A0%D0%A3%D0%9A%D0%A6%D0%98%D0%AF-%D0%9F%D0%9E-%D0%A1%D0%91%D0%9E%D0%A0%D0%9A%D0%95.pdf">Диваны SFR (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/07/%D0%94%D0%98%D0%92%D0%90%D0%9D%D0%AB-%D0%95%D0%92%D0%A0%D0%9E%D0%9A%D0%9D%D0%98%D0%96%D0%9A%D0%90-%D0%98%D0%9D%D0%A1%D0%A2%D0%A0%D0%A3%D0%9A%D0%A6%D0%98%D0%AF-%D0%9F%D0%9E-%D0%A1%D0%91%D0%9E%D0%A0%D0%9A%D0%95.pdf">Диваны еврокнижка (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/05/222098_divani-evroknizka-s-ottomankoy-instrukzia-po-sborke.pdf">Диваны еврокнижка c оттоманкой (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/02/%D0%94%D0%98%D0%92%D0%90%D0%9D-VENTO-%D1%83%D0%B3%D0%BB%D0%BE%D0%B2%D0%BE%D0%B9-%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B8.pdf">Диваны Vento угловой (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/02/%D0%94%D0%98%D0%92%D0%90%D0%9D-VENTO-%D1%83%D0%B3%D0%BB%D0%BE%D0%B2%D0%BE%D0%B9-%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B8.pdf">Диваны Vento прямой (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/02/%D0%94%D0%98%D0%92%D0%90%D0%9D-JARED-%D1%852-%D0%98%D0%9D%D0%A1%D0%A2%D0%A0%D0%A3%D0%9A%D0%A6%D0%98%D0%AF-%D0%9F%D0%9E-%D0%A1%D0%91%D0%9E%D0%A0%D0%9A%D0%95.pdf">Диваны Jared (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="">Диваны Mendini Wagon (инструкция по сборке)</a>
+                </li>
+            </ul>
+        </section>
+        <section class="main__section">
+            <h3 class="main__section-title">Схема сборки раздвижных столов:</h3>
+            <ul class="main__section-list">
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Chicago-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Chicago раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Fjord-ROUND-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Fjord круглый раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Fjord-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Fjord раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Moon-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Moon раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A1%D1%82%D0%BE%D0%BB-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%80%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-Moon-Light-Round-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Moon Light круглый раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A1%D1%82%D0%BE%D0%BB-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%80%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-Moon-Light-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Moon Light раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/04/219087_%D0%9E%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%80%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Oscar-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Oscar раздвижной (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/10/%D0%A0%D0%B0%D0%B7%D0%B4%D0%B2%D0%B8%D0%B6%D0%BD%D0%BE%D0%B9-%D0%BE%D0%B1%D0%B5%D0%B4%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%BE%D0%BB-Taller-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Taller раздвижной (инструкция по сборке)</a>
+                </li>
+            </ul>
+        </section>
+        <section class="main__section">
+            <h3 class="main__section-title">Схема сборки журнальных столов:</h3>
+            <ul class="main__section-list">
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2021/07/%D0%A1%D1%82%D0%BE%D0%BB-CLOVER-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5.pdf">Стол Clover журнальный (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/04/219087_%D0%A1%D1%82%D0%BE%D0%BB-%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-River-Long-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол River Long журнальный(инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/04/219087_%D0%A1%D1%82%D0%BE%D0%BB-%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-River-Round-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол River Round журнальный (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/04/219087_%D0%A1%D1%82%D0%BE%D0%BB-%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-Scale-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Scale журнальный (инструкция по сборке)</a>
+                </li>
+                <li class="main__section-item"><a class="main__section-link" href="https://latqvbedpllwqek.skdesign.ru/wp-content/uploads/2022/04/219087_%D0%A1%D1%82%D0%BE%D0%BB-%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-Shell-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%81%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-2021.pdf">Стол Shell журнальный (инструкция по сборке)</a>
+                </li>
+            </ul>
+        </section>
     </main>
-    <section class="new-collection cont">
-        <div class="new-collection__header">
-            <div class="new-collection__info">
-                <h2 class="new-collection__title">La Dante</h2>
-                <p class="new-collection__descr">Дерево с утонченным покрытием</p>
-                <p class="new-collection__corr">Новая коллекция выйдет через:</p>
-            </div>
-            <div class="new-collection__time-is-over">
-                <h2 class="new-collection__text-over">Коллекция вышла!</h2>
-            </div>
-            <div class="new-collection__timer timer">
-                <div class="new-collection__days-cont timer__item">
-                    <div class="new-collection__days">0</div>
-                    <span class="new-collection__days-text"></span>
-                </div>
-                <div class="new-collection__hours-cont timer__item">
-                    <div class="new-collection__hours">00</div>
-                    <span class="new-collection__hours-text"></span>
-                </div>
-                <div class="new-collection__min-cont timer__item">
-                    <div class="new-collection__min">00</div>
-                    <span class="new-collection__min-text"></span>
-                </div>
-                <div class="new-collection__sec-cont timer__item">
-                    <div class="new-collection__sec">00</div>
-                    <span class="new-collection__sec-text"></span>
-                </div>
-            </div>
-        </div>
-        <div class="new-collection__img">
-            <div class="new-collection__mask">
-                <h3 class="new-collection__mask-title">Новая коллекция</h3>
-            </div>
-            <img src="./src/images/new-collection-img.webp" alt="new collection" class="new-collection__bg">
-        </div>
-    </section>
-    <section class="slider cont">
-        <div class="slider__header">
-            <h3 class="slider__title">Другие товары</h3>
-        </div>
-        <div class="slider__content">
-            <div class="slider__btn slider__btn-prev">
-                <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.5 1.5L1.5 16.5L16.5 31.5" stroke="#2B2B2B" stroke-width="2"/>
-                </svg> 
-            </div>
-            <div class="slider__track">
-                <div class="slider__card" data-itemname="Журнальный столик" data-collectionname="Tenebroso" data-itemtype="table" data-itemmaterial="Шпонированный МДФ" data-itemprice="7200" data-itemsize="45 x 45 x 50 см" data-itemimg="../images/collections/Arden/table/1.png">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Журнальный столик</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/table/1.png" alt="photo-furniture" class="slider__photo-item">
-                    </div>
-                </div>
-                <div class="slider__card" data-itemname="Обеденный стул" data-collectionname="Arden" data-itemtype="chair" data-itemmaterial="Ткань" data-itemprice="17820" data-itemsize="53 x 62 x 90 см
-                " data-itemimg="../images/collections/Arden/chair/1.webp">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Обеденный стул</span>
-                        <span class="slider__name-collection">Arden</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/chair/1.webp" alt="photo-furniture" class="slider__photo-item">
-                    </div>
-                </div>
-                <div class="slider__card" data-itemname="Кресло-кровать" data-collectionname="Tenebroso" data-itemtype="armchair" data-itemmaterial="Ткань" data-itemprice="72500" data-itemsize="144 x 98 x 90 см" data-itemimg="../images/collections/Arden/armchair/1.webp">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Кресло-кровать</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/armchair/1.webp" alt="photo-furniture" class="slider__photo-item">
-                    </div>
-                </div>
-                <div class="slider__card" data-itemname="Угловой диван" data-collectionname="Tenebroso" data-itemtype="sofa" data-itemmaterial="Флок" data-itemprice="123750" data-itemsize="269 x 170 x 91 см" data-itemimg="../images/collections/Arden/sofa/6.webp">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Угловой диван</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/sofa/6.webp" alt="photo-furniture" class="slider__photo-item">
-                    </div>
-                </div>
-            </div>
-            <div class="slider__btn slider__btn-next">
-                <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.5 1.5L16.5 16.5L1.5 31.5" stroke="#2B2B2B" stroke-width="2"/>
-                </svg> 
-            </div>
-        </div>
-    </section>
     <footer class="footer">
         <div class="footer__content cont">
             <div class="footer__main">
@@ -354,9 +250,9 @@
                         </div>
                     </div>
                     <div class="footer__section-list">
-                        <a href="./src/pages/informationForConsumers.html" class="footer__section-link">Информация для потребителей</a>
-                        <a href="./src/pages/contacts.html" class="footer__section-link">Сотрудничество и дизайн интерьера</a>
-                        <a href="./src/pages/recommendations.html" class="footer__section-link">Рекомендации по уходу и чистке</a>
+                        <a href="./informationForConsumers.html" class="footer__section-link">Информация для потребителей</a>
+                        <a href="./contacts.html" class="footer__section-link">Сотрудничество и дизайн интерьера</a>
+                        <a href="./recommendations.html" class="footer__section-link">Рекомендации по уходу и чистке</a>
                         <a href="#" class="footer__section-link">Обработка данных</a>
                         <a href="#" class="footer__section-link">Охрана труда</a>
                     </div>
@@ -472,15 +368,10 @@
             </div>
         </div>
     </footer>
-
-    <script src="src/modules/setCollection.js"></script>
-    <script src="src/modules/timer.js"></script>
-    <script src="src/modules/sliders.js"></script>
-    <script src="src/modules/modal-window.js"></script>
-    <script src="src/modules/validation.js"></script>
-    <script src="src/modules/gallery.js"></script>
-    <script src="src/index.js"></script>
-    <script src="src/modules/toUp.js"></script>
+    
+    <script src="../modules/modal-window.js"></script>
+    <script src="../modules/validation.js"></script>
+    <script src="../modules/toUp.js"></script>
+    <script src="../modules/footer.js"></script>
 </body>
-
 </html>

@@ -13,17 +13,17 @@
         &::after 
             display: none
     &__section
-        margin-top: 80px
+        margin-top: 80px  
+        width: 100%
         &-title 
-            +text($ff-inter,$fw-light, $fs-28, $c-black)
-            margin-bottom: 20px
-        &-list
-            list-style-type: disc
-            list-style-position: inside
-        &-list > &-item:not(:last-child)
-            margin-bottom: 10px
-        &-item 
-            +text($ff-inter,$fw-light, $fs-18, $c-black)
+            margin-bottom: 25px  
+    &__section-link
+        color: $c-black
+        border-bottom: 1px dashed $c-black
+        &:hover
+            border-bottom: 1px solid $c-black
+    &__section-list > &__section-item:not(:last-child)
+        margin-bottom: 10px 
 @media (max-width: 700px)
     .main__title
         font-size: $fs-36 
