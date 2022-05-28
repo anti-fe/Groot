@@ -72,7 +72,7 @@ function locateToAdminAccount() {
     if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/admin-profile.html';
     } else if(window.location.pathname === '/Groot/') {
-        window.location.href = './Groot/src/pages/admin-profile.html';
+        window.location.href = './src/pages/admin-profile.html';
     } else {
         window.location.href = '../pages/admin-profile.html';
     }

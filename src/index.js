@@ -53,7 +53,7 @@ function locateToAccount() {
     if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/user-profile.html';
     } else if(window.location.pathname === '/Groot/') {
-        window.location.href = './Groot/src/pages/user-profile.html';
+        window.location.href = './src/pages/user-profile.html';
     } else {
         window.location.href = '../pages/user-profile.html';
     }
