@@ -7,7 +7,6 @@ let shopCart;
 if(localStorage.getItem('loggedUser')) {
     //Локальный список заказов
     orders = JSON.parse(localStorage.getItem("loggedUser"))[0]['orders'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['orders'] : [];
-    console.log(orders);
     //Локальная корзина товаров
     shopCart = JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] ? JSON.parse(localStorage.getItem("loggedUser"))[0]['shopCart'] : [];
     setPageShopCart();

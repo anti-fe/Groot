@@ -21,8 +21,14 @@ headerNav = document.querySelector('.header__nav');
 const collectionList = JSON.parse(localStorage.getItem('collections'));
 //Локальная корзина товаров
 users.forEach(user=>{
-    if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
-        shopCart = user['shopCart'];
+    if(loggUser){
+        if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
+            if(!user['shopCart']) {
+                shopCart = [];
+            } else {
+                shopCart = user['shopCart'];
+            }
+        }
     }
 })
 
@@ -120,6 +126,7 @@ function addToShopCart(item) {
         "itemPhoto": cardInfo["itemPhoto"],
         "itemCount": cardInfo["itemCount"]
     }
+    console.log(loggUser[0]['shopCart']);
     loggUser[0]['shopCart'] = shopCart;
     users.forEach(user=>{
         if((user['phone'] === loggUser[0]['phone']) && (user['password'] === loggUser[0]['password'])) {
