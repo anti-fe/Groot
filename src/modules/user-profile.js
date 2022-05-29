@@ -45,6 +45,7 @@ function setOrders(){
 }
 
 function createOrder(a, count){
+    console.log(a);
     let countOrderItems = 0;
     let priceOrderItems = 0;
     a['orderItems'].forEach(elem=>{
@@ -70,6 +71,14 @@ function createOrder(a, count){
                 <div class="main__order-info-item">
                     <span class="main__order-info-name">Сумма заказа:</span>
                     <span class="main__order-info-value">${setTextPrice(priceOrderItems.toString())}</span>
+                </div>
+                <div class="main__order-info-item">
+                    <span class="main__order-info-name">Дата и время:</span>
+                    <span class="main__order-info-value">${a.dateOrder['day']}.${a.dateOrder['month']}.${a.dateOrder['year']}, ${a.dateOrder['time']}</span>
+                </div>
+                <div class="main__order-info-item">
+                    <span class="main__order-info-name">Статус:</span>
+                    <span class="main__order-info-value">${a.statusOrder}</span>
                 </div>
             </div>
         </div>
@@ -103,8 +112,8 @@ function createOrderItem(b, orderItemsList) {
         <span class="main__order-info-value">${b['itemName']}</span>
     </div>
     <div class="main__order-item-info">
-        <span class="main__order-info-name">Номер заказа:</span>
-        <span class="main__order-info-value">${b['itemId']}</span>
+        <span class="main__order-info-name">Кол-во:</span>
+        <span class="main__order-info-value">${b['itemCount']}</span>
     </div>
     <div class="main__order-item-info">
         <span class="main__order-info-name">Цена товара:</span>

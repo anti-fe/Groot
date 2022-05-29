@@ -124,6 +124,8 @@
         cursor: pointer
     &__order-main
         +flex(normal,center,row)
+        padding-right: 50px
+        width: 100%
     &__order-info>*:not(:last-child), &__order-num
         margin-right: 40px
     &__order-num
@@ -133,7 +135,8 @@
     &__order-info-value
         +text($ff-inter,$fw-light,$fs-22,$c-black)
     &__order-info
-        +flex(center,center,row)
+        width: 100%
+        +flex(space-between,center,row)
     &__order-btns
         +flex(center,center,row)
     &__order-delete
@@ -200,6 +203,16 @@
             margin-right: 0
     .main__order-content
         align-items: flex-start
+        padding-bottom: 20px
+        position: relative
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0px
+            width: 400px
+            left: 0
+            background-color: #d3d3d380
+            height: 1px
 @media (max-width: 1180px) 
     .decor-line__photo
         height: 374px

@@ -2,6 +2,7 @@ const orderBtn = document.querySelector('.main__btn-order');
 const nullCont = document.querySelector('.main__null-cont');
 const mainCont = document.querySelector('.main');
 const cardsCont = document.querySelector('.main__body');
+
 let orders;
 let shopCart;
 if(localStorage.getItem('loggedUser')) {
@@ -73,6 +74,8 @@ orderBtn.addEventListener('click', (e)=>{
     }
     orders.push({
         "idOrder": ordersLen,
+        "statusOrder": "Оформлен",
+        "dateOrder": getDateOrder(),
         "orderItems": shopCart
     });
     loggedUser1[0]['orders'] = orders;
@@ -88,6 +91,21 @@ orderBtn.addEventListener('click', (e)=>{
     localStorage.removeItem('shopCart');
     setTimeout(()=>{location.reload()}, 1000);
 })
+
+//Получение даты 
+function getDateOrder() {
+    const date = new Date();
+    const dateDay = date.getDate(),
+            dateMonth = date.getMonth(),
+            dateYear = date.getFullYear(),
+            dateTime = `${date.getHours()}:${date.getMinutes()}`
+    return {
+        "day": dateDay,
+        "month": dateMonth+1,
+        "year": dateYear,
+        "time": dateTime
+    }
+}
 
 function btnClick(e) {
     const countBtnName = e.target.getAttribute('id');
