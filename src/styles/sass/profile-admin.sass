@@ -10,6 +10,8 @@
     height: 1px
     background-color: #E0E0E0
     position: relative
+.arrow_active
+    transform: rotate(180deg)
 .footer 
     margin-top: 80px
 .main 
@@ -241,6 +243,162 @@
         margin-top: 15px 
     &__new-collection
         display: none
+    &__users-list
+        width: 100%
+        margin-top: 60px
+    &__user
+        position: relative
+        &:not(:last-child) 
+            margin-bottom: 40px
+        &::before 
+            content: ''
+            position: absolute
+            height: 1px
+            width: 100%
+            background-color: lightgray
+            left: 0
+            bottom: -20px
+    &__user-main
+        padding: 10px 0
+        margin-bottom: 20px
+        cursor: pointer
+        +flex(space-between,center,row)
+    &__user-info-item
+        +text($ff-inter,$fw-regular,$fs-22,$c-black)
+        &:not(:last-child)
+            margin-right: 50px
+    &__orders 
+        display: none
+        justify-content: center
+        align-content: center
+        flex-direction: column
+    &__user.main__users-items_active .main__orders
+        display: flex
+    &__orders-header 
+        justify-content: flex-end
+        margin-top: 60px
+    &__cont 
+        width: 100%
+    &__info-cont
+        &:not(:last-child)
+            margin-bottom: 45px
+    &__input 
+        +text($ff-inter,$fw-regular,$fs-18,$c-black)
+        padding: 15px 15px 15px 15px
+        background-color: $c-input
+        border: 1px solid #DADADA
+        height: 60px
+        outline: none
+        &::placeholder
+            +text($ff-inter,$fw-light,$fs-18,$c-placeholder)
+    &__btn 
+        cursor: pointer
+        width: 260px
+        height: 60px
+        +text($ff-inter,$fw-bold,$fs-18,$c-white)
+        background-color: $c-black
+        border: none
+        position: relative
+        z-index: 0
+        transition: all 0.2s ease
+        &:hover 
+            color: $c-black
+            border: 2px solid $c-black
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            background-color: $c-white
+            width: 100%
+            height: 0
+            transition: height .3s ease
+            z-index: -1
+        &:hover::before 
+            height: 100%
+    &__password-text
+        margin-bottom: 10px
+    &__password-view
+        +text($ff-inter,$fw-light,$fs-16,$c-black)
+        cursor: pointer
+        &:hover
+            color:#707070
+    &__order
+        width: 100%
+        padding: 10px 15px
+        transition: all .3s ease
+        &:nth-child(odd)
+            background-color: #F3F3F3
+        &_hidden
+            transform: translateX(-110%)
+    &__order-item-info
+        max-width: 400px
+    &__order-content
+        +flex(space-between,center,row)
+        width: 100%
+        cursor: pointer
+    &__order-main
+        +flex(normal,center,row)
+        padding-right: 50px
+        width: 100%
+    &__order-info>*:not(:last-child), &__order-num
+        margin-right: 40px
+    &__order-num
+        +text($ff-inter,$fw-light,$fs-22,$c-black)
+    &__order-info-name
+        +text($ff-inter,$fw-light,$fs-22,#606060)
+    &__order-info-value
+        +text($ff-inter,$fw-light,$fs-22,$c-black)
+    &__order-info
+        width: 100%
+        +flex(space-between,center,row)
+    &__order-info-item .main__select
+        margin-bottom: 0
+    &__order-btns
+        +flex(center,center,row)
+    &__order-delete
+        cursor: pointer
+        +flex(center,center,row)
+        position: relative
+        height: 50px
+        width: 50px
+        background-color: $c-black
+        margin-right: 10px
+    &__order-delete:hover>.main__order-delete-line
+        transform: rotateZ(180deg)
+    &__order-delete-line
+        width: 20px
+        height: 2px
+        background-color: $c-white
+        position: absolute
+        transition: transform .2s ease
+        &:nth-child(1)
+            transform: rotate(45deg)
+        &:nth-child(2)
+            transform: rotate(-45deg)
+    &__order-items
+        display: none
+        &_active
+            display: block
+            margin-top: 20px
+    &__order-item
+        +flex(flex-start, center, row)
+        margin-left: 55px
+        position: relative
+        &>*:not(:last-child)
+            margin-right: 30px
+        &:not(:last-child)
+            margin-bottom: 15px
+        &::before 
+            content: ''
+            position: absolute 
+            left: -40px
+            top: 45%
+            height: 1px
+            width: 20px
+            background-color: $c-black
+    &__order-item-photo 
+        height: 100px
 @media (max-width: 1260px)
     .main__collection-item 
         padding-bottom: 25px
@@ -273,3 +431,49 @@
         margin-bottom: 30px
     .main__collection-item 
         flex-direction: column
+@media (max-width: 1215px) 
+    .main__order
+        align-items: flex-start
+    .main__order-main
+        align-items: flex-start
+    .main__order-info
+        flex-direction: column
+        align-items: flex-start
+        &>*:not(:last-child)
+            margin-bottom: 15px
+            margin-right: 0
+    .main__order-content
+        align-items: flex-start
+        padding-bottom: 20px
+        position: relative
+        &::before 
+            content: ''
+            position: absolute
+            bottom: 0px
+            width: 400px
+            left: 0
+            background-color: #d3d3d380
+            height: 1px
+@media (max-width: 1000px) 
+    .main__order-item
+        flex-direction: column 
+        align-items: flex-start
+@media (max-width: 850px) 
+    .main__section-title
+        font-size: $fs-26
+@media (max-width: 642px)
+    .decor-line-orders
+        margin-top: 25px
+    .main__orders-header
+        margin-top: 35px
+@media (max-width: 620px)
+    .main__order-info-item
+        display: flex
+        flex-direction: column
+        &>*:first-child
+            margin-bottom: 5px
+    .main__order-info-name, .main__order-info-value
+        font-size: $fs-18
+    .main__order-num
+        margin-right: 20px
+        font-size: $fs-18

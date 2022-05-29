@@ -2,6 +2,7 @@ const burgerMenu = document.querySelector('.nav__burger'),
     modalBurger = document.querySelector('.header__burger-menu'),
     burgerProfileBtn = document.querySelector('.header__burger-profile'),
     logOutBtn = document.querySelectorAll('.log-out-btn');
+const usersCont = document.querySelector('.main__users-list');
 const mainCollection = document.querySelector('.main__collection');
 const collectionListCont = document.querySelector('.main__collection-list');
 const selectCollection = document.querySelector('.main__select-collection'),
@@ -18,6 +19,11 @@ let inputFilePath;
 let collectionList = JSON.parse(localStorage.getItem('collections'));
 let collectionItems = [],
     collectionItemData;
+
+const loggedUser2 = JSON.parse(localStorage.getItem('loggedUser'));
+const users = JSON.parse(localStorage.getItem('users'));
+
+const ordersList = document.querySelector('.main__orders');
 
 footerSection.forEach(item => {
     item.addEventListener('click', () => {
@@ -41,21 +47,6 @@ burgerProfileBtn.addEventListener('click', () => {
 if (!JSON.parse(localStorage.getItem('loggedUser'))) {
     window.location.href = '../../index.html';
 }
-
-logOutBtn.forEach(item => {
-    item.addEventListener("click", () => {
-        // window.location.href = '../../index.html';
-        console.log('dwa');
-        // localStorage.removeItem('loggedUser');
-    })
-})
-
-// localStorage.setItem('loggedUser', JSON.stringify([{
-//     "fio": "admin",
-//     "phone": "admin",
-//     "password": "admin"
-// }]))
-
 
 restoreCollections.addEventListener('click', (e) => {
     e.preventDefault();
@@ -368,4 +359,166 @@ function customInputFile() {
     const inputFileValue = fileInput.files[0]['name'];
     const inputText = uploadedFile.querySelector('.main__add-input-text');
     inputText.textContent = inputFileValue;
+}
+//Открытие аккореонов
+usersCont.addEventListener('click',(e)=>{
+    const item = e.target;
+    if(item.closest('.main__user-main') ) {
+        const userItemsList = item.closest('.main__user')
+        const userItemArrow = item.closest('.main__user').querySelector('.arrow');
+        userItemsList.classList.toggle('main__users-items_active');
+        userItemArrow.classList.toggle('arrow_active');
+    } else if(item.closest('.main__order') && !item.classList.contains('main__select')) {
+        const orderItemsList = item.closest('.main__order').querySelector('.main__order-items');
+        const orderItemArrow = item.closest('.main__order').querySelector('.arrow');
+        orderItemsList.classList.toggle('main__order-items_active');
+        orderItemArrow.classList.toggle('arrow_active');
+    }
+})
+
+setUsers()
+function setUsers(){
+    users.forEach(user=>{
+        if(user['fio'] !== 'admin' && user['orders'].length >= 1) {
+            //Отображение пользователя
+            //Контейнер для пользователя
+            const userCont = document.createElement('div');
+            userCont.classList.add('main__user');
+            createUser(user, userCont);
+            //Отображение заказа пользователя 
+            const ordersList = document.createElement('div');
+            ordersList.classList.add('main__orders');
+
+            let count = 0;
+            usersCont.appendChild(userCont);
+            user['orders'].forEach(a=>{
+                count++;
+                createOrder(a, count, ordersList, userCont);
+                
+                const orderItemsList = document.createElement('ul');
+                orderItemsList.classList.add('main__order-items');
+                //Отображение элементов заказа пользователя 
+                a['orderItems'].forEach(b=>{
+                    createOrderItem(b, orderItemsList);
+                })
+            })
+            usersCont.appendChild(userCont);
+        }
+    })
+    
+}
+function createUser(user, userCont){
+    //Информация о пользователе
+    const userMainCont = document.createElement('div');
+            userMainCont.classList.add('main__user-main');
+    const userMain = `
+        <div class="main__user-info">
+            <span class="main__user-name main__user-info-item">${user['fio']}</span>
+            <span class="main__user-phone main__user-info-item">${user['phone']}</span>
+        </div>
+        <div class="arrow">
+            <div class="arrow__line"></div>
+            <div class="arrow__line"></div>
+        </div>
+    `;
+    userMainCont.innerHTML = userMain;
+    userCont.appendChild(userMainCont);
+}
+function createOrder(a, count, ordersList, userCont){
+    let countOrderItems = 0;
+    let priceOrderItems = 0;
+    a['orderItems'].forEach(elem=>{
+        countOrderItems += +elem['itemCount'];
+        priceOrderItems += +elem['itemPrice'];
+        
+    })
+    const orderCont = document.createElement('div');
+    const idOrder = a['idOrder'];
+    orderCont.setAttribute('data-idOrder', idOrder);
+    orderCont.classList.add('main__order');
+    const orderContent = document.createElement('div');
+    orderContent.classList.add('main__order-content');
+    const order = 
+        `
+        <div class="main__order-main">
+            <span class="main__order-num">${count}.</span>
+            <div class="main__order-info">
+                <div class="main__order-info-item">
+                    <span class="main__order-info-name">Кол-во товаров:</span>
+                    <span class="main__order-info-value">${countOrderItems} шт</span>
+                </div>
+                <div class="main__order-info-item">
+                    <span class="main__order-info-name">Сумма заказа:</span>
+                    <span class="main__order-info-value">${setTextPrice(priceOrderItems.toString())}</span>
+                </div>
+                <div class="main__order-info-item">
+                    <span class="main__order-info-name">Дата и время:</span>
+                    <span class="main__order-info-value">${a.dateOrder['day']}.${a.dateOrder['month']}.${a.dateOrder['year']}, ${a.dateOrder['time']}</span>
+                </div>
+                <div class="main__order-info-item">
+                    <select class="main__order-info-value main__select" id="selectStatus">
+                        <option name="Оформлен">Оформлен</option>
+                        <option name="Оплачен">Оплачен</option>
+                        <option name="Изготавливается">Изготавливается</option>
+                        <option name="Готов к отгрузке">Готов к отгрузке</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="main__order-btns">
+            <div class="arrow">
+                <div class="arrow__line"></div>
+                <div class="arrow__line"></div>
+            </div>
+        </div>
+        `;
+        orderContent.innerHTML = order;
+        orderCont.appendChild(orderContent);
+        ordersList.appendChild(orderCont);
+        userCont.appendChild(ordersList);
+        return orderCont;
+}
+function createOrderItem(b, orderItemsList) {
+    
+    const orderItemContent = document.createElement('li');
+    orderItemContent.classList.add('main__order-item');
+
+    const orderItem = 
+    `
+    <div class="main__order-item-info">
+        <img class="main__order-item-photo" src=${b['itemPhoto']} />
+    </div>
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Название товара:</span>
+        <span class="main__order-info-value">${b['itemName']}</span>
+    </div>
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Кол-во:</span>
+        <span class="main__order-info-value">${b['itemCount']}</span>
+    </div>
+    <div class="main__order-item-info">
+        <span class="main__order-info-name">Цена товара:</span>
+        <span class="main__order-info-value">${setTextPrice((+b['itemPrice'] * +b['itemCount']).toString())}</span>
+    </div>
+    `;
+    orderItemContent.innerHTML = orderItem;
+    orderItemsList.appendChild(orderItemContent);
+    const allOrders = document.querySelectorAll('.main__order');
+    allOrders[allOrders.length - 1].appendChild(orderItemsList);
+}
+function setTextPrice(price) {
+    // Цена более 999.999
+    if (price.length > 6) {
+        //Миллион
+        let rangeInputVal1 = price.slice(0, price.length-6);
+        //Сотни тысяч
+        let rangeInputVal2 = price.slice(price.length-6, price.length-3);
+        //Сотни
+        let rangeInputVal3 = price.slice(price.length-3);
+
+        return `${rangeInputVal1}.${rangeInputVal2}.${rangeInputVal3} ₽`;
+    }
+    let rangeInputVal1 = price.slice(0, price.length-3);
+    let rangeInputVal2 = price.slice(price.length-3);
+    return `${rangeInputVal1}.${rangeInputVal2} ₽`;
 }
