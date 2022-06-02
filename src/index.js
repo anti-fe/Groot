@@ -52,7 +52,7 @@ burgerProfileBtn.addEventListener('click', ()=>{
 function locateToAccount() {
     if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/user-profile.html';
-    } else if(window.location.pathname === '/Groot/') {
+    } else if(window.location.pathname === '/Groot/' || window.location.pathname === '/Groot/index.html') {
         window.location.href = './src/pages/user-profile.html';
     } else {
         window.location.href = '../pages/user-profile.html';
@@ -61,7 +61,7 @@ function locateToAccount() {
 function locateToAdminAccount() {
     if(window.location.pathname === '/index.html') {
         window.location.href = '/src/pages/admin-profile.html';
-    } else if(window.location.pathname === '/Groot/') {
+    } else if(window.location.pathname === '/Groot/' || window.location.pathname === '/Groot/index.html') {
         window.location.href = './src/pages/admin-profile.html';
     } else {
         window.location.href = '../pages/admin-profile.html';
