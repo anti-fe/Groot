@@ -375,11 +375,51 @@ usersCont.addEventListener('click',(e)=>{
         orderItemArrow.classList.toggle('arrow_active');
     }
 })
+//Изменение статуса заказа
+usersCont.addEventListener('change', (e)=>{
+    const item = e.target;
+    const idOrder = item.closest('.main__order').dataset['idorder'];
+    const userName = userPhone = item.closest('.main__user').querySelector('.main__user-main').querySelector('.main__user-phone').innerText;
+
+    switch (item.value) {
+        case "Оплачен":
+            changeStatusOrder("Оплачен", idOrder, userPhone)
+            break;
+        case "Изготавливается":
+            changeStatusOrder("Изготавливается", idOrder, userPhone)
+            break;
+        case "Готов к отгрузке":
+            changeStatusOrder("Готов к отгрузке", idOrder, userPhone)
+            break;
+    
+        default:
+            //Если оформлен
+            changeStatusOrder("Оформлен", idOrder, userName, userPhone)
+            break;
+    }
+})
+function changeStatusOrder(status, idOrder, userPhone) {
+    users.forEach(user=>{
+        //Ищем пользователя
+        if(user.phone === userPhone){
+            user.orders.forEach(order=>{
+                //Ищем заказ у которого мы изменили статус
+                if(order.idOrder.toString() === idOrder) {
+                    order.statusOrder = status;
+                    localStorage.setItem('users', JSON.stringify(users));
+                    return;
+                }
+            })
+        }
+    })
+}
+
 
 setUsers()
 function setUsers(){
     users.forEach(user=>{
         if(user['fio'] !== 'admin' && user['orders'].length >= 1) {
+            
             //Отображение пользователя
             //Контейнер для пользователя
             const userCont = document.createElement('div');
@@ -392,6 +432,7 @@ function setUsers(){
             let count = 0;
             usersCont.appendChild(userCont);
             user['orders'].forEach(a=>{
+                
                 count++;
                 createOrder(a, count, ordersList, userCont);
                 
@@ -438,6 +479,7 @@ function createOrder(a, count, ordersList, userCont){
     orderCont.classList.add('main__order');
     const orderContent = document.createElement('div');
     orderContent.classList.add('main__order-content');
+
     const order = 
         `
         <div class="main__order-main">
@@ -456,7 +498,7 @@ function createOrder(a, count, ordersList, userCont){
                     <span class="main__order-info-value">${a.dateOrder['day']}.${a.dateOrder['month']}.${a.dateOrder['year']}, ${a.dateOrder['time']}</span>
                 </div>
                 <div class="main__order-info-item">
-                    <select class="main__order-info-value main__select" id="selectStatus">
+                    <select class="main__order-info-value main__select" data-idselect=${idOrder}>
                         <option name="Оформлен">Оформлен</option>
                         <option name="Оплачен">Оплачен</option>
                         <option name="Изготавливается">Изготавливается</option>
