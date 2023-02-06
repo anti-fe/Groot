@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groot - Главная</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./src/styles/css/style.css">
+    <link rel="stylesheet" href="./src/styles/css/slider.css">
+
 </head>
 <body>
     <input type="text" class="page-name" id="firstScreen">
@@ -254,35 +257,35 @@
             <img src="./src/images/new-collection-img.webp" alt="new collection" class="new-collection__bg">
         </div>
     </section>
-    <section class="slider cont">
+    <!-- Slider main container -->
+    <div class="swiper cont">
         <div class="slider__header">
             <h3 class="slider__title">Другие товары</h3>
         </div>
-        <div class="slider__content">
-            <div class="slider__btn slider__btn-prev">
-                <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.5 1.5L1.5 16.5L16.5 31.5" stroke="#2B2B2B" stroke-width="2"/>
-                </svg> 
-            </div>
-            <div class="slider__track">
-                <div class="slider__card" data-itemname="Журнальный столик" data-collectionname="Tenebroso" data-itemtype="table" data-itemmaterial="Шпонированный МДФ" data-itemprice="7200" data-itemsize="45 x 45 x 50 см" data-itemimg="../images/collections/Arden/table/1.png">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Журнальный столик</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/table/1.png" alt="photo-furniture" class="slider__photo-item">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+            <div class="slider__card" data-itemname="Журнальный столик" data-collectionname="Tenebroso" data-itemtype="table" data-itemmaterial="Шпонированный МДФ" data-itemprice="7200" data-itemsize="45 x 45 x 50 см" data-itemimg="../images/collections/Arden/table/1.png">
+                <div class="slider__card-info">
+                    <span class="slider__name-item">Журнальный столик</span>
+                    <span class="slider__name-collection">Tenebroso</span>
+                    <div class="slider__card-btn">
+                        <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
+                            <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
+                                <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
+                            </svg> 
+                        </a>
                     </div>
                 </div>
-                <div class="slider__card" data-itemname="Обеденный стул" data-collectionname="Arden" data-itemtype="chair" data-itemmaterial="Ткань" data-itemprice="17820" data-itemsize="53 x 62 x 90 см
+                <div class="slider__photo">
+                    <img src="src/images/collections/Arden/table/1.png" alt="photo-furniture" class="slider__photo-item">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="slider__card" data-itemname="Обеденный стул" data-collectionname="Arden" data-itemtype="chair" data-itemmaterial="Ткань" data-itemprice="17820" data-itemsize="53 x 62 x 90 см
                 " data-itemimg="../images/collections/Arden/chair/1.webp">
                     <div class="slider__card-info">
                         <span class="slider__name-item">Обеденный стул</span>
@@ -300,48 +303,56 @@
                         <img src="src/images/collections/Arden/chair/1.webp" alt="photo-furniture" class="slider__photo-item">
                     </div>
                 </div>
-                <div class="slider__card" data-itemname="Кресло-кровать" data-collectionname="Tenebroso" data-itemtype="armchair" data-itemmaterial="Ткань" data-itemprice="72500" data-itemsize="144 x 98 x 90 см" data-itemimg="../images/collections/Arden/armchair/1.webp">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Кресло-кровать</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/armchair/1.webp" alt="photo-furniture" class="slider__photo-item">
+        </div>
+        <div class="swiper-slide">
+            <div class="slider__card" data-itemname="Кресло-кровать" data-collectionname="Tenebroso" data-itemtype="armchair" data-itemmaterial="Ткань" data-itemprice="72500" data-itemsize="144 x 98 x 90 см" data-itemimg="../images/collections/Arden/armchair/1.webp">
+                <div class="slider__card-info">
+                    <span class="slider__name-item">Кресло-кровать</span>
+                    <span class="slider__name-collection">Tenebroso</span>
+                    <div class="slider__card-btn">
+                        <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
+                            <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
+                                <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
+                            </svg> 
+                        </a>
                     </div>
                 </div>
-                <div class="slider__card" data-itemname="Угловой диван" data-collectionname="Tenebroso" data-itemtype="sofa" data-itemmaterial="Флок" data-itemprice="123750" data-itemsize="269 x 170 x 91 см" data-itemimg="../images/collections/Arden/sofa/6.webp">
-                    <div class="slider__card-info">
-                        <span class="slider__name-item">Угловой диван</span>
-                        <span class="slider__name-collection">Tenebroso</span>
-                        <div class="slider__card-btn">
-                            <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
-                                <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
-                                    <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
-                                </svg> 
-                            </a>
-                        </div>
-                    </div>
-                    <div class="slider__photo">
-                        <img src="src/images/collections/Arden/sofa/6.webp" alt="photo-furniture" class="slider__photo-item">
-                    </div>
+                <div class="slider__photo">
+                    <img src="src/images/collections/Arden/armchair/1.webp" alt="photo-furniture" class="slider__photo-item">
                 </div>
-            </div>
-            <div class="slider__btn slider__btn-next">
-                <svg width="18" height="33" viewBox="0 0 18 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.5 1.5L16.5 16.5L1.5 31.5" stroke="#2B2B2B" stroke-width="2"/>
-                </svg> 
             </div>
         </div>
-    </section>
+        <div class="swiper-slide">
+            <div class="slider__card" data-itemname="Угловой диван" data-collectionname="Tenebroso" data-itemtype="sofa" data-itemmaterial="Флок" data-itemprice="123750" data-itemsize="269 x 170 x 91 см" data-itemimg="../images/collections/Arden/sofa/6.webp">
+                <div class="slider__card-info">
+                    <span class="slider__name-item">Угловой диван</span>
+                    <span class="slider__name-collection">Tenebroso</span>
+                    <div class="slider__card-btn">
+                        <a class="slider__more-btn" href="src/pages/product.html">Подробнее 
+                            <svg class="slider__more-btn-icon" width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 7.47266H56" stroke="#2B2B2B" stroke-width="2"/>
+                                <path d="M49.364 1L56.0815 7.71751L49.364 14.435" stroke="#2B2B2B" stroke-width="2"/>
+                            </svg> 
+                        </a>
+                    </div>
+                </div>
+                <div class="slider__photo">
+                    <img src="src/images/collections/Arden/sofa/6.webp" alt="photo-furniture" class="slider__photo-item">
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
     <footer class="footer">
         <div class="footer__content cont">
             <div class="footer__main">
@@ -473,6 +484,9 @@
         </div>
     </footer>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="src/modules/swiper.js"></script>
     <script src="src/modules/setCollection.js"></script>
     <script src="src/modules/timer.js"></script>
     <script src="src/modules/sliders.js"></script>

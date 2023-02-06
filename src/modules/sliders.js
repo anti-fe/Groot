@@ -8,7 +8,7 @@ const dataImgs = [
     './src/images/first-screen2.webp',
     './src/images/first-screen3.webp'
 ];
-
+const elseSlider = document.querySelector('.swiper');
 const dataCollections = JSON.parse(localStorage.getItem('collections'));
 
 let countImg = 1;
@@ -26,7 +26,7 @@ setInterval(autoSliderBg, 6000);
 
 
 //Слайдер "Другие товары"
-sliderContent.addEventListener('click',(e)=>{
+elseSlider.addEventListener('click',(e)=>{
     const slides = document.querySelectorAll('.slider__card');
     const parent = e.target.parentElement;
     const secondParent = e.target.parentElement.parentElement;

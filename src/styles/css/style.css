@@ -929,7 +929,7 @@
     padding: 12px 40px;
   }
 }
-@media (max-width: 876px) {
+@media (max-width: 650px) {
   .slider__card {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -953,7 +953,7 @@
 
   .slider__card-info, .slider__photo {
     min-height: 250px;
-    border: 2px solid #262626;
+    border-bottom: 2px solid #262626;
   }
 }
 @media (max-width: 750px) {
@@ -1003,7 +1003,7 @@
   }
 
   .slider__name-item {
-    font-size: 36px;
+    font-size: 26px;
     margin-bottom: 10px;
   }
 
