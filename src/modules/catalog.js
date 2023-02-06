@@ -25,6 +25,28 @@ if(localStorage.getItem('loggedUser')) {
     })
 }
 
+
+//Перезагрузка страницы для появления товаров каталога
+let reload;
+function reloadPage() {
+    reload = setTimeout(()=>{
+        location.reload();
+    }, 300);
+}
+function clearReloadPage() {
+    clearTimeout('reload');
+}
+let lock = JSON.parse(localStorage.getItem('lock'));
+console.log(lock);
+if(lock === null) {
+    localStorage.setItem('lock', JSON.stringify(true));
+    reloadPage();
+} else {
+    clearReloadPage();
+}
+
+
+
 //Модальное окно
 page = document.querySelector('body');
 modalWindow = document.querySelector('.modal-window');
