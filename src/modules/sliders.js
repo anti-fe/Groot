@@ -1,5 +1,5 @@
 const sliderContent = document.querySelector('.slider__content'),
-    sliderTrack = document.querySelector('.slider__track');
+    sliderTrack = document.querySelector('.swiper-wrapper');
 let sliderMove = 0;
 let countSlides = 0;
 const header = document.querySelector('.header');
@@ -10,7 +10,6 @@ const dataImgs = [
 ];
 const elseSlider = document.querySelector('.swiper');
 const dataCollections = JSON.parse(localStorage.getItem('collections'));
-
 let countImg = 1;
 //Атоматический слайдер на главном экране
 function autoSliderBg() {
@@ -62,7 +61,6 @@ elseSlider.addEventListener('click',(e)=>{
 sliderTrack.addEventListener('click',(e)=>{    
     const parent = e.target.parentElement.parentElement.parentElement;
     const parent2 = parent.parentElement;
-
     const btnParent = e.target;
     const btnParent2 = e.target.parentElement;
 

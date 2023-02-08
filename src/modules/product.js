@@ -13,6 +13,7 @@ const addInShopCart = document.querySelector('.main__add-product');
 const loggUser = JSON.parse(localStorage.getItem('loggedUser'));
 const users = JSON.parse(localStorage.getItem('users'));
 let shopCart;
+console.log(countCont)
 //Модальное окно
 page = document.querySelector('body');
 modalWindow = document.querySelector('.modal-window');

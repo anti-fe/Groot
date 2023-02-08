@@ -16,6 +16,7 @@ const users = JSON.parse(localStorage.getItem('users'));
 const ordersList = document.querySelector('.main__orders');
 setOrders();
 
+const orderStatus = document.querySelector('.main__order-status');
 const burgerMenu = document.querySelector('.nav__burger'),
         modalBurger = document.querySelector('.header__burger-menu'),
         burgerProfileBtn = document.querySelector('.header__burger-profile'),
@@ -45,7 +46,6 @@ function setOrders(){
 }
 
 function createOrder(a, count){
-    console.log(a);
     let countOrderItems = 0;
     let priceOrderItems = 0;
     a['orderItems'].forEach(elem=>{
@@ -59,6 +59,7 @@ function createOrder(a, count){
     orderCont.classList.add('main__order');
     const orderContent = document.createElement('div');
     orderContent.classList.add('main__order-content');
+    
     const order = 
         `
         <div class="main__order-main">
@@ -78,7 +79,7 @@ function createOrder(a, count){
                 </div>
                 <div class="main__order-info-item">
                     <span class="main__order-info-name">Статус:</span>
-                    <span class="main__order-info-value">${a.statusOrder}</span>
+                    <span class="main__order-info-value main__order-status">${a.statusOrder}</span>
                 </div>
             </div>
         </div>
@@ -97,6 +98,24 @@ function createOrder(a, count){
         orderCont.appendChild(orderContent);
         ordersList.appendChild(orderCont);
 }
+//цвет статуса заказа
+if(orderStatus != null) {
+    switch (orderStatus.innerHTML) {
+        case 'Оплачен':
+            orderStatus.style.color = '#1E90FF'; //blue
+            break;
+        case 'Изготавливается':
+            orderStatus.style.color = '#6A5ACD'; //SlateBlue
+            break;
+        case 'Готов к отгрузке':
+            orderStatus.style.color = '#228B22'; //green
+            break;
+        default:
+            orderStatus.style.color = '#262626'; //black
+            break;
+    }
+}
+
 function createOrderItem(b, orderItemsList) {
     
     const orderItemContent = document.createElement('li');

@@ -37,7 +37,6 @@ function clearReloadPage() {
     clearTimeout('reload');
 }
 let lock = JSON.parse(localStorage.getItem('lock'));
-console.log(lock);
 if(lock === null) {
     localStorage.setItem('lock', JSON.stringify(true));
     reloadPage();
